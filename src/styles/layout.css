@@ -10,7 +10,6 @@
   z-index: 50;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   gap: 1rem;
   padding: 0.95rem 1.1rem;
   border-radius: var(--radius-lg);
@@ -22,6 +21,7 @@
 
 .brand-link {
   text-decoration: none;
+  flex-shrink: 0;
 }
 
 .brand {
@@ -29,21 +29,27 @@
   font-weight: 800;
   letter-spacing: 0.18em;
   color: var(--accent-soft);
+  white-space: nowrap;
 }
 
-nav {
+/* =========================
+   DESKTOP NAV
+   ========================= */
+
+.navDesktop {
   display: flex;
   align-items: center;
   gap: 1.3rem;
+  margin-left: auto;
 }
 
-nav a {
+.navDesktop a {
   color: var(--muted);
   position: relative;
   transition: color 180ms ease;
 }
 
-nav a::after {
+.navDesktop a::after {
   content: '';
   position: absolute;
   left: 0;
@@ -54,38 +60,160 @@ nav a::after {
   transition: width 220ms ease;
 }
 
-nav a:hover {
+.navDesktop a:hover,
+.navDesktop a.active {
   color: var(--text);
 }
 
-nav a:hover::after {
+.navDesktop a:hover::after,
+.navDesktop a.active::after {
   width: 100%;
 }
 
+.navDesktopRight {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* =========================
+   HAMBURGER TOGGLE
+   ========================= */
+
+.navToggle {
+  display: none;
+  width: 46px;
+  height: 46px;
+  margin-left: auto;
+  padding: 0;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--text);
+  box-shadow: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+  transition: border-color 180ms ease, background 180ms ease;
+}
+
+.navToggle:hover {
+  transform: none;
+  box-shadow: none;
+  border-color: var(--accent);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.navToggle span {
+  width: 18px;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--text);
+  transition: transform 180ms ease, opacity 180ms ease;
+}
+
+.navToggle.open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.navToggle.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.navToggle.open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* =========================
+   LANGUAGE SWITCHER
+   ========================= */
+
 .lang {
+  position: relative;
+}
+
+.langDesktopList {
   display: flex;
   gap: 0.4rem;
+  align-items: center;
   flex-wrap: wrap;
   justify-content: flex-end;
 }
 
-.lang button {
+.langCurrent,
+.langDesktopList button,
+.langDropdown button {
   border: 1px solid var(--line);
   background: rgba(255, 255, 255, 0.02);
   color: var(--text);
   border-radius: 999px;
   padding: 0.42rem 0.72rem;
   transition: all 180ms ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.42rem;
+  box-shadow: none;
 }
 
-.lang button:hover {
+.langCurrent:hover,
+.langDesktopList button:hover,
+.langDropdown button:hover {
+  transform: none;
+  box-shadow: none;
   border-color: var(--accent);
 }
 
-.lang button.active {
+.langDesktopList button.active,
+.langDropdown button.active {
   border-color: var(--accent);
   color: var(--bg-deep);
   background: linear-gradient(135deg, var(--accent-soft), var(--accent));
+}
+
+.langCurrent {
+  display: none;
+}
+
+.langFlag {
+  font-size: 0.95rem;
+  line-height: 1;
+}
+
+.langCurrent .arrow {
+  margin-left: 0.1rem;
+  font-size: 0.72rem;
+  opacity: 0.75;
+}
+
+.langDropdown {
+  position: absolute;
+  top: calc(100% + 0.55rem);
+  right: 0;
+  min-width: 180px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  padding: 0.55rem;
+  border-radius: 16px;
+  border: 1px solid var(--line-strong);
+  background: rgba(8, 12, 18, 0.94);
+  backdrop-filter: blur(16px);
+  box-shadow: var(--shadow-soft);
+  z-index: 70;
+}
+
+.langDropdown button {
+  width: 100%;
+  justify-content: flex-start;
+}
+
+/* =========================
+   MOBILE NAV PANEL
+   ========================= */
+
+.mobileNavPanel {
+  display: none;
 }
 
 footer {
@@ -94,23 +222,115 @@ footer {
   padding: 2.2rem 0 1rem;
 }
 
+/* =========================
+   TABLET
+   ========================= */
+
+@media (max-width: 980px) {
+  .brand {
+    font-size: 0.92rem;
+    letter-spacing: 0.14em;
+  }
+
+  .navDesktop {
+    gap: 1rem;
+  }
+}
+
+/* =========================
+   MOBILE
+   ========================= */
+
 @media (max-width: 860px) {
   .glass {
     flex-wrap: wrap;
   }
 
-  nav {
-    width: 100%;
-    order: 3;
-    justify-content: space-between;
-    flex-wrap: wrap;
+  .navDesktop,
+  .navDesktopRight {
+    display: none;
   }
 
-  .lang {
+  .navToggle {
+    display: inline-flex;
+  }
+
+  .mobileNavPanel {
+    display: block;
     width: 100%;
-    justify-content: flex-start;
+    order: 3;
+    margin-top: 0.45rem;
+    padding: 0.9rem;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--line);
+    background: rgba(10, 16, 24, 0.92);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .mobileNavLinks {
+    display: grid;
+    gap: 0.2rem;
+  }
+
+  .mobileNavLinks a {
+    color: var(--text);
+    padding: 0.82rem 0.25rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .mobileNavLinks a:last-child {
+    border-bottom: 0;
+  }
+
+  .mobileNavLinks a.active {
+    color: var(--accent-soft);
+  }
+
+  .mobileNavLang {
+    margin-top: 0.9rem;
+  }
+
+  .mobileNavLang .lang {
+    width: 100%;
+  }
+
+  .mobileNavLang .langDesktopList {
+    display: none;
+  }
+
+  .mobileNavLang .langCurrent {
+    display: inline-flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .mobileNavLang .langDropdown {
+    position: static;
+    margin-top: 0.6rem;
+    min-width: 100%;
   }
 }
+
+@media (max-width: 640px) {
+  .app {
+    width: min(calc(100% - 20px), var(--container));
+  }
+
+  .glass {
+    padding: 0.85rem 0.9rem;
+  }
+
+  .brand {
+    max-width: 70%;
+    white-space: normal;
+    line-height: 1.2;
+  }
+}
+
+/* =========================
+   LOADER
+   ========================= */
+
 .loaderScreen {
   position: fixed;
   inset: 0;
@@ -200,85 +420,5 @@ footer {
 @keyframes eesLoaderSpinReverse {
   to {
     transform: rotate(-360deg);
-  }
-}
-
-/* ===============================
-   Language Switcher (Responsive)
-================================ */
-
-.lang {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-}
-
-/* Current (mobile trigger) */
-.langCurrent {
-  display: none;
-  border: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.02);
-  color: var(--text);
-  border-radius: 999px;
-  padding: 0.42rem 0.72rem;
-  cursor: pointer;
-}
-
-.langCurrent .arrow {
-  margin-left: 6px;
-  font-size: 0.7rem;
-  opacity: 0.7;
-}
-
-/* Dropdown */
-.langDropdown {
-  display: flex;
-  gap: 0.4rem;
-}
-
-/* ===============================
-   MOBILE BEHAVIOR
-================================ */
-
-@media (max-width: 860px) {
-  .lang {
-    width: auto;
-  }
-
-  /* Hide full list */
-  .langDropdown {
-    position: absolute;
-    top: 110%;
-    right: 0;
-    flex-direction: column;
-    background: var(--surface-glass);
-    border: 1px solid var(--line-strong);
-    border-radius: var(--radius-md);
-    padding: 0.5rem;
-    box-shadow: var(--shadow-soft);
-    opacity: 0;
-    pointer-events: none;
-    transform: translateY(-6px);
-    transition: all 180ms ease;
-    backdrop-filter: blur(12px);
-  }
-
-  .lang.open .langDropdown {
-    opacity: 1;
-    pointer-events: auto;
-    transform: translateY(0);
-  }
-
-  /* Show only current */
-  .langCurrent {
-    display: inline-flex;
-    align-items: center;
-  }
-
-  /* Hide inline buttons (desktop style) */
-  .langDropdown button {
-    width: 100%;
-    text-align: left;
   }
 }
