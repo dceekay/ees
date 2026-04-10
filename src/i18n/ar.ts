@@ -1,43 +1,90 @@
 import type { Messages } from './types';
 
 export const ar: Messages = {
-  navAbout: 'من نحن',
-  navProjects: 'المشاريع',
-  navServices: 'الخدمات',
-  navCraft: 'جودة التنفيذ',
-  navContact: 'اتصل بنا',
+  // NAV
+  navHome: 'Home',
+  navAbout: 'About',
+  navServices: 'Services',
+  navProjects: 'Projects',
+  navContact: 'Contact',
+  navCraft: 'Workmanship',
 
-  heroKicker: 'EES Construction · قبرص',
-  heroTitle: 'نبني أفضل مستقبل، طبقة بعد طبقة.',
-  heroSubtitle: 'تجربة بناء وعقارات عصرية بدقة معمارية وجودة دائمة.',
+  // GLOBAL
+  readMore: 'Read More',
+  viewAllProjects: 'View All Projects',
+  viewAllServices: 'View All Services',
 
-  ctaPrimary: 'استكشف المشاريع',
-  ctaSecondary: 'احجز اجتماعاً',
+  // HERO
+  heroKicker: 'Premium Construction',
+  heroTitle: 'We Build Timeless Spaces',
+  heroSubtitle: 'Luxury construction and design tailored to your vision.',
 
-  statsProjects: 'المشاريع المنجزة',
-  statsExperience: 'سنوات الخبرة',
-  statsClients: 'علاقات العملاء',
-  statsQuality: 'جودة فاخرة',
+  // CTA
+  ctaPrimary: 'View Projects',
+  ctaSecondary: 'Contact Us',
 
-  aboutTitle: 'بناء للثقة، وتصميم للأجيال.',
-  aboutBody: 'من الهيكل إلى التشطيبات الفاخرة، نحول الأفكار إلى مساحات متينة.',
+  // STATS
+  statsProjects: 'Projects Delivered',
+  statsExperience: 'Years Experience',
+  statsClients: 'Happy Clients',
+  statsQuality: 'Quality Focus',
 
-  projectsTitle: 'مشاريع منجزة وأعمال مميزة',
-  projectsIntro: 'أضف أفضل صور المشاريع السكنية والتجارية هنا.',
+  // ABOUT (HOME)
+  aboutTitle: 'About Us',
+  aboutBody: 'We deliver premium construction services with attention to detail and quality craftsmanship.',
 
-  servicesTitle: 'ماذا نقدم',
-  servicesIntro: 'خدماتنا مبنية على الجودة والدقة والقيمة طويلة الأمد.',
+  // ABOUT PAGE
+  aboutPageTitle: 'About Our Company',
+  aboutPageIntro: 'We are committed to excellence.',
+  aboutPageBodyOne: 'Our mission is to build world-class spaces.',
+  aboutPageBodyTwo: 'We combine innovation with experience.',
 
-  craftTitle: 'معايير الحرفية',
-  craftItems: [
-    'تميز إنشائي',
-    'جودة المواد',
-    'تنفيذ ذكي',
-    'تسليم في الوقت',
-  ],
+  // SERVICES
+  servicesTitle: 'Our Services',
+  servicesIntro: 'What we offer',
 
-  contactTitle: 'ابدأ مشروعك القادم مع EES',
-  contactBody: 'نيقوسيا، قبرص · +90 xxx xxx xx xx · info@eesconstruction.com',
+  servicesPageTitle: 'Services',
+  servicesPageIntro: 'Explore our services',
 
-  footer: 'EES Construction — The Best Future',
+  // PROJECTS
+  projectsTitle: 'Our Projects',
+  projectsIntro: 'Recent work',
+
+  projectsPageTitle: 'Projects',
+  projectsPageIntro: 'Explore our portfolio',
+
+  // CONTACT
+  contactTitle: 'Let’s Build Together',
+  contactBody: 'Start your project with us today.',
+
+  contactPageTitle: 'Contact Us',
+  contactPageIntro: 'We would love to hear from you.',
+
+  // WHY CHOOSE
+  whyChooseTitle: 'Why Choose Us',
+  whyChooseIntro: 'We deliver excellence',
+
+  // PROCESS
+  processTitle: 'Our Process',
+  processIntro: 'How we work',
+
+  // TESTIMONIALS
+  testimonialsTitle: 'Testimonials',
+  testimonialsIntro: 'What clients say',
+
+  // FAQ
+  faqTitle: 'FAQs',
+  faqIntro: 'Common questions',
+
+  // CRAFT
+  craftTitle: 'Our Craft',
+  craftIntro: 'Precision and quality in every detail',
+  craftItems: ['Quality Materials', 'Expert Team', 'Modern Techniques'],
+
+  // CTA SECTION
+  ctaTitle: 'Ready to Start?',
+  ctaText: 'Let’s bring your vision to life.',
+
+  // FOOTER
+  footer: '© 2026 EES Construction. All rights reserved.',
 };

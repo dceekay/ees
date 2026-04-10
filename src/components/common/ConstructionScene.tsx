@@ -88,7 +88,7 @@ export function ConstructionScene() {
               stroke="currentColor"
               strokeWidth="6"
               strokeLinecap="round"
-              style={{ translateY: hookY }}
+              style={{ transform: `translateY(${hookY}px)` }}
             />
 
             {/* hook */}

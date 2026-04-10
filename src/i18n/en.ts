@@ -1,88 +1,90 @@
 import type { Messages } from './types';
 
 export const en: Messages = {
+  // NAV
+  navHome: 'Home',
   navAbout: 'About',
-  navProjects: 'Projects',
   navServices: 'Services',
-  navCraft: 'Workmanship',
+  navProjects: 'Projects',
   navContact: 'Contact',
+  navCraft: 'Workmanship',
 
-  heroKicker: 'EES Construction · Cyprus',
-  heroTitle: 'Designing The Best Future, Layer by Layer.',
-  heroSubtitle:
-    'A modern construction and real-estate brand experience with architectural precision, premium delivery, and timeless quality.',
+  // GLOBAL
+  readMore: 'Read More',
+  viewAllProjects: 'View All Projects',
+  viewAllServices: 'View All Services',
 
-  ctaPrimary: 'Explore Projects',
-  ctaSecondary: 'Book a Meeting',
+  // HERO
+  heroKicker: 'Premium Construction',
+  heroTitle: 'We Build Timeless Spaces',
+  heroSubtitle: 'Luxury construction and design tailored to your vision.',
 
-  statsProjects: 'Completed Projects',
+  // CTA
+  ctaPrimary: 'View Projects',
+  ctaSecondary: 'Contact Us',
+
+  // STATS
+  statsProjects: 'Projects Delivered',
   statsExperience: 'Years Experience',
-  statsClients: 'Client Relationships',
-  statsQuality: 'Premium Quality',
+  statsClients: 'Happy Clients',
+  statsQuality: 'Quality Focus',
 
-  aboutTitle: 'Built for trust, crafted for generations.',
-  aboutBody:
-    'From shell-and-core to luxury finishes, EES Construction transforms ideas into resilient spaces. We blend local insight, global standards, and rigorous project management.',
+  // ABOUT (HOME)
+  aboutTitle: 'About Us',
+  aboutBody: 'We deliver premium construction services with attention to detail and quality craftsmanship.',
 
-  projectsTitle: 'Finished Products & Signature Works',
-  projectsIntro:
-    'Add your strongest residential, commercial, and mixed-use projects here with rich imagery and premium presentation.',
+  // ABOUT PAGE
+  aboutPageTitle: 'About Our Company',
+  aboutPageIntro: 'We are committed to excellence.',
+  aboutPageBodyOne: 'Our mission is to build world-class spaces.',
+  aboutPageBodyTwo: 'We combine innovation with experience.',
 
-  servicesTitle: 'What We Do',
-  servicesIntro:
-    'Our service structure is built around precision, quality execution, and long-term value.',
+  // SERVICES
+  servicesTitle: 'Our Services',
+  servicesIntro: 'What we offer',
 
-  craftTitle: 'Workmanship Standards',
-  craftItems: [
-    'Structural excellence',
-    'Material integrity',
-    'Smart execution',
-    'On-time delivery',
-  ],
+  servicesPageTitle: 'Services',
+  servicesPageIntro: 'Explore our services',
 
-  contactTitle: 'Start your next landmark with EES',
-  contactBody: 'Nicosia, Cyprus · +90 xxx xxx xx xx · info@eesconstruction.com',
+  // PROJECTS
+  projectsTitle: 'Our Projects',
+  projectsIntro: 'Recent work',
 
-  footer: 'EES Construction — The Best Future',
-    navHome: 'Home',
+  projectsPageTitle: 'Projects',
+  projectsPageIntro: 'Explore our portfolio',
 
-  readMore: 'Read more',
-  viewAllProjects: 'View all projects',
-  viewAllServices: 'View all services',
+  // CONTACT
+  contactTitle: 'Let’s Build Together',
+  contactBody: 'Start your project with us today.',
 
-  aboutPageTitle: 'About EES Construction',
-  aboutPageIntro: 'A premium construction brand shaped by quality, precision, and modern visual identity.',
-  aboutPageBodyOne:
-    'EES Construction is positioned as a modern construction and real-estate brand focused on craftsmanship, reliability, and elevated project delivery.',
-  aboutPageBodyTwo:
-    'From exterior development to refined interior finishes, the company is building a reputation around trust, elegance, and long-term value.',
+  contactPageTitle: 'Contact Us',
+  contactPageIntro: 'We would love to hear from you.',
 
-  servicesPageTitle: 'Our Services',
-  servicesPageIntro:
-    'Explore our core service offerings across construction, architecture, interiors, and project coordination.',
+  // WHY CHOOSE
+  whyChooseTitle: 'Why Choose Us',
+  whyChooseIntro: 'We deliver excellence',
 
-  projectsPageTitle: 'Selected Projects',
-  projectsPageIntro:
-    'A curated look at completed works, premium spaces, and development-focused project delivery.',
+  // PROCESS
+  processTitle: 'Our Process',
+  processIntro: 'How we work',
 
-  contactPageTitle: 'Contact EES Construction',
-  contactPageIntro:
-    'Let’s discuss your next residential, commercial, or mixed-use project.',
-    
-      whyChooseTitle: 'Why clients choose EES Construction',
-  whyChooseIntro:
-    'We position every project around trust, premium finish quality, disciplined execution, and lasting visual value.',
+  // TESTIMONIALS
+  testimonialsTitle: 'Testimonials',
+  testimonialsIntro: 'What clients say',
 
-  processTitle: 'A structured approach from idea to delivery',
-  processIntro:
-    'Our process is designed to keep each project clear, aligned, and focused on quality from beginning to completion.',
+  // FAQ
+  faqTitle: 'FAQs',
+  faqIntro: 'Common questions',
 
-  testimonialsTitle: 'What clients and partners value about working with us',
-  testimonialsIntro:
-    'Strong delivery, refined execution, and professionalism are central to how EES is experienced.',
+  // CRAFT
+  craftTitle: 'Our Craft',
+  craftIntro: 'Precision and quality in every detail',
+  craftItems: ['Quality Materials', 'Expert Team', 'Modern Techniques'],
 
-  faqTitle: 'Frequently asked questions',
-  faqIntro:
-    'Quick answers to the most common questions about our project scope, service model, and working approach.',
+  // CTA SECTION
+  ctaTitle: 'Ready to Start?',
+  ctaText: 'Let’s bring your vision to life.',
+
+  // FOOTER
+  footer: '© 2026 EES Construction. All rights reserved.',
 };
-
