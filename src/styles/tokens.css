@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@500;600;700;800&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap');
+
+:root {
+  --bg: #071019;
+  --bg-deep: #04090f;
+  --bg-soft: #0d1824;
+  --surface: #101d2b;
+  --surface-soft: #162536;
+  --surface-glass: rgba(12, 22, 34, 0.72);
+
+  --accent: #d7b56d;
+  --accent-soft: #efd8a1;
+  --accent-warm: #b98552;
+
+  --text: #edf3fb;
+  --text-soft: #d9e2ef;
+  --muted: #9eb0c7;
+  --muted-strong: #7f93ab;
+
+  --line: rgba(180, 201, 227, 0.15);
+  --line-strong: rgba(215, 181, 109, 0.22);
+
+  --radius-sm: 12px;
+  --radius-md: 18px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+
+  --shadow-soft: 0 12px 30px rgba(0, 0, 0, 0.24);
+  --shadow-strong: 0 28px 80px rgba(0, 0, 0, 0.38);
+
+  --container: 1220px;
+
+  --font-body: Inter, 'Noto Naskh Arabic', sans-serif;
+  --font-heading: Manrope, 'Noto Naskh Arabic', sans-serif;
+}

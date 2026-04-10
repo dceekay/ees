@@ -1,0 +1,204 @@
+.app {
+  width: min(calc(100% - 32px), var(--container));
+  margin: 0 auto;
+  padding: 1rem 0 4rem;
+}
+
+.glass {
+  position: sticky;
+  top: 1rem;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.95rem 1.1rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--line-strong);
+  background: var(--surface-glass);
+  backdrop-filter: blur(16px);
+  box-shadow: var(--shadow-soft);
+}
+
+.brand-link {
+  text-decoration: none;
+}
+
+.brand {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  color: var(--accent-soft);
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 1.3rem;
+}
+
+nav a {
+  color: var(--muted);
+  position: relative;
+  transition: color 180ms ease;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 1px;
+  background: var(--accent);
+  transition: width 220ms ease;
+}
+
+nav a:hover {
+  color: var(--text);
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+.lang {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.lang button {
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--text);
+  border-radius: 999px;
+  padding: 0.42rem 0.72rem;
+  transition: all 180ms ease;
+}
+
+.lang button:hover {
+  border-color: var(--accent);
+}
+
+.lang button.active {
+  border-color: var(--accent);
+  color: var(--bg-deep);
+  background: linear-gradient(135deg, var(--accent-soft), var(--accent));
+}
+
+footer {
+  text-align: center;
+  color: var(--muted);
+  padding: 2.2rem 0 1rem;
+}
+
+@media (max-width: 860px) {
+  .glass {
+    flex-wrap: wrap;
+  }
+
+  nav {
+    width: 100%;
+    order: 3;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .lang {
+    width: 100%;
+    justify-content: flex-start;
+  }
+}
+.loaderScreen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(circle at center, rgba(215, 181, 109, 0.08), transparent 28%),
+    linear-gradient(180deg, #04090f 0%, #071019 50%, #09121c 100%);
+}
+
+.loaderScreenInner {
+  display: grid;
+  justify-items: center;
+  gap: 1rem;
+}
+
+.loaderLogoWrap {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  display: grid;
+  place-items: center;
+}
+
+.loaderLogo {
+  width: 98px;
+  height: 98px;
+  object-fit: contain;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.28);
+  background: rgba(8, 12, 18, 0.45);
+  padding: 0.35rem;
+}
+
+.loaderRing {
+  position: absolute;
+  border-radius: 999px;
+  inset: 0;
+}
+
+.loaderRingOuter {
+  border: 2px solid rgba(215, 181, 109, 0.16);
+}
+
+.loaderRingOuter::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 999px;
+  border: 2px solid transparent;
+  border-top-color: #d7b56d;
+  border-right-color: rgba(215, 181, 109, 0.55);
+  animation: eesLoaderSpin 1.45s linear infinite;
+}
+
+.loaderRingInner {
+  inset: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.loaderRingInner::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  border-bottom-color: rgba(215, 181, 109, 0.75);
+  animation: eesLoaderSpinReverse 2.1s linear infinite;
+}
+
+.loaderText {
+  margin: 0;
+  color: var(--accent-soft);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+@keyframes eesLoaderSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes eesLoaderSpinReverse {
+  to {
+    transform: rotate(-360deg);
+  }
+}
