@@ -14,9 +14,9 @@ const heroSlides = [
     title: 'THE ANATOLIAN CITY BAZAAR',
   },
   {
-    image: '/images/project2.jpeg',
-    eyebrow: 'Modern Architecture',
-    title: 'Modern House interior design',
+    image: '/images/site.png',
+    eyebrow: 'Safe and Efficient Construction',
+    title: 'State-of-the-Art Site Management',
   },
   {
     image: '/images/project3.jpeg',

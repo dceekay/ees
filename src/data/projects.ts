@@ -23,4 +23,16 @@ export const projects = [
     category: 'Interior Design',
     image: '/images/project4.jpeg',
   },
+  {
+    title: 'Modern Living Room Makeover',
+    status: 'Completed 2025',
+    category: 'Mixed-Use Development',
+    image: '/images/project25.jpeg',
+  },
+  {
+    title: 'Executive Workspace Transformation',
+    status: 'Corporate Fit-Out',
+    category: 'Office Interiors',
+    image: '/images/project6.jpeg',
+  },
 ];

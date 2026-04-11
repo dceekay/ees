@@ -1,5 +1,5 @@
 /* =========================================================
-   SHARED TYPOGRAPHY / HELPERS
+   01. SHARED TYPOGRAPHY / HELPERS
    ========================================================= */
 
 .kicker {
@@ -37,7 +37,7 @@
 
 
 /* =========================================================
-   GENERIC PANEL / CARD SYSTEM
+   02. GENERIC PANEL / CARD SYSTEM
    ========================================================= */
 
 .panel {
@@ -122,7 +122,7 @@
 
 
 /* =========================================================
-   HERO SECTION
+   03. HERO SECTION
    Files:
    - HeroSection.tsx
    ========================================================= */
@@ -330,7 +330,7 @@
 
 
 /* =========================================================
-   STATS STRIP
+   04. STATS STRIP
    Files:
    - StatsSection.tsx
    ========================================================= */
@@ -367,7 +367,7 @@
 
 
 /* =========================================================
-   ABOUT STORY SECTION
+   05. ABOUT STORY SECTION
    Files:
    - AboutSection.tsx
    - AboutVisualStage.tsx
@@ -559,16 +559,9 @@
   line-height: 1.2;
 }
 
+
 /* =========================================================
-   STORY DIVIDERS BETWEEN SECTIONS
-   Files:
-   - AboutSection.tsx
-   - ServicesPreviewSection.tsx
-   - ProjectsSection.tsx
-   - ProcessSection.tsx
-   - TestimonialsSection.tsx
-   - FaqSection.tsx
-   - CtaSection.tsx
+   06. STORY DIVIDERS BETWEEN SECTIONS
    ========================================================= */
 
 .servicesPreviewSection,
@@ -601,63 +594,11 @@
 
 
 /* =========================================================
-   SERVICES PREVIEW
+   07. SERVICES PREVIEW
    Files:
    - ServicesPreviewSection.tsx
    ========================================================= */
 
-.servicesPreviewSection {
-  margin: 3.6rem 0;
-}
-
-.servicesPreviewHeader {
-  display: flex;
-  justify-content: space-between;
-  align-items: end;
-  gap: 1.4rem;
-  margin-bottom: 1.4rem;
-}
-
-.servicesFeatureGrid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-}
-
-.serviceFeatureCard {
-  padding: 1.2rem;
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--line);
-  background: linear-gradient(
-    180deg,
-    rgba(22, 34, 49, 0.88),
-    rgba(14, 22, 33, 0.96)
-  );
-  box-shadow: var(--shadow-soft);
-  transition: transform 220ms ease, border-color 220ms ease;
-}
-
-.serviceFeatureCard:hover {
-  transform: translateY(-4px);
-  border-color: var(--line-strong);
-}
-
-.serviceFeatureTop {
-  margin-bottom: 0.8rem;
-}
-
-.serviceFeatureIndex {
-  display: inline-block;
-  margin-bottom: 0.6rem;
-  color: var(--accent-soft);
-  font-weight: 800;
-  letter-spacing: 0.14em;
-}
-
-.serviceFeatureCard p {
-  margin: 0;
-  color: var(--muted);
-}
 .servicesPreviewSection {
   margin: 3.6rem 0;
 }
@@ -679,8 +620,8 @@
 
 .serviceFeatureCard {
   position: relative;
+  height: 100%;
   padding: 1.35rem;
-   height: 100%;
   border-radius: var(--radius-lg);
   border: 1px solid var(--line);
   background: linear-gradient(
@@ -689,11 +630,11 @@
     rgba(14, 22, 33, 0.96)
   );
   box-shadow: var(--shadow-soft);
+  overflow: hidden;
   transition:
     transform 220ms ease,
     border-color 220ms ease,
     box-shadow 220ms ease;
-  overflow: hidden;
 }
 
 .serviceFeatureCard:hover {
@@ -764,15 +705,26 @@
 
 
 /* =========================================================
-   PROJECTS SHOWCASE
+   08. PROJECTS SECTION — ENHANCED EDITORIAL GRID
    Files:
    - ProjectsSection.tsx
-   - ProjectsPage.tsx
    ========================================================= */
 
-   .projectsPreviewPanel {
+.projectsPreviewPanel {
   position: relative;
   overflow: hidden;
+}
+
+.projectsPreviewPanel::after {
+  content: '';
+  position: absolute;
+  top: -90px;
+  right: -40px;
+  width: 280px;
+  height: 280px;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(215, 181, 109, 0.08), transparent 70%);
+  pointer-events: none;
 }
 
 .projectsPreviewHeader {
@@ -780,146 +732,466 @@
   align-items: end;
   justify-content: space-between;
   gap: 1.5rem;
-  margin-bottom: 1.6rem;
+  margin-bottom: 1.8rem;
 }
 
 .projectsPreviewHeader > div:first-child {
-  max-width: 760px;
+  max-width: 720px;
 }
 
-.projectsShowcaseGrid {
+/* Desktop grid */
+.projectsEditorialGrid {
   display: grid;
-  grid-template-columns: 1.3fr 0.7fr;
-  grid-template-rows: repeat(2, minmax(280px, 1fr));
+  grid-template-columns: 1.15fr 0.85fr 0.85fr;
+  grid-template-rows: 280px 230px 230px;
   gap: 1rem;
-  align-items: stretch;
 }
 
-.projectShowcaseCard {
+/* Cards */
+.projectEditorialCard {
+  --spot-x: 50%;
+  --spot-y: 50%;
   position: relative;
   overflow: hidden;
-  border-radius: var(--radius-lg);
+  border-radius: 26px;
   border: 1px solid var(--line);
   background: linear-gradient(
     180deg,
     rgba(24, 37, 54, 0.9),
     rgba(16, 25, 36, 0.96)
   );
-  min-height: 280px;
+  min-height: 220px;
   box-shadow: var(--shadow-soft);
+  isolation: isolate;
+  cursor: pointer;
   transition:
     transform 260ms ease,
     border-color 260ms ease,
     box-shadow 260ms ease;
-  isolation: isolate;
 }
 
-.projectShowcaseCard:hover {
-  transform: translateY(-4px);
+.projectEditorialCard:hover {
+  transform: translateY(-5px);
   border-color: var(--line-strong);
   box-shadow:
     var(--shadow-soft),
-    0 16px 40px rgba(0, 0, 0, 0.18);
+    0 18px 42px rgba(0, 0, 0, 0.25);
 }
 
-.projectShowcaseMedia {
+.projectEditorialMedia {
   position: absolute;
   inset: 0;
+  overflow: hidden;
 }
 
-.projectShowcaseMedia img {
+.projectEditorialMedia img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 600ms ease;
-  filter: contrast(1.04) brightness(0.88);
+  filter: brightness(0.85) contrast(1.05);
+  transform: scale(1.01);
+  transition: transform 700ms ease;
+  will-change: transform;
 }
 
-.projectShowcaseCard:hover .projectShowcaseMedia img {
+.projectEditorialCard:hover .projectEditorialMedia img {
   transform: scale(1.06);
 }
 
-.projectShowcaseCard::after {
-  content: '';
+.projectEditorialOverlay {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, rgba(7, 12, 18, 0.08), rgba(7, 12, 18, 0.82)),
-    linear-gradient(130deg, rgba(215, 181, 109, 0.08), transparent 42%);
+    linear-gradient(180deg, rgba(6, 10, 16, 0.1), rgba(6, 10, 16, 0.88)),
+    linear-gradient(120deg, rgba(215, 181, 109, 0.12), transparent 45%);
   z-index: 1;
 }
 
-.projectShowcaseOverlay {
+/* Spotlight layer */
+.projectEditorialSpotlight {
   position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      320px circle at var(--spot-x) var(--spot-y),
+      rgba(255, 255, 255, 0.12),
+      transparent 42%
+    ),
+    radial-gradient(
+      240px circle at var(--spot-x) var(--spot-y),
+      rgba(215, 181, 109, 0.14),
+      transparent 50%
+    );
+  opacity: 0;
+  transition: opacity 220ms ease;
+}
+
+.projectEditorialCard:hover .projectEditorialSpotlight {
+  opacity: 1;
+}
+
+.projectEditorialContent {
+  position: absolute;
+  inset: auto 0 0 0;
   z-index: 2;
-  padding: 1.25rem;
+  padding: 1.2rem;
   display: flex;
   flex-direction: column;
   gap: 0.65rem;
 }
 
-.projectShowcaseMeta {
+.projectEditorialTop {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 0.75rem;
+  gap: 0.6rem;
   flex-wrap: wrap;
 }
 
-.projectShowcaseMeta span {
-  display: inline-flex;
-  align-items: center;
-  min-height: 30px;
+.projectEditorialTag {
   padding: 0.35rem 0.75rem;
   border-radius: 999px;
-  background: rgba(12, 20, 30, 0.6);
+  background: rgba(8, 14, 22, 0.6);
   border: 1px solid rgba(255, 255, 255, 0.08);
   color: var(--accent-soft);
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   backdrop-filter: blur(8px);
 }
 
-.projectShowcaseMeta small {
-  color: rgba(255, 255, 255, 0.78);
-  font-size: 0.82rem;
+.projectEditorialTop small {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.8rem;
 }
 
-.projectShowcaseOverlay h3 {
+.projectEditorialContent h3 {
   margin: 0;
-  font-size: clamp(1.15rem, 1.6vw, 1.45rem);
+  font-size: clamp(1.1rem, 1.4vw, 1.5rem);
   line-height: 1.25;
   max-width: 18ch;
-  min-height: 2.5em;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
 
-.projectShowcaseCard--1 {
-  grid-row: span 2;
-  min-height: 100%;
+/* Grid positions for 6 items */
+.projectEditorialCard--1 {
+  grid-column: 1 / span 2;
+  grid-row: 1;
 }
 
-.projectShowcaseCard--1 .projectShowcaseOverlay {
+.projectEditorialCard--2 {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+.projectEditorialCard--3 {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.projectEditorialCard--4 {
+  grid-column: 2 / span 2;
+  grid-row: 2;
+}
+
+.projectEditorialCard--5 {
+  grid-column: 1 / span 2;
+  grid-row: 3;
+}
+
+.projectEditorialCard--6 {
+  grid-column: 3;
+  grid-row: 3;
+}
+
+/* Mobile carousel shell */
+.projectsMobileCarousel {
+  display: none;
+}
+
+.projectCarouselTrack {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 0 0.1rem 0.2rem;
+  scrollbar-width: none;
+}
+
+.projectCarouselTrack::-webkit-scrollbar {
+  display: none;
+}
+
+.projectCarouselSlide {
+  min-width: 88%;
+  scroll-snap-align: center;
+}
+
+.projectCarouselDots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.projectCarouselDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.projectCarouselDot.active {
+  background: var(--accent-soft);
+  border-color: var(--accent-soft);
+}
+
+/* Modal */
+.projectModalBackdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  display: grid;
+  place-items: center;
+  padding: 1.2rem;
+  background: rgba(3, 7, 12, 0.72);
+  backdrop-filter: blur(10px);
+}
+
+.projectModal {
+  position: relative;
+  width: min(100%, 980px);
+  max-height: 90vh;
+  overflow: hidden;
+  border-radius: 28px;
+  border: 1px solid var(--line-strong);
+  background: linear-gradient(
+    180deg,
+    rgba(18, 28, 42, 0.96),
+    rgba(9, 15, 23, 0.98)
+  );
+  box-shadow: var(--shadow-strong);
+}
+
+.projectModalImageWrap {
+  position: relative;
+  min-height: 420px;
+  background: #0a121b;
+}
+
+.projectModalImageWrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.projectModalOverlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(7, 11, 17, 0.08), rgba(7, 11, 17, 0.86)),
+    linear-gradient(120deg, rgba(215, 181, 109, 0.1), transparent 48%);
+}
+
+.projectModalBody {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
   padding: 1.5rem;
 }
 
-.projectShowcaseCard--1 .projectShowcaseOverlay h3 {
-  font-size: clamp(1.35rem, 2vw, 1.8rem);
-  max-width: 16ch;
+.projectModalTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.7rem;
+}
+
+.projectModalTop span {
+  padding: 0.42rem 0.82rem;
+  border-radius: 999px;
+  background: rgba(8, 14, 22, 0.62);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--accent-soft);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.projectModalTop small {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.projectModalBody h3 {
+  margin: 0 0 0.55rem;
+  font-size: clamp(1.5rem, 2vw, 2.2rem);
+}
+
+.projectModalBody p {
+  margin: 0;
+  max-width: 64ch;
+  color: var(--text-soft);
+  line-height: 1.8;
+}
+
+.projectModalClose {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 3;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(8, 14, 22, 0.55);
+  color: var(--text);
+  box-shadow: none;
+}
+
+.projectModalClose:hover {
+  transform: none;
+  box-shadow: none;
+  border-color: var(--accent);
+}
+
+/* Tablet */
+@media (max-width: 980px) {
+  .projectsPreviewHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .projectsEditorialGrid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(4, 240px);
+  }
+
+  .projectEditorialCard--1 {
+    grid-column: 1 / span 2;
+    grid-row: 1;
+  }
+
+  .projectEditorialCard--2 {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .projectEditorialCard--3 {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .projectEditorialCard--4 {
+    grid-column: 1 / span 2;
+    grid-row: 3;
+  }
+
+  .projectEditorialCard--5 {
+    grid-column: 1;
+    grid-row: 4;
+  }
+
+  .projectEditorialCard--6 {
+    grid-column: 2;
+    grid-row: 4;
+  }
+
+  .projectEditorialContent h3 {
+    max-width: 100%;
+  }
+
+  .projectModalImageWrap {
+    min-height: 360px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .projectsEditorialGrid {
+    display: none;
+  }
+
+  .projectsMobileCarousel {
+    display: block;
+  }
+
+  .projectEditorialCard {
+    min-height: 240px;
+    border-radius: 20px;
+  }
+
+  .projectEditorialCard--1 {
+    min-height: 300px;
+  }
+
+  .projectEditorialContent {
+    padding: 1rem;
+  }
+
+  .projectEditorialContent h3 {
+    font-size: 1.15rem;
+    max-width: 100%;
+  }
+
+  .projectEditorialTag {
+    font-size: 0.65rem;
+  }
+
+  .projectModalBackdrop {
+    padding: 0.8rem;
+  }
+
+  .projectModal {
+    border-radius: 22px;
+  }
+
+  .projectModalImageWrap {
+    min-height: 280px;
+  }
+
+  .projectModalBody {
+    padding: 1rem;
+  }
+
+  .projectModalBody h3 {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .projectEditorialCard {
+    min-height: 220px;
+  }
+
+  .projectEditorialCard--1 {
+    min-height: 260px;
+  }
+
+  .projectEditorialContent h3 {
+    font-size: 1.05rem;
+  }
+
+  .projectCarouselSlide {
+    min-width: 92%;
+  }
 }
 
 
-
 /* =========================================================
-   PROCESS SECTION
+   09. PROCESS SECTION
    Files:
    - ProcessSection.tsx
    ========================================================= */
@@ -970,7 +1242,7 @@
 
 
 /* =========================================================
-   TESTIMONIALS SECTION
+   10. TESTIMONIALS SECTION
    Files:
    - TestimonialsSection.tsx
    ========================================================= */
@@ -1033,7 +1305,7 @@
 
 
 /* =========================================================
-   FAQ SECTION
+   11. FAQ SECTION
    Files:
    - FaqSection.tsx
    ========================================================= */
@@ -1106,7 +1378,7 @@
 
 
 /* =========================================================
-   CTA SECTION
+   12. CTA SECTION
    Files:
    - CtaSection.tsx
    ========================================================= */
@@ -1136,12 +1408,12 @@
 
 
 /* =========================================================
-   PERFORMANCE / MOTION HELPERS
+   13. PERFORMANCE / MOTION HELPERS
    ========================================================= */
 
 .serviceFeatureCard,
 .processCard,
-.projectShowcaseCard,
+.projectEditorialCard,
 .card,
 .testimonialLuxuryCard,
 .faqLuxuryItem,
@@ -1150,7 +1422,7 @@
 }
 
 .heroSliderCaption,
-.projectShowcaseOverlay,
+.projectEditorialContent,
 .kicker,
 .subtitle,
 .heroNarrativeList div,
@@ -1160,7 +1432,7 @@
 
 
 /* =========================================================
-   RESPONSIVE
+   14. GLOBAL RESPONSIVE CLEANUP
    ========================================================= */
 
 @media (max-width: 980px) {
@@ -1192,20 +1464,9 @@
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .projectsPreviewHeader,
   .servicesPreviewHeader {
     flex-direction: column;
     align-items: flex-start;
-  }
-
-  .projectsShowcaseGrid {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 240px 240px 240px;
-  }
-
-  .projectShowcaseCard--1 {
-    grid-column: span 2;
-    grid-row: span 1;
   }
 
   .aboutStoryContent {
@@ -1245,16 +1506,8 @@
   .statsStrip,
   .processGrid,
   .servicesFeatureGrid,
-  .testimonialsLuxuryGrid,
-  .projectsShowcaseGrid {
+  .testimonialsLuxuryGrid {
     grid-template-columns: 1fr;
-  }
-
-  .projectShowcaseCard,
-  .projectShowcaseCard--1 {
-    grid-column: auto;
-    grid-row: auto;
-    min-height: 260px;
   }
 
   .ctaLuxuryInner {
