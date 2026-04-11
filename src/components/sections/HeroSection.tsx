@@ -9,7 +9,7 @@ type HeroSectionProps = {
 
 const heroSlides = [
   {
-    image: '/images/project32.jpeg',
+    image: '/images/hotel.png',
     eyebrow: 'Featured Development',
     title: 'THE ANATOLIAN CITY BAZAAR',
   },
@@ -19,9 +19,24 @@ const heroSlides = [
     title: 'State-of-the-Art Site Management',
   },
   {
+    image: '/images/project2.jpeg',
+    eyebrow: 'Luxury Living',
+    title: 'Villas & Premium Spaces',
+  },
+    {
     image: '/images/project3.jpeg',
     eyebrow: 'Luxury Living',
     title: 'Seafront Villas & Premium Spaces',
+  },
+    {
+    image: '/images/dining1.jpeg',
+    eyebrow: 'Interior Design with so ',
+    title: 'House Dining Table ',
+  },
+   {
+    image: '/images/ground.jpeg',
+    eyebrow: 'Interior Design with so ',
+    title: 'House Dining Table ',
   },
 ];
 
