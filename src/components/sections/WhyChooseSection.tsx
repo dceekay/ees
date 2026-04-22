@@ -39,7 +39,7 @@ export function WhyChooseSection({ t }: WhyChooseSectionProps) {
         {/* Visual */}
         <div className="whyChooseVisual">
           <div className="whyChooseVisualCard">
-            <img src="/images/why-choose-main.jpeg" alt="Premium construction detail" />
+            <img src="/images/dining1.jpeg" alt="Premium construction detail" />
             <div className="whyChooseVisualOverlay" />
             <div className="whyChooseBadge">
               <span>Built with precision</span>
