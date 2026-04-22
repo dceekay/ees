@@ -1,4 +1,7 @@
 import { ScrollReveal } from '../common/ScrollReveal';
+import { AnimatedText } from '../common/AnimatedText';
+import { StaggerReveal } from '../common/StaggerReveal';
+import { StaggerItem } from '../common/StaggerItem';
 import type { Messages } from '../../i18n';
 
 type WhyChooseSectionProps = {
@@ -32,6 +35,8 @@ export function WhyChooseSection({ t }: WhyChooseSectionProps) {
   return (
     <ScrollReveal className="whyChooseLuxurySection">
       <div className="whyChooseLuxuryGrid">
+
+        {/* Visual */}
         <div className="whyChooseVisual">
           <div className="whyChooseVisualCard">
             <img src="/images/why-choose-main.jpeg" alt="Premium construction detail" />
@@ -42,23 +47,35 @@ export function WhyChooseSection({ t }: WhyChooseSectionProps) {
           </div>
         </div>
 
+        {/* Content — now with AnimatedText + StaggerReveal */}
         <div className="whyChooseContent">
-          <p className="kicker">Why EES</p>
-          <h2>{t.whyChooseTitle}</h2>
-          <p className="subtitle">{t.whyChooseIntro}</p>
+          <AnimatedText className="kicker" as="p">
+            Why EES
+          </AnimatedText>
 
-          <div className="whyChooseList">
+          <AnimatedText as="h2" delay={0.08}>
+            {t.whyChooseTitle}
+          </AnimatedText>
+
+          <AnimatedText className="subtitle" as="p" delay={0.16}>
+            {t.whyChooseIntro}
+          </AnimatedText>
+
+          <StaggerReveal className="whyChooseList">
             {items.map((item) => (
-              <article key={item.title} className="whyChooseItem">
-                <span className="whyChooseNumber">{item.number}</span>
-                <div>
-                  <h3>{item.title}</h3>
-                  <p>{item.body}</p>
-                </div>
-              </article>
+              <StaggerItem key={item.title}>
+                <article className="whyChooseItem">
+                  <span className="whyChooseNumber">{item.number}</span>
+                  <div>
+                    <h3>{item.title}</h3>
+                    <p>{item.body}</p>
+                  </div>
+                </article>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerReveal>
         </div>
+
       </div>
     </ScrollReveal>
   );

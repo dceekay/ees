@@ -1,28 +1,20 @@
 import { stats } from '../../data/stats';
-import type { Messages } from '../../i18n';
+import { CountUp } from '../common/CountUp';
 
-type StatsSectionProps = {
-  t: Messages;
-};
-
-export function StatsSection({ t }: StatsSectionProps) {
-  const labels = [
-    t.statsProjects,
-    t.statsExperience,
-    t.statsClients,
-    t.statsQuality,
-  ];
-
+export function StatsSection() {
   return (
-    <section className="panel reveal">
-      <div className="cards">
-        {stats.map((item, index) => (
-          <article key={`${item.value}-${index}`} className="card">
-            <h3>{item.value}</h3>
-            <small>{labels[index]}</small>
-          </article>
-        ))}
-      </div>
+    <section className="statsStrip reveal">
+      {stats.map((item, index) => (
+        <article key={index} className="statsStripCard">
+          
+          <h3>
+            <CountUp end={item.value} />
+            {item.suffix}
+          </h3>
+
+          <small>{item.label}</small>
+        </article>
+      ))}
     </section>
   );
 }

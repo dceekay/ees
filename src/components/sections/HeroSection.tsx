@@ -7,11 +7,13 @@ type HeroSectionProps = {
   t: Messages;
 };
 
+const SLIDE_INTERVAL = 4500;
+
 const heroSlides = [
   {
     image: '/images/hotel.png',
     eyebrow: 'Featured Development',
-    title: 'THE ANATOLIAN CITY BAZAAR',
+    title: 'The Anatolian City Bazaar',
   },
   {
     image: '/images/site.png',
@@ -23,199 +25,169 @@ const heroSlides = [
     eyebrow: 'Luxury Living',
     title: 'Villas & Premium Spaces',
   },
-    {
+  {
     image: '/images/project3.jpeg',
-    eyebrow: 'Luxury Living',
+    eyebrow: 'Coastal Prestige',
     title: 'Seafront Villas & Premium Spaces',
   },
-    {
+  {
     image: '/images/dining1.jpeg',
-    eyebrow: 'Interior Design with so ',
-    title: 'House Dining Table ',
+    eyebrow: 'Refined Interior Design',
+    title: 'Elegant Dining & Living Spaces',
   },
-   {
+  {
     image: '/images/ground.jpeg',
-    eyebrow: 'Interior Design with so ',
-    title: 'House Dining Table ',
+    eyebrow: 'Built on Strong Foundations',
+    title: 'Precision Groundworks & Site Execution',
   },
 ];
 
 export function HeroSection({ t }: HeroSectionProps) {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {
+    if (isPaused) return;
+
     const interval = window.setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % heroSlides.length);
-    }, 4500);
+    }, SLIDE_INTERVAL);
 
     return () => window.clearInterval(interval);
-  }, []);
+  }, [isPaused]);
 
-  const activeSlide = useMemo(() => heroSlides[activeIndex], [activeIndex]);
+  const activeSlide = useMemo(
+    () => heroSlides[activeIndex],
+    [activeIndex]
+  );
 
   const heroTitleLines = useMemo(() => {
     const words = t.heroTitle.split(' ');
     const midpoint = Math.ceil(words.length / 2);
-    return [words.slice(0, midpoint).join(' '), words.slice(midpoint).join(' ')].filter(Boolean);
+
+    return [
+      words.slice(0, midpoint).join(' '),
+      words.slice(midpoint).join(' '),
+    ].filter(Boolean);
   }, [t.heroTitle]);
 
   return (
-    <section className="heroStory">
-      <div className="heroStoryContent">
-        <motion.p
-          className="kicker"
-          initial={{ opacity: 0, y: 18, filter: 'blur(6px)' }}
-          animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-        >
-          {t.heroKicker}
-        </motion.p>
+    <section className="heroStory cinematic">
+      {/* BACKGROUND */}
+      <img
+        className="heroBackgroundImage"
+        src="/images/project33.jpeg"
+        alt="Luxury background"
+      />
+      <div className="heroBackgroundOverlay" />
 
-        <div className="heroTitleWrap">
-          {heroTitleLines.map((line, index) => (
-            <motion.span
-              key={line}
-              className="heroTitleLine"
-              initial={{ opacity: 0, y: 42, filter: 'blur(10px)' }}
-              animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-              transition={{
-                duration: 0.9,
-                delay: 0.12 + index * 0.12,
-                ease: [0.22, 1, 0.36, 1],
-              }}
+      {/* MAIN GRID */}
+      <div className="heroContainer">
+
+        {/* TEXT SIDE */}
+        <div className="heroContentSide">
+          <div className="glassPanel">
+
+            <motion.p
+              className="heroKicker"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
             >
-              {line}
-            </motion.span>
-          ))}
+              {t.heroKicker}
+            </motion.p>
+
+            <h1 className="heroHeadline">
+              {t.heroTitle}
+            </h1>
+
+            <p className="heroSubtitle">
+              {t.heroSubtitle}
+            </p>
+
+            <div className="heroActions">
+              <Button href="/projects">{t.ctaPrimary}</Button>
+              <Button href="/contact" className="ghost">
+                {t.ctaSecondary}
+              </Button>
+            </div>
+
+            <div className="heroNarrative">
+              <div className="heroNarrativeItem active">
+                Immersive UI & storytelling design
+              </div>
+              <div className="heroNarrativeItem">
+                High-performance React experiences
+              </div>
+              <div className="heroNarrativeItem">
+                Conversion-focused digital architecture
+              </div>
+            </div>
+
+          </div>
         </div>
 
-        <motion.p
-          className="subtitle"
-          initial={{ opacity: 0, y: 24, filter: 'blur(8px)' }}
-          animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-          transition={{
-            duration: 0.9,
-            delay: 0.38,
-            ease: [0.22, 1, 0.36, 1],
-          }}
+        {/* VISUAL SIDE */}
+        <div
+          className="heroStoryVisual"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
         >
-          {t.heroSubtitle}
-        </motion.p>
+          <div className="heroSliderCard">
 
-        <motion.div
-          className="heroActions"
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{
-            duration: 0.85,
-            delay: 0.5,
-            ease: [0.22, 1, 0.36, 1],
-          }}
-        >
-          <Button href="/projects">{t.ctaPrimary}</Button>
-          <Button href="/contact" className="ghost">
-            {t.ctaSecondary}
-          </Button>
-        </motion.div>
-
-        <motion.div
-          className="heroNarrativeList"
-          initial="hidden"
-          animate="show"
-          variants={{
-            hidden: {},
-            show: {
-              transition: {
-                delayChildren: 0.62,
-                staggerChildren: 0.12,
-              },
-            },
-          }}
-        >
-          {[
-            'Luxury residential and mixed-use construction',
-            'Refined execution with premium finish quality',
-            'Built for elegance, trust, and long-term value',
-          ].map((item) => (
-            <motion.div
-              key={item}
-              variants={{
-                hidden: { opacity: 0, y: 16, filter: 'blur(6px)' },
-                show: {
-                  opacity: 1,
-                  y: 0,
-                  filter: 'blur(0px)',
-                  transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
-                },
-              }}
-            >
-              <span />
-              {item}
-            </motion.div>
-          ))}
-        </motion.div>
-      </div>
-
-      <div className="heroStoryVisual">
-        <div className="heroSliderCard">
-          <AnimatePresence mode="wait">
-            <motion.img
-              key={activeSlide.image}
-              src={activeSlide.image}
-              alt={activeSlide.title}
-              className="heroSliderImage"
-              initial={{ opacity: 0, scale: 1.06 }}
-              animate={{ opacity: 1, scale: 1.02 }}
-              exit={{ opacity: 0, scale: 1.08 }}
-              transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+            <div
+              className={`heroSliderProgress ${
+                isPaused ? 'paused' : ''
+              }`}
+              style={{ animationDuration: `${SLIDE_INTERVAL}ms` }}
             />
-          </AnimatePresence>
 
-          <div className="heroSliderOverlay" />
 
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeSlide.title}
-              className="heroSliderCaption"
-              initial={{ opacity: 0, y: 24, filter: 'blur(8px)' }}
-              animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-              exit={{ opacity: 0, y: 18, filter: 'blur(8px)' }}
-              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            >
-              <p>{activeSlide.eyebrow}</p>
-              <h3>{activeSlide.title}</h3>
-            </motion.div>
-          </AnimatePresence>
-
-          <div className="heroSliderDots">
-            {heroSlides.map((_, index) => (
-              <button
-                key={index}
-                type="button"
-                className={`heroDot ${index === activeIndex ? 'active' : ''}`}
-                onClick={() => setActiveIndex(index)}
-                aria-label={`Show slide ${index + 1}`}
+            <AnimatePresence mode="wait">
+              <motion.img
+                key={activeSlide.image}
+                src={activeSlide.image}
+                alt={activeSlide.title}
+                className="heroSliderImage"
+                initial={{ opacity: 0, scale: 1 }}
+                animate={{ opacity: 1, scale: 1.08 }}
+                exit={{ opacity: 0 }}
+                transition={{
+                  duration: 0.9,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
               />
-            ))}
+            </AnimatePresence>
+
+            <div className="heroSliderOverlay" />
+
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeSlide.title}
+                className="heroSliderCaption"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 10 }}
+              >
+                <p>{activeSlide.eyebrow}</p>
+                <h3>{activeSlide.title}</h3>
+              </motion.div>
+            </AnimatePresence>
+
+            <div className="heroSliderDots">
+              {heroSlides.map((_, index) => (
+                <button
+                  key={index}
+                  className={`heroDot ${
+                    index === activeIndex ? 'active' : ''
+                  }`}
+                  onClick={() => setActiveIndex(index)}
+                />
+              ))}
+            </div>
+
           </div>
         </div>
 
-        <motion.div
-          className="heroStatsStack"
-          initial={{ opacity: 0, y: 18 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.72, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <div className="heroMiniStat">
-            <strong>15+</strong>
-            <span>Premium projects delivered</span>
-          </div>
-
-          <div className="heroMiniStat">
-            <strong>10+</strong>
-            <span>Years of experience and trust</span>
-          </div>
-        </motion.div>
       </div>
     </section>
   );

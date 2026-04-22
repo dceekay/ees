@@ -8,16 +8,21 @@ type CtaSectionProps = {
 
 export function CtaSection({ t }: CtaSectionProps) {
   return (
-    <section id="contact">
-      <ScrollReveal className="ctaLuxurySection">
-        <div className="ctaLuxuryInner">
+    <section id="contact" className="cta">
+      <ScrollReveal>
+        <div className="cta__container">
+
           <p className="kicker">Let’s Build</p>
 
-          <h2>{t.contactTitle}</h2>
+          <h2 className="cta__title">
+            {t.contactTitle}
+          </h2>
 
-          <p className="subtitle">{t.contactBody}</p>
+          <p className="subtitle cta__subtitle">
+            {t.contactBody}
+          </p>
 
-          <div className="heroActions">
+          <div className="cta__actions">
             <Button href="/contact">
               {t.ctaSecondary}
             </Button>
@@ -26,6 +31,7 @@ export function CtaSection({ t }: CtaSectionProps) {
               {t.ctaPrimary}
             </Button>
           </div>
+
         </div>
       </ScrollReveal>
     </section>

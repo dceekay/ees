@@ -1,6 +1,6 @@
 export const stats = [
-  { value: '15+' },
-  { value: '10+' },
-  { value: '100+' },
-  { value: 'Premium' },
+  { value: 15, suffix: '+', label: 'Projects Delivered' },
+  { value: 10, suffix: '+', label: 'Years Experience' },
+  { value: 100, suffix: '+', label: 'Happy Clients' },
+  { value: 100, suffix: '%', label: 'Quality' },
 ];

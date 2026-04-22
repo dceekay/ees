@@ -1,0 +1,198 @@
+/* =========================
+   FOOTER
+   ========================= */
+
+.siteFooter {
+  margin-top: 6rem;
+  padding: 4rem 0 2rem;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  position: relative;
+}
+
+/* subtle glow divider line */
+.siteFooter::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(1200px, 90%);
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(215, 181, 109, 0.6),
+    transparent
+  );
+}
+
+/* =========================
+   TOP GRID
+   ========================= */
+
+.siteFooterTop {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 2.5rem;
+  width: min(calc(100% - 32px), var(--container));
+  margin: 0 auto;
+}
+
+/* =========================
+   BRAND
+   ========================= */
+
+.siteFooterBrand h3 {
+  font-family: var(--font-heading);
+  color: var(--accent);
+  font-size: 1.1rem;
+  letter-spacing: 0.12em;
+  margin-bottom: 0.8rem;
+}
+
+.siteFooterBrand p {
+  max-width: 320px;
+  line-height: 1.6;
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+/* =========================
+   COLUMN HEADINGS
+   ========================= */
+
+.siteFooterCol h4 {
+  color: var(--text);
+  opacity: 0.85;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+/* =========================
+   LINKS
+   ========================= */
+
+.siteFooterCol a,
+.siteFooterCol span {
+  display: block;
+  margin-bottom: 0.55rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+  text-decoration: none;
+  position: relative;
+  transition: color 0.25s ease;
+}
+
+/* animated gold underline */
+.siteFooterCol a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0%;
+  height: 1px;
+  background: linear-gradient(90deg, var(--accent), rgba(215, 181, 109, 0.4));
+  transition: width 0.3s ease;
+}
+
+.siteFooterCol a:hover {
+  color: var(--accent);
+}
+
+.siteFooterCol a:hover::after {
+  width: 100%;
+}
+
+/* =========================
+   SOCIAL ICON ROW (optional)
+   ========================= */
+
+.siteFooterSocial {
+  margin-top: 2rem;
+  display: flex;
+  gap: 0.8rem;
+}
+
+.siteFooterSocial a {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  color: var(--muted);
+  transition: all 0.25s ease;
+}
+
+.siteFooterSocial a:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+
+/* =========================
+   BOTTOM SECTION
+   ========================= */
+
+.siteFooterBottom {
+  width: min(calc(100% - 32px), var(--container));
+  margin: 3rem auto 0;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  font-size: 0.85rem;
+  opacity: 0.75;
+}
+
+/* =========================
+   STAGGER ANIMATION SETUP
+   (works when you add .fade-in class in JS/React)
+   ========================= */
+
+.siteFooterTop > div {
+  opacity: 0;
+  transform: translateY(14px);
+  animation: footerFadeIn 0.6s ease forwards;
+}
+
+/* stagger delays */
+.siteFooterTop > div:nth-child(1) { animation-delay: 0.05s; }
+.siteFooterTop > div:nth-child(2) { animation-delay: 0.15s; }
+.siteFooterTop > div:nth-child(3) { animation-delay: 0.25s; }
+.siteFooterTop > div:nth-child(4) { animation-delay: 0.35s; }
+
+@keyframes footerFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 860px) {
+  .siteFooterTop {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 540px) {
+  .siteFooterTop {
+    grid-template-columns: 1fr;
+  }
+
+  .siteFooterBottom {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}

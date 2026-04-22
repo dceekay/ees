@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import type { Messages } from '../../i18n';
+import '../../styles/components/footer.css';
 
 type FooterProps = {
   t: Messages;
@@ -43,7 +44,6 @@ export function Footer({ t }: FooterProps) {
       </div>
 
       <div className="siteFooterBottom">
-        <span>© 2026 EES Construction. All rights reserved.</span>
         <span>{t.footer}</span>
       </div>
     </footer>
