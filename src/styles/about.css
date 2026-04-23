@@ -1,0 +1,290 @@
+/* =========================
+   ABOUT HERO
+   ========================= */
+
+.aboutHero {
+  text-align: center;
+  padding: 5rem 0 3rem;
+  position: relative;
+}
+
+.aboutHero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at center,
+    rgba(215, 181, 109, 0.08),
+    transparent 60%
+  );
+  pointer-events: none;
+}
+
+.aboutKicker {
+  color: var(--accent);
+  letter-spacing: 0.2em;
+  font-size: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.aboutTitle {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 1rem;
+}
+
+.aboutSubtitle {
+  max-width: 620px;
+  margin: 0 auto;
+  color: var(--muted);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* =========================
+   STORY
+   ========================= */
+
+.aboutStory {
+  padding: 3.5rem 0;
+}
+
+.aboutStoryGrid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.aboutStoryText {
+  max-width: 520px;
+}
+
+.aboutStoryText h2 {
+  margin-bottom: 0.8rem;
+  font-size: 1.6rem;
+}
+
+.aboutStoryText p {
+  margin-bottom: 0.9rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.aboutStoryImage {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.aboutStoryImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  transform: scale(1.02);
+}
+
+.aboutStoryImage::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.05),
+    rgba(0, 0, 0, 0.25)
+  );
+  pointer-events: none;
+}
+
+/* =========================
+   VALUES
+   ========================= */
+
+.aboutValues {
+  padding: 4rem 0;
+}
+
+.aboutSectionTitle {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.aboutValuesGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+}
+
+.aboutValueCard {
+  padding: 1.4rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--line);
+  background: linear-gradient(
+    160deg,
+    rgba(255, 255, 255, 0.03),
+    rgba(255, 255, 255, 0.01)
+  );
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.25s ease;
+}
+
+.aboutValueCard::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at top left,
+    rgba(215, 181, 109, 0.15),
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.aboutValueCard:hover::before {
+  opacity: 1;
+}
+
+.aboutValueCard:hover {
+  transform: translateY(-6px);
+  border-color: var(--accent);
+}
+
+.aboutValueCard h3 {
+  margin-bottom: 0.6rem;
+}
+
+.aboutValueCard p {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+/* =========================
+   STATS
+   ========================= */
+
+.aboutStats {
+  padding: 4rem 0;
+}
+
+.aboutStatsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+  text-align: center;
+}
+
+.aboutStatCard {
+  padding: 1.2rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.02);
+  transition: transform 0.2s ease;
+}
+
+.aboutStatCard:hover {
+  transform: translateY(-4px);
+}
+
+.aboutStatCard h3 {
+  font-size: 1.6rem;
+  color: var(--accent);
+  margin-bottom: 0.4rem;
+}
+
+.aboutStatCard p {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+/* =========================
+   CTA
+   ========================= */
+
+.aboutCta {
+  text-align: center;
+  padding: 5rem 0;
+  border-top: 1px solid var(--line);
+}
+
+.aboutCta h2 {
+  margin-bottom: 1rem;
+}
+
+.aboutCta p {
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+}
+
+.aboutCtaBtn {
+  display: inline-block;
+  padding: 0.8rem 1.6rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--accent-soft), var(--accent));
+  color: #000;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.aboutCtaBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(215, 181, 109, 0.25);
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 980px) {
+  .aboutStoryGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .aboutStoryText {
+    max-width: 100%;
+  }
+
+  .aboutValuesGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .aboutStatsGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .aboutHero {
+    padding: 3.5rem 0 2rem;
+  }
+
+  .aboutTitle {
+    font-size: 1.8rem;
+  }
+
+  .aboutSubtitle {
+    font-size: 0.95rem;
+  }
+
+  .aboutStory {
+    padding: 2.5rem 0;
+  }
+
+  .aboutValuesGrid,
+  .aboutStatsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .aboutValueCard {
+    padding: 1.2rem;
+  }
+
+  .aboutCta {
+    padding: 3rem 0;
+  }
+}
