@@ -9,18 +9,22 @@ import '../styles/about.css';
 
 const values = [
   {
+    key: 'precision',
     title: 'Precision',
     text: 'Every detail matters. From structural planning to final finishes, we deliver with exactness and discipline.',
   },
   {
+    key: 'trust',
     title: 'Trust',
     text: 'We build lasting partnerships through transparency, reliability, and consistent communication.',
   },
   {
+    key: 'quality',
     title: 'Quality',
     text: 'Premium materials, refined craftsmanship, and uncompromising standards define our work.',
   },
   {
+    key: 'innovation',
     title: 'Innovation',
     text: 'We integrate modern construction techniques with forward-thinking design solutions.',
   },
@@ -41,10 +45,14 @@ export function AboutPage() {
       {/* ================= HERO ================= */}
       <section className="aboutHero">
         <ScrollReveal>
-          <p className="aboutKicker">About Us</p>
-          <h1 className="aboutTitle">{t.aboutPageTitle}</h1>
+          <p className="aboutKicker">{t.aboutTitle}</p>
+
+          <h1 className="aboutTitle">
+            {t.aboutPageTitle}
+          </h1>
+
           <p className="aboutSubtitle">
-            A modern construction company driven by precision, quality, and long-term vision.
+            {t.aboutPageIntro}
           </p>
         </ScrollReveal>
       </section>
@@ -54,27 +62,11 @@ export function AboutPage() {
         <div className="aboutStoryGrid">
           <ScrollReveal>
             <div className="aboutStoryText">
-              <h2>Our Story</h2>
+              <h2>{t.aboutPageStoryTitle}</h2>
 
-              <p>
-                At EES Construction, we believe that exceptional spaces are not just built —
-                they are carefully crafted through vision, discipline, and attention to detail.
-                Our journey is rooted in a commitment to delivering projects that combine
-                structural integrity with refined design.
-              </p>
-
-              <p>
-                Over the years, we have developed a reputation for reliability and precision,
-                working closely with clients to transform ideas into tangible, high-quality
-                developments. Every project reflects our dedication to clarity, efficiency,
-                and long-term value.
-              </p>
-
-              <p>
-                From residential developments to commercial spaces and interior transformations,
-                our work is guided by a simple principle: build with purpose, deliver with
-                excellence, and create environments that stand the test of time.
-              </p>
+              <p>{t.aboutPageBodyOne}</p>
+              <p>{t.aboutPageBodyTwo}</p>
+              <p>{t.aboutPageBodyThree}</p>
             </div>
           </ScrollReveal>
 
@@ -89,12 +81,14 @@ export function AboutPage() {
       {/* ================= VALUES ================= */}
       <section className="aboutValues">
         <ScrollReveal>
-          <h2 className="aboutSectionTitle">Our Values</h2>
+          <h2 className="aboutSectionTitle">
+            {t.aboutValuesTitle}
+          </h2>
         </ScrollReveal>
 
         <StaggerReveal className="aboutValuesGrid">
           {values.map((item) => (
-            <StaggerItem key={item.title}>
+            <StaggerItem key={item.key}>
               <div className="aboutValueCard">
                 <h3>{item.title}</h3>
                 <p>{item.text}</p>
@@ -124,14 +118,12 @@ export function AboutPage() {
       {/* ================= CTA ================= */}
       <section className="aboutCta">
         <ScrollReveal>
-          <h2>Let’s Build Something Exceptional</h2>
-          <p>
-            Work with a team that combines technical expertise, modern execution,
-            and a commitment to delivering outstanding results.
-          </p>
+          <h2>{t.aboutCtaTitle}</h2>
+
+          <p>{t.aboutCtaText}</p>
 
           <Link to="/contact" className="aboutCtaBtn">
-            Contact Us
+            {t.ctaSecondary}
           </Link>
         </ScrollReveal>
       </section>

@@ -31,13 +31,35 @@ export const en: Messages = {
 
   // ABOUT (HOME)
   aboutTitle: 'About Us',
-  aboutBody: 'We deliver premium construction services with attention to detail and quality craftsmanship.',
+  aboutBody:
+    'We deliver premium construction services with attention to detail and quality craftsmanship.',
 
-  // ABOUT PAGE
+  // =========================
+  // ABOUT PAGE (ENHANCED)
+  // =========================
+
   aboutPageTitle: 'About Our Company',
-  aboutPageIntro: 'We are committed to excellence.',
-  aboutPageBodyOne: 'Our mission is to build world-class spaces.',
-  aboutPageBodyTwo: 'We combine innovation with experience.',
+
+  aboutPageIntro:
+    'A modern construction company driven by precision, quality, and long-term vision.',
+
+  aboutPageStoryTitle: 'Our Story',
+
+  aboutPageBodyOne:
+    'At EES Construction, we believe that exceptional spaces are not just built — they are carefully crafted through vision, discipline, and attention to detail.',
+
+  aboutPageBodyTwo:
+    'Over the years, we have built a reputation for reliability and precision, working closely with clients to transform ideas into high-quality developments that stand the test of time.',
+
+  aboutPageBodyThree:
+    'From residential projects to commercial developments and interior transformations, every project reflects our commitment to excellence, clarity, and long-term value.',
+
+  aboutValuesTitle: 'Our Values',
+
+  aboutCtaTitle: 'Let’s Build Something Exceptional',
+
+  aboutCtaText:
+    'Work with a team that combines technical expertise, modern execution, and a commitment to delivering outstanding results.',
 
   // SERVICES
   servicesTitle: 'Our Services',
