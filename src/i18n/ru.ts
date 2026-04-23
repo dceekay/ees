@@ -39,6 +39,12 @@ export const ru: Messages = {
   aboutPageBodyOne: 'Our mission is to build world-class spaces.',
   aboutPageBodyTwo: 'We combine innovation with experience.',
 
+  aboutPageStoryTitle: 'Our Story',
+aboutPageBodyThree: 'From residential projects to commercial developments and interior transformations, every project reflects our commitment to excellence, clarity, and long-term value.',
+aboutValuesTitle: 'Our Values',
+aboutCtaTitle: 'Let’s Build Something Exceptional',
+aboutCtaText: 'Work with a team that combines technical expertise, modern execution, and a commitment to delivering outstanding results.',
+
   // SERVICES
   servicesTitle: 'Our Services',
   servicesIntro: 'What we offer',

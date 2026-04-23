@@ -31,6 +31,13 @@ export type Messages = {
   aboutPageIntro: string;
   aboutPageBodyOne: string;
   aboutPageBodyTwo: string;
+    aboutPageStoryTitle: string;   
+  aboutPageBodyThree: string;   
+
+  aboutValuesTitle: string;      
+
+  aboutCtaTitle: string;        
+  aboutCtaText: string;          
 
   servicesTitle: string;
   servicesIntro: string;
