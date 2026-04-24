@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import { LanguageSwitcher } from '../common/LanguageSwitcher';
 import type { Messages } from '../../i18n';
@@ -10,7 +10,10 @@ type NavbarProps = {
 
 export function Navbar({ t }: NavbarProps) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
   const headerRef = useRef<HTMLElement | null>(null);
+  const location = useLocation();
 
   /* =========================================================
      CLOSE MENU WHEN CLICKING OUTSIDE OR PRESSING ESC
@@ -39,8 +42,19 @@ export function Navbar({ t }: NavbarProps) {
   }, []);
 
   /* =========================================================
+     SCROLL EFFECT (SHRINK + INTENSIFY GLASS)
+     ========================================================= */
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 40);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  /* =========================================================
      LOCK BODY SCROLL WHEN MOBILE MENU IS OPEN
-     (PREVENTS BACKGROUND SCROLLING = PREMIUM UX)
      ========================================================= */
   useEffect(() => {
     if (menuOpen) {
@@ -56,47 +70,63 @@ export function Navbar({ t }: NavbarProps) {
 
   const closeMenu = () => setMenuOpen(false);
 
+  const navItems = [
+    { to: '/', label: t.navHome },
+    { to: '/about', label: t.navAbout },
+    { to: '/services', label: t.navServices },
+    { to: '/projects', label: t.navProjects },
+    { to: '/contact', label: t.navContact },
+  ];
+
   return (
-    <header ref={headerRef} className="glass navbar">
-      
-      {/* =======================================================
-          BRAND
-          ======================================================= */}
+    <motion.header
+      ref={headerRef}
+      className={`glass navbar ${scrolled ? 'scrolled' : ''}`}
+      animate={{
+        padding: scrolled ? '0.65rem 1rem' : '0.95rem 1.1rem',
+        backdropFilter: scrolled ? 'blur(26px)' : 'blur(18px)',
+        background: scrolled
+          ? 'rgba(8, 12, 18, 0.92)'
+          : 'rgba(8, 12, 18, 0.78)',
+      }}
+      transition={{ duration: 0.25, ease: 'easeOut' }}
+    >
+      {/* BRAND */}
       <Link to="/" className="brand-link" onClick={closeMenu}>
         <div className="brand">EES</div>
       </Link>
 
-      {/* =======================================================
-          DESKTOP NAVIGATION
-          ======================================================= */}
+      {/* DESKTOP NAV */}
       <nav className="navDesktop" aria-label="Primary navigation">
-        <NavLink to="/" onClick={closeMenu}>
-          {t.navHome}
-        </NavLink>
-        <NavLink to="/about" onClick={closeMenu}>
-          {t.navAbout}
-        </NavLink>
-        <NavLink to="/services" onClick={closeMenu}>
-          {t.navServices}
-        </NavLink>
-        <NavLink to="/projects" onClick={closeMenu}>
-          {t.navProjects}
-        </NavLink>
-        <NavLink to="/contact" onClick={closeMenu}>
-          {t.navContact}
-        </NavLink>
+        {navItems.map((item) => {
+          const isActive = location.pathname === item.to;
+
+          return (
+            <NavLink key={item.to} to={item.to} onClick={closeMenu}>
+              <span className="navText">{item.label}</span>
+
+              {isActive && (
+                <motion.div
+                  layoutId="activeIndicator"
+                  className="navIndicator"
+                  transition={{
+                    type: 'spring',
+                    stiffness: 400,
+                    damping: 30,
+                  }}
+                />
+              )}
+            </NavLink>
+          );
+        })}
       </nav>
 
-      {/* =======================================================
-          DESKTOP RIGHT SIDE (LANG SWITCHER / EXTRA CONTROLS)
-          ======================================================= */}
+      {/* RIGHT */}
       <div className="navDesktopRight">
         <LanguageSwitcher />
       </div>
 
-      {/* =======================================================
-          MOBILE HAMBURGER BUTTON (ANIMATED)
-          ======================================================= */}
+      {/* HAMBURGER */}
       <button
         type="button"
         className={`navToggle ${menuOpen ? 'open' : ''}`}
@@ -109,46 +139,41 @@ export function Navbar({ t }: NavbarProps) {
         <span />
       </button>
 
-      {/* =======================================================
-          MOBILE NAVIGATION OVERLAY (FULL SCREEN)
-          PREMIUM UX: IMMERSIVE MENU LAYER
-          ======================================================= */}
+      {/* MOBILE PANEL */}
       <AnimatePresence>
         {menuOpen && (
-         <motion.div
-  className="mobileNavPanel"
-  initial={{ opacity: 0, scale: 0.98 }}
-  animate={{ opacity: 1, scale: 1 }}
-  exit={{ opacity: 0, scale: 0.98 }}
-  transition={{ duration: 0.25, ease: 'easeOut' }}
->
+          <motion.div
+            className="mobileNavPanel"
+            initial={{ opacity: 0, scale: 0.98 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.98 }}
+            transition={{ duration: 0.25, ease: 'easeOut' }}
+          >
+            {/* CLOSE */}
+            <button
+              type="button"
+              className="mobileCloseBtn"
+              onClick={closeMenu}
+              aria-label="Close menu"
+            >
+              ✕
+            </button>
 
-  {/* CLOSE BUTTON */}
-  <button
-    type="button"
-    className="mobileCloseBtn"
-    onClick={closeMenu}
-    aria-label="Close menu"
-  >
-    ✕
-  </button>
+            {/* LINKS */}
+            <div className="mobileNavLinks">
+              {navItems.map((item) => (
+                <NavLink key={item.to} to={item.to} onClick={closeMenu}>
+                  {item.label}
+                </NavLink>
+              ))}
+            </div>
 
-  {/* NAV LINKS */}
-  <div className="mobileNavLinks">
-    <NavLink to="/" onClick={closeMenu}>{t.navHome}</NavLink>
-    <NavLink to="/about" onClick={closeMenu}>{t.navAbout}</NavLink>
-    <NavLink to="/services" onClick={closeMenu}>{t.navServices}</NavLink>
-    <NavLink to="/projects" onClick={closeMenu}>{t.navProjects}</NavLink>
-    <NavLink to="/contact" onClick={closeMenu}>{t.navContact}</NavLink>
-  </div>
-
-  <div className="mobileNavLang">
-    <LanguageSwitcher />
-  </div>
-
-</motion.div>
+            <div className="mobileNavLang">
+              <LanguageSwitcher />
+            </div>
+          </motion.div>
         )}
       </AnimatePresence>
-    </header>
+    </motion.header>
   );
 }
