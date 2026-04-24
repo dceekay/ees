@@ -5,12 +5,10 @@ import { LanguageSwitcher } from '../common/LanguageSwitcher';
 import type { Lang, Messages } from '../../i18n';
 
 type NavbarProps = {
-  lang: Lang;
-  setLang: (lang: Lang) => void;
   t: Messages;
 };
 
-export function Navbar({ lang, setLang, t }: NavbarProps) {
+export function Navbar({ t }: NavbarProps) {
   const [menuOpen, setMenuOpen] = useState(false);
   const headerRef = useRef<HTMLElement | null>(null);
 
@@ -64,7 +62,7 @@ export function Navbar({ lang, setLang, t }: NavbarProps) {
       </nav>
 
       <div className="navDesktopRight">
-        <LanguageSwitcher lang={lang} setLang={setLang} />
+        <LanguageSwitcher />
       </div>
 
       <button
@@ -107,7 +105,7 @@ export function Navbar({ lang, setLang, t }: NavbarProps) {
             </div>
 
             <div className="mobileNavLang">
-              <LanguageSwitcher lang={lang} setLang={setLang} />
+              <LanguageSwitcher />
             </div>
           </motion.div>
         )}

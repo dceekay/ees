@@ -1,0 +1,684 @@
+/* =========================
+   CONTACT PAGE - CREATIVE DESIGN
+   ========================= */
+
+:root {
+  --contact-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --contact-elastic: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --accent-gradient: linear-gradient(135deg, #d7b56d 0%, #f4d799 100%);
+}
+
+/* =========================
+   CONTAINER & LAYOUT
+   ========================= */
+
+.contactContainer {
+  position: relative;
+  min-height: 100vh;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* =========================
+   CUSTOM CURSOR
+   ========================= */
+
+.customCursor {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--accent);
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s var(--contact-ease), height 0.3s var(--contact-ease);
+}
+
+@media (max-width: 1024px) {
+  .customCursor {
+    display: none;
+  }
+}
+
+/* =========================
+   FLOATING ORBS BACKGROUND
+   ========================= */
+
+.orbsContainer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.floatingOrb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.15;
+  animation: orbFloat 8s ease-in-out infinite;
+}
+
+.orb1 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(215, 181, 109, 0.4) 0%, transparent 70%);
+  top: 10%;
+  left: -10%;
+}
+
+.orb2 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(215, 181, 109, 0.3) 0%, transparent 70%);
+  bottom: 10%;
+  right: -15%;
+  animation-delay: -2s;
+}
+
+.orb3 {
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation-delay: -4s;
+}
+
+@keyframes orbFloat {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(30px, -30px) scale(1.1);
+  }
+  66% {
+    transform: translate(-30px, 30px) scale(0.9);
+  }
+}
+
+/* =========================
+   HERO SECTION
+   ========================= */
+
+.contactHero {
+  position: relative;
+  text-align: center;
+  padding: min(15vh, 8rem) 2rem min(8vh, 5rem);
+  z-index: 1;
+}
+
+.contactHero h1 {
+  font-size: clamp(2.5rem, 8vw, 6rem);
+  font-family: var(--font-heading);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.5rem;
+  
+  background: linear-gradient(
+    135deg,
+    #ffffff 0%,
+    rgba(255, 255, 255, 0.9) 40%,
+    rgba(215, 181, 109, 1) 70%,
+    #ffffff 100%
+  );
+  background-size: 200% 200%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  
+  animation: gradientShift 6s ease infinite;
+}
+
+@keyframes gradientShift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.char {
+  display: inline-block;
+  transform-origin: bottom;
+}
+
+.contactSubtitle {
+  font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+/* =========================
+   GRID LAYOUT
+   ========================= */
+
+.contactGrid {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: clamp(3rem, 5vw, 6rem);
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 clamp(1.5rem, 4vw, 4rem) min(12vh, 8rem);
+  z-index: 1;
+}
+
+/* =========================
+   CONTACT INFO SECTION
+   ========================= */
+
+.contactInfo {
+  position: relative;
+}
+
+.infoHeader,
+.formHeader {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.infoLabel,
+.formLabel {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+.infoLine,
+.formLine {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(215, 181, 109, 0.3) 0%, transparent 100%);
+}
+
+/* =========================
+   CONTACT METHODS
+   ========================= */
+
+.contactMethods {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+}
+
+.contactMethod {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 2rem;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 20px;
+  text-decoration: none;
+  color: inherit;
+  
+  position: relative;
+  overflow: hidden;
+  
+  transition: all 0.5s var(--contact-ease);
+  cursor: pointer;
+}
+
+.contactMethod::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--accent-gradient);
+  opacity: 0;
+  transition: opacity 0.5s var(--contact-ease);
+}
+
+.contactMethod:hover::before {
+  opacity: 0.05;
+}
+
+.contactMethod:hover {
+  transform: translateX(8px);
+  border-color: rgba(215, 181, 109, 0.2);
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15);
+}
+
+.contactMethod.location {
+  cursor: default;
+  pointer-events: none;
+}
+
+.contactMethod.location:hover {
+  transform: none;
+}
+
+.methodIcon {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: rgba(215, 181, 109, 0.1);
+  color: var(--accent);
+  z-index: 1;
+  transition: all 0.4s var(--contact-ease);
+}
+
+.contactMethod:hover .methodIcon {
+  transform: scale(1.1) rotate(5deg);
+  background: rgba(215, 181, 109, 0.15);
+}
+
+.methodIcon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.methodContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  z-index: 1;
+}
+
+.methodLabel {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.methodValue {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.95);
+  transition: color 0.3s ease;
+}
+
+.contactMethod:hover .methodValue {
+  color: var(--accent);
+}
+
+.methodArrow {
+  font-size: 1.5rem;
+  color: var(--accent);
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all 0.4s var(--contact-ease);
+  z-index: 1;
+}
+
+.contactMethod:hover .methodArrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* =========================
+   SOCIAL LINKS
+   ========================= */
+
+.socialLinks {
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.socialLabel {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 1.5rem;
+}
+
+.socialGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 500;
+  
+  transition: all 0.3s var(--contact-ease);
+}
+
+.socialLink:hover {
+  background: rgba(215, 181, 109, 0.05);
+  border-color: rgba(215, 181, 109, 0.2);
+  color: var(--accent);
+  transform: translateX(4px);
+}
+
+.socialLink svg {
+  transition: transform 0.3s var(--contact-ease);
+}
+
+.socialLink:hover svg {
+  transform: translateX(4px);
+}
+
+/* =========================
+   CONTACT FORM
+   ========================= */
+
+.contactForm {
+  position: relative;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.formGroup {
+  position: relative;
+}
+
+.formGroup label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+.formGroup label.active {
+  color: var(--accent);
+}
+
+.formGroup input,
+.formGroup textarea {
+  width: 100%;
+  padding: 1.25rem 1.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 2px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  color: #fff;
+  font-size: 1rem;
+  font-family: inherit;
+  
+  transition: all 0.4s var(--contact-ease);
+  outline: none;
+}
+
+.formGroup input::placeholder,
+.formGroup textarea::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.formGroup input:focus,
+.formGroup textarea:focus {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(215, 181, 109, 0.1);
+  transform: translateY(-2px);
+}
+
+.formGroup textarea {
+  resize: vertical;
+  min-height: 150px;
+}
+
+/* =========================
+   SUBMIT BUTTON
+   ========================= */
+
+.submitBtn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1.25rem 3rem;
+  background: var(--accent-gradient);
+  border: none;
+  border-radius: 999px;
+  color: #000;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  
+  overflow: hidden;
+  transform-origin: center;
+  transition: all 0.4s var(--contact-ease);
+  
+  box-shadow: 0 4px 24px rgba(215, 181, 109, 0.3), 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.submitBtn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.submitBtn:hover::before {
+  opacity: 1;
+}
+
+.submitBtn:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 12px 48px rgba(215, 181, 109, 0.5), 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.submitBtn:active {
+  transform: translateY(-2px) scale(1);
+}
+
+.btnText {
+  position: relative;
+  z-index: 1;
+}
+
+.btnIcon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  z-index: 1;
+  transition: transform 0.3s var(--contact-ease);
+}
+
+.submitBtn:hover .btnIcon {
+  transform: translateX(4px);
+}
+
+/* =========================
+   RESPONSIVE - TABLET
+   ========================= */
+
+@media (max-width: 1024px) {
+  .contactGrid {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+    padding: 0 2rem 6rem;
+  }
+
+  .contactHero {
+    padding: 10vh 2rem 6vh;
+  }
+
+  .contactHero h1 {
+    font-size: clamp(2.5rem, 10vw, 4.5rem);
+  }
+}
+
+/* =========================
+   RESPONSIVE - MOBILE
+   ========================= */
+
+@media (max-width: 640px) {
+  .contactHero {
+    padding: 8vh 1.5rem 5vh;
+  }
+
+  .contactHero h1 {
+    font-size: clamp(2rem, 12vw, 3.5rem);
+  }
+
+  .contactSubtitle {
+    font-size: 1rem;
+  }
+
+  .contactGrid {
+    gap: 3rem;
+    padding: 0 1.5rem 4rem;
+  }
+
+  .infoHeader,
+  .formHeader {
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .contactMethods {
+    gap: 1rem;
+    margin-bottom: 3rem;
+  }
+
+  .contactMethod {
+    padding: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .contactMethod:hover {
+    transform: translateX(4px);
+  }
+
+  .methodIcon {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+  }
+
+  .methodIcon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .methodValue {
+    font-size: 1rem;
+  }
+
+  .methodArrow {
+    width: 100%;
+    text-align: right;
+    font-size: 1.2rem;
+  }
+
+  form {
+    gap: 1.5rem;
+  }
+
+  .formGroup input,
+  .formGroup textarea {
+    padding: 1rem 1.25rem;
+    font-size: 0.95rem;
+  }
+
+  .submitBtn {
+    width: 100%;
+    padding: 1.15rem 2rem;
+    font-size: 0.95rem;
+  }
+
+  .socialLinks {
+    padding-top: 1.5rem;
+  }
+}
+
+/* =========================
+   ACCESSIBILITY
+   ========================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .floatingOrb {
+    animation: none;
+  }
+}
+
+.formGroup input:focus-visible,
+.formGroup textarea:focus-visible,
+.submitBtn:focus-visible,
+.contactMethod:focus-visible,
+.socialLink:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+/* =========================
+   LOADING STATES
+   ========================= */
+
+.submitBtn.loading {
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.submitBtn.loading .btnIcon {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.word {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.space {
+  display: inline-block;
+  width: 0.3em;
+}
+
+.char {
+  display: inline-block;
+}

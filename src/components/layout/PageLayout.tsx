@@ -8,11 +8,11 @@ type PageLayoutProps = {
 };
 
 export function PageLayout({ children }: PageLayoutProps) {
-  const { lang, setLang, t } = useLanguage();
+  const { t } = useLanguage();
 
   return (
     <div className="app">
-      <Navbar lang={lang} setLang={setLang} t={t} />
+      <Navbar t={t} />
       {children}
       <Footer t={t} />
     </div>

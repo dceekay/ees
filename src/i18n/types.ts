@@ -43,6 +43,8 @@ export type Messages = {
   servicesIntro: string;
   servicesPageTitle: string;
   servicesPageIntro: string;
+  shortDescription?: string;
+  description?: string;
 
   projectsTitle: string;
   projectsIntro: string;
