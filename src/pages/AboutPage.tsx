@@ -72,7 +72,7 @@ export function AboutPage() {
 
           <ScrollReveal>
             <div className="aboutStoryImage">
-              <img src="/images/project1.jpeg" alt="Construction project" />
+              <img src="/images/office.jpeg" alt="Construction project" />
             </div>
           </ScrollReveal>
         </div>
