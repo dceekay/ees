@@ -67,14 +67,14 @@ export function ContactPage() {
             const words = (title.textContent || '').split(' ');
 
             title.innerHTML = words
-              .map((word) => {
-                return `<span class="word">${
+              .map((word) =>
+                `<span class="word">${
                   word
                     .split('')
                     .map((char) => `<span class="char">${char}</span>`)
                     .join('')
-                }</span>`;
-              })
+                }</span>`
+              )
               .join('<span class="space">&nbsp;</span>');
 
 

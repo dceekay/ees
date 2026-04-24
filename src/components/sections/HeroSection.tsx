@@ -16,7 +16,7 @@ const heroSlides = [
     title: 'The Anatolian City Bazaar',
   },
   {
-    image: '/images/site.png',
+    image: '/images/site2.png',
     eyebrow: 'Safe and Efficient Construction',
     title: 'State-of-the-Art Site Management',
   },
@@ -76,7 +76,7 @@ export function HeroSection({ t }: HeroSectionProps) {
       {/* BACKGROUND */}
       <img
         className="heroBackgroundImage"
-        src="/images/project33.jpeg"
+        src="/images/site.png"
         alt="Luxury background"
       />
       <div className="heroBackgroundOverlay" />
