@@ -59,3 +59,39 @@ p {
 ul {
   line-height: 1.8;
 }
+
+/* =========================
+   RESPONSIVE TYPOGRAPHY SYSTEM
+   ========================= */
+
+
+/* =========================
+   MOBILE UX FOUNDATION FIX
+   ========================= */
+
+:root {
+  --mobile-padding: 1.2rem;
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 15px;
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+
+  section {
+    padding-left: var(--mobile-padding) !important;
+    padding-right: var(--mobile-padding) !important;
+  }
+
+  h1 {
+    line-height: 1.1;
+  }
+
+  button, a {
+    min-height: 44px; /* touch target standard */
+  }
+}

@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import { LanguageSwitcher } from '../common/LanguageSwitcher';
-import type { Lang, Messages } from '../../i18n';
+import type { Messages } from '../../i18n';
 
 type NavbarProps = {
   t: Messages;
@@ -12,6 +12,9 @@ export function Navbar({ t }: NavbarProps) {
   const [menuOpen, setMenuOpen] = useState(false);
   const headerRef = useRef<HTMLElement | null>(null);
 
+  /* =========================================================
+     CLOSE MENU WHEN CLICKING OUTSIDE OR PRESSING ESC
+     ========================================================= */
   useEffect(() => {
     const handleOutsideClick = (event: MouseEvent) => {
       if (!headerRef.current) return;
@@ -35,14 +38,37 @@ export function Navbar({ t }: NavbarProps) {
     };
   }, []);
 
+  /* =========================================================
+     LOCK BODY SCROLL WHEN MOBILE MENU IS OPEN
+     (PREVENTS BACKGROUND SCROLLING = PREMIUM UX)
+     ========================================================= */
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [menuOpen]);
+
   const closeMenu = () => setMenuOpen(false);
 
   return (
-    <header ref={headerRef} className="glass">
+    <header ref={headerRef} className="glass navbar">
+      
+      {/* =======================================================
+          BRAND
+          ======================================================= */}
       <Link to="/" className="brand-link" onClick={closeMenu}>
         <div className="brand">EES</div>
       </Link>
 
+      {/* =======================================================
+          DESKTOP NAVIGATION
+          ======================================================= */}
       <nav className="navDesktop" aria-label="Primary navigation">
         <NavLink to="/" onClick={closeMenu}>
           {t.navHome}
@@ -61,10 +87,16 @@ export function Navbar({ t }: NavbarProps) {
         </NavLink>
       </nav>
 
+      {/* =======================================================
+          DESKTOP RIGHT SIDE (LANG SWITCHER / EXTRA CONTROLS)
+          ======================================================= */}
       <div className="navDesktopRight">
         <LanguageSwitcher />
       </div>
 
+      {/* =======================================================
+          MOBILE HAMBURGER BUTTON (ANIMATED)
+          ======================================================= */}
       <button
         type="button"
         className={`navToggle ${menuOpen ? 'open' : ''}`}
@@ -77,15 +109,21 @@ export function Navbar({ t }: NavbarProps) {
         <span />
       </button>
 
+      {/* =======================================================
+          MOBILE NAVIGATION OVERLAY (FULL SCREEN)
+          PREMIUM UX: IMMERSIVE MENU LAYER
+          ======================================================= */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
             className="mobileNavPanel"
-            initial={{ opacity: 0, y: -14 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -14 }}
-            transition={{ duration: 0.22, ease: 'easeOut' }}
+            initial={{ opacity: 0, scale: 0.98 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.98 }}
+            transition={{ duration: 0.25, ease: 'easeOut' }}
           >
+
+            {/* NAV LINKS */}
             <div className="mobileNavLinks">
               <NavLink to="/" onClick={closeMenu}>
                 {t.navHome}
@@ -104,9 +142,11 @@ export function Navbar({ t }: NavbarProps) {
               </NavLink>
             </div>
 
+            {/* LANGUAGE SWITCHER (MOBILE CONTEXT) */}
             <div className="mobileNavLang">
               <LanguageSwitcher />
             </div>
+
           </motion.div>
         )}
       </AnimatePresence>

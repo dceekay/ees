@@ -1,13 +1,19 @@
 .app {
   width: min(calc(100% - 32px), var(--container));
   margin: 0 auto;
-  padding: 1rem 0 4rem;
+}
+
+@media (max-width: 480px) {
+  .app {
+    width: 100%;
+    padding: 0 16px 3rem;
+  }
 }
 
 .glass {
   position: sticky;
   top: 1rem;
-  z-index: 50;
+  z-index: 100;
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -109,7 +115,7 @@
   width: 18px;
   height: 2px;
   border-radius: 999px;
-  background: var(--text);
+  background: linear-gradient(90deg, #fff, #d7b56d);
   transition: transform 180ms ease, opacity 180ms ease;
 }
 
@@ -246,7 +252,15 @@
    ========================= */
 
 .mobileNavPanel {
-  display: none;
+  display: block;
+  width: 100%;
+  order: 3;
+  margin-top: 0.45rem;
+  padding: 0.9rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--line);
+  background: rgba(10, 16, 24, 0.92);
+  box-shadow: var(--shadow-soft);
 }
 
 footer {
@@ -358,6 +372,59 @@ footer {
     white-space: normal;
     line-height: 1.2;
   }
+}
+
+.mobileNavPanel {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 2rem;
+
+  background: rgba(5, 10, 18, 0.96);
+  backdrop-filter: blur(20px);
+
+  /* smooth luxury feel */
+  transform-origin: center;
+}
+
+/* LINKS CONTAINER */
+.mobileNavLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  text-align: center;
+}
+
+/* LINKS */
+.mobileNavLinks a {
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+
+  color: rgba(255,255,255,0.85);
+
+  transition: all 0.25s ease;
+}
+
+.mobileNavLinks a:hover {
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.mobileNavLinks a.active {
+  color: var(--accent-soft);
+}
+
+/* LANGUAGE SECTION */
+.mobileNavLang {
+  margin-top: 3rem;
+  width: min(280px, 90%);
 }
 
 /* =========================
