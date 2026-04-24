@@ -217,13 +217,19 @@ p, span {
   font-size: clamp(2.6rem, 5vw, 4.8rem);
   line-height: 1.05;
   margin: 1rem 0;
-  color: #ffffff;
+  color: #d7b56d;
   background: linear-gradient(90deg, #ffffff, #d7b56d, #ffffff);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow: 0 2px 30px rgba(0,0,0,0.75), 0 0 60px rgba(0,0,0,0.35);
 }
+
+@supports not (-webkit-background-clip: text) {
+  .heroHeadline {
+    -webkit-text-fill-color: unset;
+    color: #d7b56d;
+  }}
 
 .heroTitle {
   font-family: "Cormorant Garamond", serif;
@@ -2248,7 +2254,7 @@ p, span {
 
 /* ---- Glass Panel ---- */
 .heroV2Glass {
-  opacity: 0; /* GSAP reveals */
+ 
   transform-style: preserve-3d;
   border: 1px solid rgba(215, 181, 109, 0.12);
   box-shadow:
@@ -2289,9 +2295,24 @@ p, span {
 }
 
 /* ---- Headline ---- */
+/* Add this to your CSS */
 .heroV2Headline {
-  perspective: 800px;
-  transform-style: preserve-3d;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+/* Fix the span override breaking the clip */
+.heroV2Headline .hero-word {
+  display: inline-block;
+  white-space: pre;
+  /* Inherit the gradient clip from parent */
+  background: inherit;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /* Override the global p, span font rule */
+  font-family: inherit;
 }
 
 .hero-word {
