@@ -1,13 +1,19 @@
-import { useMemo, useState, useEffect } from 'react';
+import { useMemo, useState, useEffect, useRef } from 'react';
 import { PageLayout } from '../components/layout/PageLayout';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { projects } from '../data/projects';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import '../styles/projects.css';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export function ProjectsPage() {
   const [activeCategory, setActiveCategory] = useState('All');
   const [selected, setSelected] = useState<any | null>(null);
+
+  const heroRef = useRef<HTMLDivElement | null>(null);
 
   const categories = useMemo(() => {
     return ['All', ...Array.from(new Set(projects.map(p => p.category)))];
@@ -20,6 +26,40 @@ export function ProjectsPage() {
 
   const featured = projects[0];
 
+  // ================= GSAP (SAFE ONLY) =================
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.from('.projectsHero h1', {
+        y: 60,
+        opacity: 0,
+        duration: 1,
+        ease: 'power3.out',
+      });
+
+      gsap.from('.projectsHero p', {
+        y: 30,
+        opacity: 0,
+        delay: 0.2,
+        duration: 1,
+        ease: 'power3.out',
+      });
+
+      gsap.from('.featuredInner', {
+        scrollTrigger: {
+          trigger: '.featuredProject',
+          start: 'top 80%',
+        },
+        y: 80,
+        opacity: 0,
+        duration: 1,
+        ease: 'power3.out',
+      });
+    });
+
+    return () => ctx.revert();
+  }, []);
+
+  // ================= ESC MODAL =================
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
       if (e.key === 'Escape') setSelected(null);
@@ -31,9 +71,11 @@ export function ProjectsPage() {
   return (
     <PageLayout>
       {/* ================= HERO ================= */}
-      <section className="projectsHero">
+      <section className="projectsHero" ref={heroRef}>
         <h1>Our Projects</h1>
-        <p>Precision-built spaces defined by detail, balance, and craftsmanship.</p>
+        <p>
+          Precision-built spaces defined by detail, balance, and craftsmanship.
+        </p>
       </section>
 
       {/* ================= FEATURED ================= */}
@@ -44,7 +86,9 @@ export function ProjectsPage() {
           <div className="featuredContent">
             <span>Featured Project</span>
             <h2>{featured.title}</h2>
-            <p>{featured.category} • {featured.status}</p>
+            <p>
+              {featured.category} • {featured.status}
+            </p>
 
             <button onClick={() => setSelected(featured)}>
               View Case Study
@@ -66,18 +110,30 @@ export function ProjectsPage() {
         ))}
       </div>
 
-      {/* ================= GRID ================= */}
-      <motion.section layout className="projectsGrid">
-        <AnimatePresence>
-          {filtered.map(project => (
+      {/* ================= MASONRY GRID ================= */}
+      <motion.section className="projectsGrid">
+        <AnimatePresence mode="wait">
+          {filtered.map((project, index) => (
             <motion.div
               key={project.slug}
-              layout
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0 }}
-              whileHover={{ y: -6 }}
               className="projectCard"
+              initial={{
+                opacity: 0,
+                y: 30,
+                filter: 'blur(6px)',
+              }}
+              animate={{
+                opacity: 1,
+                y: 0,
+                filter: 'blur(0px)',
+              }}
+              exit={{ opacity: 0 }}
+              transition={{
+                duration: 0.45,
+                ease: 'easeOut',
+                delay: index * 0.03,
+              }}
+              whileHover={{ scale: 1.02 }}
               onClick={() => setSelected(project)}
             >
               <div className="projectImageWrap">
@@ -86,7 +142,9 @@ export function ProjectsPage() {
               </div>
 
               <div className="projectContent">
-                <span className="projectCategory">{project.category}</span>
+                <span className="projectCategory">
+                  {project.category}
+                </span>
                 <h3>{project.title}</h3>
                 <p className="projectStatus">{project.status}</p>
               </div>
@@ -107,10 +165,11 @@ export function ProjectsPage() {
           >
             <motion.div
               className="projectModal"
-              initial={{ scale: 0.9 }}
-              animate={{ scale: 1 }}
-              exit={{ scale: 0.9 }}
-              onClick={(e) => e.stopPropagation()}
+              initial={{ scale: 0.85, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.85, opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              onClick={e => e.stopPropagation()}
             >
               <img src={selected.image} alt={selected.title} />
 
@@ -120,9 +179,17 @@ export function ProjectsPage() {
                   {selected.category} • {selected.status}
                 </p>
 
-                <p>{selected.description}</p>
+                <p>
+                  This project represents a balance between architectural
+                  precision, material quality, and modern design thinking.
+                  Every detail was executed with long-term durability and
+                  aesthetic clarity in mind.
+                </p>
 
-                <Link to={`/projects/${selected.slug}`} className="modalBtn">
+                <Link
+                  to={`/projects/${selected.slug}`}
+                  className="modalBtn"
+                >
                   Open Project
                 </Link>
               </div>
