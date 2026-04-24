@@ -115,39 +115,38 @@ export function Navbar({ t }: NavbarProps) {
           ======================================================= */}
       <AnimatePresence>
         {menuOpen && (
-          <motion.div
-            className="mobileNavPanel"
-            initial={{ opacity: 0, scale: 0.98 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.98 }}
-            transition={{ duration: 0.25, ease: 'easeOut' }}
-          >
+         <motion.div
+  className="mobileNavPanel"
+  initial={{ opacity: 0, scale: 0.98 }}
+  animate={{ opacity: 1, scale: 1 }}
+  exit={{ opacity: 0, scale: 0.98 }}
+  transition={{ duration: 0.25, ease: 'easeOut' }}
+>
 
-            {/* NAV LINKS */}
-            <div className="mobileNavLinks">
-              <NavLink to="/" onClick={closeMenu}>
-                {t.navHome}
-              </NavLink>
-              <NavLink to="/about" onClick={closeMenu}>
-                {t.navAbout}
-              </NavLink>
-              <NavLink to="/services" onClick={closeMenu}>
-                {t.navServices}
-              </NavLink>
-              <NavLink to="/projects" onClick={closeMenu}>
-                {t.navProjects}
-              </NavLink>
-              <NavLink to="/contact" onClick={closeMenu}>
-                {t.navContact}
-              </NavLink>
-            </div>
+  {/* CLOSE BUTTON */}
+  <button
+    type="button"
+    className="mobileCloseBtn"
+    onClick={closeMenu}
+    aria-label="Close menu"
+  >
+    ✕
+  </button>
 
-            {/* LANGUAGE SWITCHER (MOBILE CONTEXT) */}
-            <div className="mobileNavLang">
-              <LanguageSwitcher />
-            </div>
+  {/* NAV LINKS */}
+  <div className="mobileNavLinks">
+    <NavLink to="/" onClick={closeMenu}>{t.navHome}</NavLink>
+    <NavLink to="/about" onClick={closeMenu}>{t.navAbout}</NavLink>
+    <NavLink to="/services" onClick={closeMenu}>{t.navServices}</NavLink>
+    <NavLink to="/projects" onClick={closeMenu}>{t.navProjects}</NavLink>
+    <NavLink to="/contact" onClick={closeMenu}>{t.navContact}</NavLink>
+  </div>
 
-          </motion.div>
+  <div className="mobileNavLang">
+    <LanguageSwitcher />
+  </div>
+
+</motion.div>
         )}
       </AnimatePresence>
     </header>

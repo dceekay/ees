@@ -1,6 +1,6 @@
 .app {
-  width: min(calc(100% - 32px), var(--container));
-  margin: 0 auto;
+  width: 100%;
+  padding: 0 16px;
 }
 
 @media (max-width: 480px) {
@@ -13,16 +13,31 @@
 .glass {
   position: sticky;
   top: 1rem;
-  z-index: 100;
+  z-index: 1000;
+
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+
   display: flex;
   align-items: center;
   gap: 1rem;
+
   padding: 0.95rem 1.1rem;
+
   border-radius: var(--radius-lg);
-  border: 1px solid var(--line-strong);
-  background: var(--surface-glass);
-  backdrop-filter: blur(16px);
-  box-shadow: var(--shadow-soft);
+  border: 1px solid rgba(215, 181, 109, 0.25);
+
+  background: rgba(8, 12, 18, 0.78);
+  backdrop-filter: blur(18px);
+
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+}
+
+.navbar {
+  position: sticky;
+  top: 1rem;
+  z-index: 1000;
 }
 
 .brand-link {
@@ -92,23 +107,29 @@
   height: 46px;
   margin-left: auto;
   padding: 0;
+
   border-radius: 999px;
   border: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.02);
+
+  /* FIX: stronger glass + fallback background */
+  background: rgba(10, 16, 24, 0.65);
+  backdrop-filter: blur(14px);
+
   color: var(--text);
-  box-shadow: none;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+
   align-items: center;
   justify-content: center;
   flex-direction: column;
   gap: 5px;
-  transition: border-color 180ms ease, background 180ms ease;
+
+  transition: border-color 180ms ease, background 180ms ease, transform 180ms ease;
 }
 
 .navToggle:hover {
-  transform: none;
-  box-shadow: none;
   border-color: var(--accent);
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(215, 181, 109, 0.12);
+  box-shadow: 0 0 25px rgba(215, 181, 109, 0.15);
 }
 
 .navToggle span {
@@ -252,15 +273,33 @@
    ========================= */
 
 .mobileNavPanel {
-  display: block;
-  width: 100%;
-  order: 3;
-  margin-top: 0.45rem;
-  padding: 0.9rem;
-  border-radius: var(--radius-md);
-  border: 1px solid var(--line);
-  background: rgba(10, 16, 24, 0.92);
-  box-shadow: var(--shadow-soft);
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 2rem;
+
+  background: rgba(5, 10, 18, 0.98);
+  backdrop-filter: blur(24px);
+
+  width: 100vw;
+  height: 100vh;
+}
+
+.mobileNavPanel::before {
+  content: '';
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  border: 1px solid rgba(215, 181, 109, 0.3);
 }
 
 footer {
@@ -298,30 +337,60 @@ footer {
     display: none;
   }
 
+
   .navToggle {
     display: inline-flex;
-  }
 
-  .mobileNavPanel {
-    display: block;
-    width: 100%;
-    order: 3;
-    margin-top: 0.45rem;
-    padding: 0.9rem;
-    border-radius: var(--radius-md);
-    border: 1px solid var(--line);
-    background: rgba(10, 16, 24, 0.92);
-    box-shadow: var(--shadow-soft);
+    /* extra safety for contrast */
+    background: rgba(8, 12, 18, 0.85);
+    border: 1px solid rgba(215, 181, 109, 0.25);
+    backdrop-filter: blur(18px);
   }
+  .mobileCloseBtn {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+
+  width: 44px;
+  height: 44px;
+
+  border-radius: 999px;
+  border: 1px solid rgba(215, 181, 109, 0.3);
+
+  background: rgba(10, 16, 24, 0.7);
+  backdrop-filter: blur(14px);
+
+  color: var(--text);
+  font-size: 1.4rem;
+  font-weight: 600;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+  z-index: 100000;
+}
+
+.mobileCloseBtn:hover {
+  border-color: var(--accent);
+  background: rgba(215, 181, 109, 0.12);
+  transform: scale(1.05);
+}
+
 
   .mobileNavLinks {
     display: grid;
+     max-width: 320px;
     gap: 0.2rem;
   }
 
   .mobileNavLinks a {
     color: var(--text);
     padding: 0.82rem 0.25rem;
+     display: block;
     border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   }
 
@@ -374,24 +443,7 @@ footer {
   }
 }
 
-.mobileNavPanel {
-  position: fixed;
-  inset: 0;
-  z-index: 999;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  padding: 2rem;
-
-  background: rgba(5, 10, 18, 0.96);
-  backdrop-filter: blur(20px);
-
-  /* smooth luxury feel */
-  transform-origin: center;
-}
 
 /* LINKS CONTAINER */
 .mobileNavLinks {
