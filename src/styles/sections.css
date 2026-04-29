@@ -1772,11 +1772,12 @@ p, span {
 .heroV2Container {
   flex: 1;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 0 1rem;
+  flex-direction: row;            /* now side‑by‑side */
+  align-items: center;            /* vertically centre the two columns */
+  justify-content: center;
+  padding: 0 2rem;               /* slightly wider breathing room */
   min-height: 100svh;
-  gap: 1rem;
+  gap: 2.5rem;                   /* comfortable space between glass panel and image */
 }
 
 .heroV2Glass {
