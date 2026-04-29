@@ -50,9 +50,9 @@ const heroSlides = [
 ];
 
 const narrativeItems = [
-  { label: 'Immersive UI & storytelling design', value: '12+' },
-  { label: 'High-performance React experiences', value: '40+' },
-  { label: 'Conversion-focused digital architecture', value: '99%' },
+  { label: 'Signature developments across residential & commercial sectors', value: '15+' },
+  { label: 'A decade of precision engineering & craftsmanship', value: '10+' },
+  { label: 'Excellence in delivery, trusted by every client', value: '100%' },
 ];
 
 export function HeroSection({ t }: HeroSectionProps) {
