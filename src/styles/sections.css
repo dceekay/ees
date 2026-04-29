@@ -39,13 +39,6 @@ p, span {
   color: var(--accent-soft);
 }
 
-.heroActions {
-  display: flex;
-  gap: 0.85rem;
-  flex-wrap: wrap;
-  margin-top: 0.9rem;
-}
-
 /* =========================================================
    02. GENERIC PANEL / CARD SYSTEM
    ========================================================= */
@@ -229,7 +222,8 @@ p, span {
   .heroHeadline {
     -webkit-text-fill-color: unset;
     color: #d7b56d;
-  }}
+  }
+}
 
 .heroTitle {
   font-family: "Cormorant Garamond", serif;
@@ -271,6 +265,7 @@ p, span {
   animation-delay: 0.5s;
 }
 
+/* Merged .heroActions (hero‑specific – overrides generic helpers) */
 .heroActions {
   display: flex;
   gap: 1rem;
@@ -698,13 +693,14 @@ p, span {
 }
 
 /* =========================================================
-   06. STORY DIVIDERS
+   06. STORY DIVIDERS (consolidated)
    ========================================================= */
 .servicesPreviewSection::before,
 .projectsPreviewPanel::before,
-.processSection::before,
+.processLuxurySection::before,
 .testimonialsLuxurySection::before,
-.faqLuxurySection::before {
+.faqLuxurySection::before,
+.whyChooseLuxurySection::before {
   content: '';
   position: absolute;
   top: -30px;
@@ -725,21 +721,6 @@ p, span {
 .servicesPreviewSection {
   position: relative;
   margin: 4rem 0;
-}
-
-.servicesPreviewSection::before {
-  content: '';
-  position: absolute;
-  top: -30px;
-  left: 8%;
-  width: 84%;
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(215, 181, 109, 0.16),
-    transparent
-  );
 }
 
 .servicesPreviewShell {
@@ -1278,21 +1259,6 @@ p, span {
   margin: 3.8rem 0;
 }
 
-.processLuxurySection::before {
-  content: '';
-  position: absolute;
-  top: -30px;
-  left: 8%;
-  width: 84%;
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(215, 181, 109, 0.16),
-    transparent
-  );
-}
-
 .processHeader {
   max-width: 760px;
   margin-bottom: 2rem;
@@ -1593,21 +1559,6 @@ p, span {
   margin: 3.8rem 0;
 }
 
-.whyChooseLuxurySection::before {
-  content: '';
-  position: absolute;
-  top: -30px;
-  left: 8%;
-  width: 84%;
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(215, 181, 109, 0.16),
-    transparent
-  );
-}
-
 .whyChooseLuxuryGrid {
   display: grid;
   grid-template-columns: 0.95fr 1.05fr;
@@ -1753,437 +1704,13 @@ p, span {
 }
 
 /* =========================================================
-   14. GLOBAL RESPONSIVE CLEANUP
-   ========================================================= */
-@media (max-width: 980px) {
-  .heroStory,
-  .aboutStorySection {
-    grid-template-columns: 1fr;
-    padding-top: 3rem;
-  }
-
-  .heroStoryVisual {
-    min-height: auto;
-  }
-
-  .heroSliderCard {
-    min-height: 460px;
-    max-width: 100%;
-    margin-left: 0;
-  }
-
-  .heroStatsStack {
-    max-width: 100%;
-    margin-left: 0;
-  }
-
-  .statsStrip,
-  .processGrid,
-  .servicesFeatureGrid,
-  .testimonialsLuxuryGrid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .servicesPreviewHeader {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .aboutStoryContent {
-    max-width: 100%;
-  }
-
-  .aboutStoryVisual {
-    min-height: 360px;
-  }
-
-  .goldCraneWrap {
-    min-height: 340px;
-    width: min(100%, 420px);
-  }
-
-  .goldCrane {
-    max-height: 360px;
-  }
-}
-
-@media (max-width: 640px) {
-  .heroStory {
-    min-height: auto;
-    padding-top: 2.4rem;
-  }
-
-  .heroStoryContent h1,
-  .heroTitleLine {
-    max-width: 100%;
-  }
-
-  .heroSliderCard {
-    min-height: 360px;
-  }
-
-  .heroStatsStack,
-  .statsStrip,
-  .processGrid,
-  .servicesFeatureGrid,
-  .testimonialsLuxuryGrid {
-    grid-template-columns: 1fr;
-  }
-
-  .ctaLuxuryInner {
-    padding: 2.2rem 1.2rem;
-  }
-
-  .aboutStorySection {
-    margin: 3.4rem 0;
-    min-height: auto;
-  }
-
-  .aboutStoryVisual {
-    min-height: 280px;
-  }
-
-  .goldCraneWrap {
-    min-height: 260px;
-    width: min(100%, 320px);
-  }
-
-  .goldCrane {
-    max-height: 280px;
-  }
-}
-
-@media (max-width: 768px) {
-  .heroContainer {
-    grid-template-columns: 1fr;
-    padding: 0 1.2rem;
-    gap: 2rem;
-  }
-
-  .glassPanel {
-    padding: 1.6rem;
-    border-radius: 18px;
-  }
-
-  .heroHeadline,
-  .heroTitle {
-    font-size: 2.2rem;
-  }
-
-  .heroSliderImage {
-    height: 320px;
-  }
-}
-
-@media (max-width: 768px) {
-  .panel,
-  .servicesPreviewSection,
-  .aboutPinnedSection,
-  .projectsPreviewPanel,
-  .processLuxurySection,
-  .testimonialsLuxurySection {
-    margin: 2.2rem 0;
-  }
-}
-
-/* =========================================================
-   RESPONSIVE (SECTIONS REFINEMENT)
-   ========================================================= */
-@media (max-width: 980px) {
-  .heroContainer {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-  }
-
-  .heroSliderCard {
-    max-width: 100%;
-    transform: none;
-  }
-
-  .glassPanel {
-    max-width: 100%;
-  }
-
-  .heroContentSide::before,
-  .heroStoryVisual::before {
-    display: none;
-  }
-}
-
-@media (max-width: 980px) {
-  .aboutStorySection {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-
-  .aboutPinnedSticky {
-    top: 70px;
-    min-height: auto;
-  }
-
-  .aboutVisualStage {
-    min-height: 420px;
-  }
-
-  .aboutVisualStageWrap {
-    min-height: 420px;
-  }
-}
-
-@media (max-width: 640px) {
-  .aboutStorySection {
-    padding: 0 1.2rem;
-  }
-
-  .aboutVisualStage {
-    min-height: 300px;
-  }
-
-  .aboutVisualStageWrap {
-    min-height: 300px;
-  }
-
-  .aboutFeatureList div {
-    font-size: 0.95rem;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .aboutStorySection {
-    animation: none;
-    opacity: 1;
-    transform: none;
-  }
-
-  .aboutStoryVisual,
-  .aboutVisualImage {
-    transform: none !important;
-    transition: none !important;
-  }
-}
-
-@media (max-width: 980px) {
-  .servicesPreviewTop {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .servicesPreviewGrid {
-    grid-template-columns: 1fr;
-  }
-
-  .servicesStatsGrid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 640px) {
-  .servicesStatsGrid {
-    grid-template-columns: 1fr;
-  }
-
-  .servicesPreviewCta {
-    width: 100%;
-    justify-content: center;
-  }
-}
-
-@media (max-width: 980px) {
-  .projectsPreviewHeader {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .projectsEditorialGrid {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(4, 240px);
-  }
-
-  .projectEditorialCard--1 { grid-column: 1 / span 2; grid-row: 1; }
-  .projectEditorialCard--2 { grid-column: 1; grid-row: 2; }
-  .projectEditorialCard--3 { grid-column: 2; grid-row: 2; }
-  .projectEditorialCard--4 { grid-column: 1 / span 2; grid-row: 3; }
-  .projectEditorialCard--5 { grid-column: 1; grid-row: 4; }
-  .projectEditorialCard--6 { grid-column: 2; grid-row: 4; }
-
-  .projectEditorialContent h3 {
-    max-width: 100%;
-  }
-
-  .projectModalImageWrap {
-    min-height: 360px;
-  }
-}
-
-@media (max-width: 640px) {
-  .projectsEditorialGrid {
-    display: none;
-  }
-
-  .projectsMobileCarousel {
-    display: block;
-  }
-
-  .projectEditorialCard {
-    min-height: 240px;
-    border-radius: 20px;
-  }
-
-  .projectEditorialCard--1 {
-    min-height: 300px;
-  }
-
-  .projectEditorialContent {
-    padding: 1rem;
-  }
-
-  .projectEditorialContent h3 {
-    font-size: 1.15rem;
-    max-width: 100%;
-  }
-
-  .projectEditorialTag {
-    font-size: 0.65rem;
-  }
-
-  .projectModalBackdrop {
-    padding: 0.8rem;
-  }
-
-  .projectModal {
-    border-radius: 22px;
-  }
-
-  .projectModalImageWrap {
-    min-height: 280px;
-  }
-
-  .projectModalBody {
-    padding: 1rem;
-  }
-
-  .projectModalBody h3 {
-    font-size: 1.3rem;
-  }
-}
-
-@media (max-width: 420px) {
-  .projectEditorialCard {
-    min-height: 220px;
-  }
-
-  .projectEditorialCard--1 {
-    min-height: 260px;
-  }
-
-  .projectEditorialContent h3 {
-    font-size: 1.05rem;
-  }
-
-  .projectCarouselSlide {
-    min-width: 92%;
-  }
-}
-
-@media (max-width: 980px) {
-  .processTimeline {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .processTimeline::before {
-    display: none;
-  }
-
-  .processStepCard--2,
-  .processStepCard--4 {
-    margin-top: 0;
-  }
-}
-
-@media (max-width: 640px) {
-  .processHeader {
-    margin-bottom: 1.4rem;
-  }
-
-  .processTimeline {
-    grid-template-columns: 1fr;
-    gap: 0.9rem;
-    padding-left: 1rem;
-  }
-
-  .processTimeline::before {
-    display: block;
-    top: 0;
-    left: 0.3rem;
-    width: 1px;
-    height: 100%;
-    background: linear-gradient(
-      180deg,
-      transparent,
-      rgba(215, 181, 109, 0.28),
-      transparent
-    );
-  }
-
-  .processStepCard {
-    margin-top: 0;
-  }
-
-  .processStepTop {
-    padding-top: 0;
-  }
-
-  .processStepDot {
-    top: 8px;
-    left: -1.45rem;
-  }
-}
-
-@media (max-width: 640px) {
-  .cta__container {
-    padding: 2.2rem 1.2rem;
-  }
-}
-
-@media (max-width: 980px) {
-  .whyChooseLuxuryGrid {
-    grid-template-columns: 1fr;
-  }
-
-  .whyChooseVisualCard {
-    min-height: 420px;
-  }
-}
-
-@media (max-width: 640px) {
-  .whyChooseItem {
-    grid-template-columns: 1fr;
-    gap: 0.5rem;
-  }
-
-  .whyChooseNumber {
-    justify-content: flex-start;
-  }
-
-  .whyChooseVisualCard {
-    min-height: 320px;
-  }
-}
-
-
-/* =========================================================
    HERO V2 — PREMIUM CINEMATIC UPGRADE
-   Drop these rules after your existing hero CSS block.
-   They use the .heroV2 scope so nothing else breaks.
    ========================================================= */
-
-/* ---- Root overrides for the upgraded hero ---- */
 .heroStory.cinematic.heroV2 {
   perspective: 1200px;
   overflow: hidden;
 }
 
-/* ---- Grain overlay ---- */
 .heroGrain {
   position: absolute;
   inset: 0;
@@ -2194,7 +1721,6 @@ p, span {
   background-size: 256px 256px;
 }
 
-/* ---- Ambient orb ---- */
 .heroAmbientOrb {
   position: absolute;
   top: -180px;
@@ -2214,7 +1740,6 @@ p, span {
   100% { transform: translate(-40px, 60px) scale(1.12); }
 }
 
-/* ---- Diagonal decorative line ---- */
 .heroDiagonalLine {
   position: absolute;
   top: 0;
@@ -2233,7 +1758,6 @@ p, span {
   transform-origin: left;
 }
 
-/* ---- Bottom fade ---- */
 .heroBottomFade {
   position: absolute;
   bottom: 0;
@@ -2245,16 +1769,17 @@ p, span {
   pointer-events: none;
 }
 
-/* ---- Container ---- */
 .heroV2Container {
-  gap: 2rem;
-  padding: 0 4%;
-  min-height: 100vh;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0 1rem;
+  min-height: 100svh;
+  gap: 1rem;
 }
 
-/* ---- Glass Panel ---- */
 .heroV2Glass {
- 
   transform-style: preserve-3d;
   border: 1px solid rgba(215, 181, 109, 0.12);
   box-shadow:
@@ -2277,13 +1802,12 @@ p, span {
   pointer-events: none;
 }
 
-/* ---- Kicker ---- */
 .heroV2Kicker {
   display: flex;
   align-items: center;
   gap: 0.7rem;
   margin-bottom: 1.1rem;
-  opacity: 0; /* GSAP */
+  opacity: 0;
 }
 
 .heroV2Kicker::before {
@@ -2294,42 +1818,35 @@ p, span {
   background: rgba(215, 181, 109, 0.7);
 }
 
-/* ---- Headline ---- */
-/* Add this to your CSS */
 .heroV2Headline {
   -webkit-background-clip: text !important;
   background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
 }
 
-/* Fix the span override breaking the clip */
 .heroV2Headline .hero-word {
   display: inline-block;
   white-space: pre;
-  /* Inherit the gradient clip from parent */
   background: inherit;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  /* Override the global p, span font rule */
   font-family: inherit;
 }
 
 .hero-word {
   display: inline-block;
-  opacity: 0; /* GSAP */
+  opacity: 0;
   white-space: pre;
 }
 
-/* ---- Subtitle ---- */
 .heroV2Subtitle {
-  opacity: 0; /* GSAP */
+  opacity: 0;
   margin-top: 0.3rem;
 }
 
-/* ---- Actions ---- */
 .heroV2Actions {
-  opacity: 0; /* GSAP */
+  opacity: 0;
 }
 
 .heroV2BtnPrimary {
@@ -2355,13 +1872,12 @@ p, span {
   transform: translateX(100%);
 }
 
-/* ---- Narrative strip ---- */
 .heroV2Narrative {
   margin-top: 1.8rem;
   display: grid;
   gap: 0;
   border-top: 1px solid rgba(255, 255, 255, 0.06);
-  opacity: 0; /* GSAP */
+  opacity: 0;
 }
 
 .heroV2NarrativeItem {
@@ -2418,16 +1934,15 @@ p, span {
   color: rgba(215, 181, 109, 0.9);
 }
 
-/* ---- Visual side ---- */
 .heroV2Visual {
-  opacity: 0; /* GSAP */
-  position: relative;
+  flex: 1;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: 0;
+  min-height: 0;
 }
 
-/* ---- Floating badge ---- */
 .heroV2FloatBadge {
   position: absolute;
   top: -18px;
@@ -2449,7 +1964,7 @@ p, span {
   text-transform: uppercase;
   white-space: nowrap;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
-  opacity: 0; /* GSAP */
+  opacity: 0;
   animation: badgePulse 3s ease-in-out infinite 2s;
 }
 
@@ -2472,7 +1987,6 @@ p, span {
   50%       { opacity: 0.3; }
 }
 
-/* ---- Slide counter ---- */
 .heroV2Counter {
   position: absolute;
   top: 50%;
@@ -2482,7 +1996,7 @@ p, span {
   align-items: center;
   gap: 0.6rem;
   z-index: 10;
-  opacity: 0; /* GSAP */
+  opacity: 0;
 }
 
 .heroV2CounterCurrent {
@@ -2504,7 +2018,6 @@ p, span {
   font-weight: 600;
 }
 
-/* ---- Slider card ---- */
 .heroV2SliderCard {
   width: 100%;
   max-width: 580px;
@@ -2524,7 +2037,6 @@ p, span {
     0 0 80px rgba(215, 181, 109, 0.1);
 }
 
-/* ---- Progress bar ---- */
 .heroV2Progress {
   position: absolute;
   top: 0;
@@ -2537,19 +2049,16 @@ p, span {
   transform: scaleX(0);
 }
 
-/* ---- Slider image ---- */
 .heroV2SliderImage {
   height: 580px;
 }
 
-/* ---- Overlay ---- */
 .heroV2SliderOverlay {
   background:
     linear-gradient(180deg, rgba(0, 0, 0, 0.06) 0%, rgba(0, 0, 0, 0.82) 100%),
     linear-gradient(120deg, rgba(215, 181, 109, 0.1), transparent 45%);
 }
 
-/* ---- Caption ---- */
 .heroV2Caption {
   position: absolute;
   bottom: 0;
@@ -2593,7 +2102,6 @@ p, span {
   color: #fff;
 }
 
-/* ---- Dots ---- */
 .heroV2Dots {
   bottom: 1.4rem;
   right: 1.4rem;
@@ -2615,10 +2123,8 @@ p, span {
 }
 
 /* =========================================================
-   HERO V2 — RESPONSIVE
+   CONSOLIDATED RESPONSIVE OVERRIDES
    ========================================================= */
-
-/* Tablet (≤ 1100px): stack layout, keep visual below */
 @media (max-width: 1100px) {
   .heroV2Counter {
     display: none;
@@ -2626,6 +2132,28 @@ p, span {
 }
 
 @media (max-width: 980px) {
+  /* Hero base */
+  .heroContainer {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .heroSliderCard {
+    max-width: 100%;
+    transform: none;
+  }
+  .glassPanel {
+    max-width: 100%;
+  }
+  .heroContentSide::before,
+  .heroStoryVisual::before {
+    display: none;
+  }
+  .heroContentSide {
+    padding-top: 64px;
+    flex-shrink: 0;
+  }
+
+  /* Hero V2 */
   .heroV2Container {
     grid-template-columns: 1fr;
     padding: 0 1.4rem;
@@ -2633,117 +2161,731 @@ p, span {
     align-items: flex-start;
     padding-top: 1rem;
   }
-
   .heroV2Glass {
     max-width: 100%;
   }
-
   .heroV2SliderCard {
     max-width: 100%;
   }
-
   .heroV2SliderImage {
     height: 420px;
   }
-
   .heroV2FloatBadge {
     top: -14px;
+  }
+
+  /* About */
+  .aboutStorySection {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .aboutPinnedSticky {
+    top: 70px;
+    min-height: auto;
+  }
+  .aboutVisualStage {
+    min-height: 420px;
+  }
+  .aboutVisualStageWrap {
+    min-height: 420px;
+  }
+
+  /* Services */
+  .servicesPreviewTop {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .servicesPreviewGrid {
+    grid-template-columns: 1fr;
+  }
+  .servicesStatsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Projects */
+  .projectsPreviewHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .projectsEditorialGrid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(4, 240px);
+  }
+  .projectEditorialCard--1 { grid-column: 1 / span 2; grid-row: 1; }
+  .projectEditorialCard--2 { grid-column: 1; grid-row: 2; }
+  .projectEditorialCard--3 { grid-column: 2; grid-row: 2; }
+  .projectEditorialCard--4 { grid-column: 1 / span 2; grid-row: 3; }
+  .projectEditorialCard--5 { grid-column: 1; grid-row: 4; }
+  .projectEditorialCard--6 { grid-column: 2; grid-row: 4; }
+  .projectEditorialContent h3 {
+    max-width: 100%;
+  }
+  .projectModalImageWrap {
+    min-height: 360px;
+  }
+
+  /* Process */
+  .processTimeline {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .processTimeline::before {
+    display: none;
+  }
+  .processStepCard--2,
+  .processStepCard--4 {
+    margin-top: 0;
+  }
+
+  /* Why choose */
+  .whyChooseLuxuryGrid {
+    grid-template-columns: 1fr;
+  }
+  .whyChooseVisualCard {
+    min-height: 420px;
+  }
+
+  /* Generic */
+  .statsStrip,
+  .testimonialsLuxuryGrid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 768px) {
+  /* Hero V2 full‑screen mobile fix */
   .heroStory.cinematic.heroV2 {
-    padding: 4.5rem 0 3rem;
+    min-height: 100svh;
+    height: 100svh;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    overflow: hidden;
+  }
+  .heroV2Container {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 0;
+    padding: 0;
+    min-height: 100svh;
+    max-width: 100%;
+  }
+  .heroContentSide {
+    flex-shrink: 0;
+    display: flex;
+    align-items: stretch;
+    padding: 56px 1rem 0;
+    width: 100%;
+  }
+  .heroContentSide::before {
+    display: none;
+  }
+  .heroV2Glass {
+    width: 100%;
+    max-width: 100%;
+    padding: 1.25rem 1.1rem 1rem;
+    border-radius: 18px;
+  }
+  .heroStoryVisual.heroV2Visual {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: stretch;
+    padding: 0.75rem 1rem 0;
+    min-height: 0;
+    opacity: 1 !important;
+  }
+  .heroStoryVisual::before {
+    display: none;
+  }
+  .heroSliderCard.heroV2SliderCard {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 16px 16px 0 0;
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .heroSliderImage.heroV2SliderImage {
+    flex: 1 1 auto;
+    height: 100%;
+    min-height: 220px;
+    object-fit: cover;
+  }
+  .heroSliderDots.heroV2Dots {
+    position: static !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 0 env(safe-area-inset-bottom, 14px);
+    background: rgba(6, 10, 16, 0.95);
+    flex-shrink: 0;
+  }
+  .heroDot.heroV2Dot {
+    width: 7px;
+    height: 7px;
+    min-width: 0;
+    cursor: pointer;
+    padding: 10px 4px;
+    background-clip: content-box;
+  }
+  .heroDot.heroV2Dot.active {
+    width: 22px;
+    padding: 10px 0;
+    background: #d7b56d;
+    border-color: #d7b56d;
+    background-clip: border-box;
+  }
+  .heroV2FloatBadge {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 50;
+  }
+  .heroV2Counter {
+    display: none !important;
+  }
+  .heroHeadline.heroV2Headline {
+    font-size: clamp(1.7rem, 7vw, 2.4rem);
+    margin: 0.5rem 0;
+    line-height: 1.1;
+  }
+  .heroV2Subtitle {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-top: 0.25rem;
+  }
+  .heroActions.heroV2Actions {
+    gap: 0.6rem;
+    margin-top: 0.85rem;
+    flex-wrap: wrap;
+  }
+  .heroV2Narrative {
+    margin-top: 0.9rem;
+  }
+  .heroV2NarrativeItem {
+    padding: 0.55rem 0;
+  }
+  .heroV2NarrativeValue {
+    display: none;
+  }
+  .heroAmbientOrb {
+    width: 260px;
+    height: 260px;
+    top: -60px;
+    right: -60px;
+  }
+  .heroSliderCaption.heroV2Caption {
+    padding: 1rem;
+  }
+  .heroV2CaptionTitle {
+    font-size: 1rem;
+  }
+  .heroV2CaptionTag {
+    display: none;
+  }
+
+  /* Stats */
+  .statsStrip {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+    margin: 1.2rem 0 2rem;
+  }
+
+  /* Services */
+  .servicesPreviewSection {
+    margin: 2rem 0;
+  }
+  .servicesPreviewShell {
+    padding: 0 1.1rem;
+  }
+  .servicesPreviewTop {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.4rem;
+  }
+  .servicesPreviewTitle {
+    font-size: clamp(1.7rem, 6vw, 2.4rem);
+  }
+  .servicesPreviewGrid {
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+    margin-bottom: 1.8rem;
+  }
+  .servicesPreviewCta {
+    width: 100%;
+    justify-content: center;
+  }
+  .servicesStatsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+  .serviceStatCard {
+    padding: 1rem;
+  }
+  .serviceStatValue {
+    font-size: 1.65rem;
+  }
+
+  /* About */
+  .aboutPinnedSection {
+    margin: 2rem 0;
+  }
+  .aboutPinnedSticky {
+    position: static;
     min-height: auto;
   }
-
-  .heroV2Glass {
-    padding: 1.6rem;
+  .aboutStorySection {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 0 1.1rem;
+  }
+  .aboutStoryContent h2 {
+    font-size: clamp(1.7rem, 6vw, 2.4rem);
+  }
+  .aboutVisualStageWrap {
+    min-height: 280px;
+    width: 100%;
+  }
+  .aboutVisualStage {
+    min-height: 280px;
   }
 
-  .heroHeadline.heroV2Headline {
-    font-size: clamp(2rem, 8vw, 3rem);
+  /* Projects */
+  .projectsPreviewPanel {
+    padding: 0 1.1rem;
+  }
+  .projectsPreviewHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+    margin-bottom: 1.2rem;
+  }
+  .projectsPreviewHeader > div:first-child h2 {
+    font-size: clamp(1.7rem, 6vw, 2.4rem);
   }
 
-  .heroV2SliderImage {
-    height: 320px;
+  /* Process */
+  .processLuxurySection {
+    margin: 2rem 0;
+    padding: 0 1.1rem;
+  }
+  .processHeader h2 {
+    font-size: clamp(1.7rem, 6vw, 2.4rem);
+  }
+  .processTimeline {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+  .processTimeline::before {
+    display: none;
+  }
+  .processStepCard--2,
+  .processStepCard--4 {
+    margin-top: 0;
   }
 
-  .heroV2CaptionTitle {
-    font-size: 1.15rem;
+  /* Testimonials */
+  .testimonialsLuxurySection {
+    margin: 2rem 0;
+    padding: 0 1.1rem;
+  }
+  .testimonialsLuxuryGrid {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+  }
+  .testimonialLuxuryCard--1 {
+    min-height: auto;
+  }
+  .testimonialsHeader h2 {
+    font-size: clamp(1.7rem, 6vw, 2.4rem);
   }
 
-  .heroAmbientOrb {
-    width: 320px;
-    height: 320px;
-    top: -80px;
-    right: -80px;
+  /* Why choose */
+  .whyChooseLuxurySection {
+    margin: 2rem 0;
+    padding: 0 1.1rem;
+  }
+  .whyChooseLuxuryGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .whyChooseVisualCard {
+    min-height: 300px;
+  }
+  .whyChooseContent h2 {
+    font-size: clamp(1.7rem, 6vw, 2.4rem);
+  }
+  .whyChooseItem {
+    grid-template-columns: 48px 1fr;
+    gap: 0.75rem;
+    padding: 0.9rem;
+  }
+
+  /* FAQ */
+  .faqLuxurySection {
+    margin: 2rem 0;
+    padding: 0 1.1rem;
+  }
+  .faqHeader h2 {
+    font-size: clamp(1.7rem, 6vw, 2.4rem);
+  }
+
+  /* CTA */
+  .cta {
+    margin: 2.5rem 0 2rem;
+    padding: 0 1.1rem;
+  }
+  .cta__container {
+    padding: 2rem 1.2rem;
+    border-radius: var(--radius-lg);
+  }
+  .cta__title {
+    font-size: clamp(1.7rem, 6vw, 2.6rem);
+  }
+  .cta__actions {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.7rem;
+  }
+  .cta__actions a,
+  .cta__actions button {
+    width: 100%;
+    max-width: 320px;
+    text-align: center;
+    justify-content: center;
+  }
+
+  /* Generic panels */
+  .panel {
+    margin: 1.8rem 0;
+    padding: 1.4rem 1.1rem;
+    border-radius: var(--radius-lg);
+  }
+  .panel h1,
+  .panel h2 {
+    font-size: clamp(1.7rem, 6vw, 2.4rem);
+  }
+  .cards {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
   }
 }
 
-@media (max-width: 540px) {
+@media (max-width: 640px) {
+  /* Hero base */
+  .heroStory {
+    min-height: auto;
+    padding-top: 2.4rem;
+  }
+  .heroStoryContent h1,
+  .heroTitleLine {
+    max-width: 100%;
+  }
+  .heroSliderCard {
+    min-height: 360px;
+  }
+ 
+  .processGrid,
+  .servicesFeatureGrid,
+  .testimonialsLuxuryGrid {
+    grid-template-columns: 1fr;
+  }
+
+  /* About */
+  .aboutStorySection {
+    padding: 0 1.2rem;
+  }
+  .aboutVisualStage {
+    min-height: 300px;
+  }
+  .aboutVisualStageWrap {
+    min-height: 300px;
+  }
+  .aboutFeatureList div {
+    font-size: 0.95rem;
+  }
+
+  /* Services */
+  .servicesStatsGrid {
+    grid-template-columns: 1fr;
+  }
+  .servicesPreviewCta {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Projects */
+  .projectsEditorialGrid {
+    display: none;
+  }
+  .projectsMobileCarousel {
+    display: block;
+  }
+  .projectEditorialCard {
+    min-height: 240px;
+    border-radius: 20px;
+  }
+  .projectEditorialCard--1 {
+    min-height: 300px;
+  }
+  .projectEditorialContent {
+    padding: 1rem;
+  }
+  .projectEditorialContent h3 {
+    font-size: 1.15rem;
+    max-width: 100%;
+  }
+  .projectEditorialTag {
+    font-size: 0.65rem;
+  }
+  .projectModalBackdrop {
+    padding: 0.8rem;
+  }
+  .projectModal {
+    border-radius: 22px;
+  }
+  .projectModalImageWrap {
+    min-height: 280px;
+  }
+  .projectModalBody {
+    padding: 1rem;
+  }
+  .projectModalBody h3 {
+    font-size: 1.3rem;
+  }
+  .projectCarouselSlide {
+    min-width: 86%;
+  }
+
+  /* Process */
+  .processHeader {
+    margin-bottom: 1.4rem;
+  }
+  .processTimeline {
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+    padding-left: 1rem;
+  }
+  .processTimeline::before {
+    display: block;
+    top: 0;
+    left: 0.3rem;
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(
+      180deg,
+      transparent,
+      rgba(215, 181, 109, 0.28),
+      transparent
+    );
+  }
+  .processStepCard {
+    margin-top: 0;
+  }
+  .processStepTop {
+    padding-top: 0;
+  }
+  .processStepDot {
+    top: 8px;
+    left: -1.45rem;
+  }
+
+  /* Why choose */
+  .whyChooseItem {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  .whyChooseNumber {
+    justify-content: flex-start;
+  }
+  .whyChooseVisualCard {
+    min-height: 320px;
+  }
+
+  /* CTA */
+  .cta__container {
+    padding: 2.2rem 1.2rem;
+  }
+
+  /* Hero V2 specific */
   .heroV2Container {
     padding: 0 1rem;
     gap: 2rem;
   }
-
   .heroStory.cinematic.heroV2 {
     padding: 3.6rem 0 2.5rem;
   }
-
   .heroV2Glass {
     padding: 1.3rem;
     border-radius: 18px;
   }
-
   .heroHeadline.heroV2Headline {
     font-size: clamp(1.85rem, 7.5vw, 2.6rem);
     margin: 0.6rem 0;
   }
-
   .heroV2Subtitle {
     font-size: 0.95rem;
   }
-
   .heroV2Actions {
     gap: 0.7rem;
     flex-direction: column;
   }
-
   .heroV2Actions a,
   .heroV2Actions button {
     width: 100%;
     text-align: center;
     justify-content: center;
   }
-
   .heroV2SliderCard {
     border-radius: 20px;
   }
-
   .heroV2SliderImage {
     height: 260px;
   }
-
   .heroV2CaptionTitle {
     font-size: 1.05rem;
   }
-
   .heroV2CaptionTag {
     display: none;
   }
-
   .heroV2FloatBadge {
     font-size: 0.65rem;
     padding: 0.38rem 0.85rem;
   }
-
   .heroV2Narrative {
     margin-top: 1.2rem;
   }
-
   .heroV2NarrativeValue {
     display: none;
+  }
+}
+
+@media (max-width: 540px) {
+  /* Additional hero V2 tightening */
+  .heroStory.cinematic.heroV2 {
+    padding: 3.6rem 0 2.5rem;
+  }
+  .heroV2Glass {
+    padding: 1.3rem;
+    border-radius: 18px;
+  }
+  .heroHeadline.heroV2Headline {
+    font-size: clamp(1.85rem, 7.5vw, 2.6rem);
+    margin: 0.6rem 0;
+  }
+  .heroV2Subtitle {
+    font-size: 0.95rem;
+  }
+  .heroV2Actions {
+    gap: 0.7rem;
+    flex-direction: column;
+  }
+  .heroV2Actions a,
+  .heroV2Actions button {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+  .heroV2SliderCard {
+    border-radius: 20px;
+  }
+  .heroV2SliderImage {
+    height: 260px;
+  }
+  .heroV2CaptionTitle {
+    font-size: 1.05rem;
+  }
+  .heroV2CaptionTag {
+    display: none;
+  }
+  .heroV2FloatBadge {
+    font-size: 0.65rem;
+    padding: 0.38rem 0.85rem;
+  }
+  .heroV2Narrative {
+    margin-top: 1.2rem;
+  }
+  .heroV2NarrativeValue {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .servicesStatsGrid {
+    grid-template-columns: 1fr;
+  }
+  .processTimeline {
+    grid-template-columns: 1fr;
+    padding-left: 1.2rem;
+  }
+  .processTimeline::before {
+    display: block;
+    top: 0;
+    left: 0.35rem;
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(
+      180deg,
+      transparent,
+      rgba(215, 181, 109, 0.28),
+      transparent
+    );
+  }
+  .processStepDot {
+    top: 8px;
+    left: -1.5rem;
+  }
+  .whyChooseItem {
+    grid-template-columns: 1fr;
+    gap: 0.4rem;
+  }
+  .whyChooseNumber {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 420px) {
+  .statsStrip {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.6rem;
+  }
+  .statsStripCard h3 {
+    font-size: 1.5rem;
+  }
+  .projectEditorialCard {
+    min-height: 220px;
+  }
+  .projectEditorialCard--1 {
+    min-height: 260px;
+  }
+  .projectEditorialContent h3 {
+    font-size: 1.05rem;
+  }
+  .projectCarouselSlide {
+    min-width: 92%;
+  }
+}
+
+@media (max-width: 390px) {
+  .heroHeadline.heroV2Headline {
+    font-size: 1.55rem;
+  }
+  .heroV2Glass {
+    padding: 1rem 0.9rem 0.85rem;
+  }
+  .heroV2FloatBadge {
+    display: none;
+  }
+  .heroV2Subtitle {
+    font-size: 0.85rem;
   }
 }
 
@@ -2751,31 +2893,48 @@ p, span {
   .heroHeadline.heroV2Headline {
     font-size: 1.7rem;
   }
-
   .heroV2SliderImage {
     height: 220px;
   }
-
   .heroV2FloatBadge {
     display: none;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .aboutStorySection {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  .aboutStoryVisual,
+  .aboutVisualImage {
+    transform: none !important;
+    transition: none !important;
+  }
   .heroV2Glass,
   .heroV2Visual,
   .heroAmbientOrb,
   .heroV2FloatBadge,
   .heroV2FloatBadgeDot,
-  .hero-word {
+  .hero-word,
+  .heroBackgroundImage {
     animation: none !important;
     transition: none !important;
     opacity: 1 !important;
     transform: none !important;
     filter: none !important;
   }
-
   .heroV2Progress {
     transform: scaleX(1) !important;
+  }
+}
+
+/* Safe area support (iPhone notch / Dynamic Island) */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  @media (max-width: 768px) {
+    .heroSliderDots.heroV2Dots {
+      padding-bottom: calc(10px + env(safe-area-inset-bottom));
+    }
   }
 }
