@@ -1,22 +1,14 @@
-import { useEffect, useState } from 'react';
-import { copy, languageMeta, type Lang } from '../i18n';
-
-const STORAGE_KEY = 'ees-language';
+import { useEffect } from 'react';
+import { copy, languageMeta } from '../i18n';
+import { useLangStore } from '../i18n/langStore';
 
 export function useLanguage() {
-  const [lang, setLang] = useState<Lang>(() => {
-    if (typeof window === 'undefined') return 'en';
+  const lang = useLangStore((s) => s.lang);
+  const setLang = useLangStore((s) => s.setLang);
 
-    const saved = window.localStorage.getItem(STORAGE_KEY) as Lang | null;
-    if (saved && saved in copy) {
-      return saved;
-    }
-
-    return 'en';
-  });
-
+  // sync DOM + localStorage
   useEffect(() => {
-    window.localStorage.setItem(STORAGE_KEY, lang);
+    localStorage.setItem('ees-language', lang);
     document.documentElement.lang = lang;
     document.documentElement.dir = languageMeta[lang].dir;
   }, [lang]);

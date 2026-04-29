@@ -18,6 +18,49 @@ export const fa: Messages = {
   heroKicker: 'ساخت و ساز پریمیوم',
   heroTitle: 'ما فضاهای ابدی می سازیم',
   heroSubtitle: 'ساخت و ساز لوکس و طراحی برای رؤیای شما.',
+  heroBadge: 'پروژه های پریمیوم',
+  heroSlideOne: {
+    eyebrow: 'توسعه برجسته',
+    title: 'بازار شهر آناتولی',
+    tag: 'تجاری',
+  },
+  heroSlideTwo: {
+    eyebrow: 'ساخت و ساز ایمن و کارآمد',
+    title: 'مدیریت محل کار نوین',
+    tag: 'زیرساخت',
+  },
+  heroSlideThree: {
+    eyebrow: 'زندگی لوکس',
+    title: 'ویلاها و فضاهای پریمیوم',
+    tag: 'مسکونی',
+  },
+  heroSlideFour: {
+    eyebrow: 'عظمت ساحلی',
+    title: 'ویلاهای ساحلی و فضاهای پریمیوم',
+    tag: 'ساحلی',
+  },
+  heroSlideFive: {
+    eyebrow: 'طراحی داخلی پالایش شده',
+    title: 'فضاهای غذاخوری و زندگی الگان',
+    tag: 'داخلی',
+  },
+  heroSlideSix: {
+    eyebrow: 'بر بنیاد محکم ساخته شده',
+    title: 'کارهای خاکی دقیق و اجرای محل کار',
+    tag: 'مهندسی',
+  },
+  heroNarrativeOne: {
+    label: 'توسعه های امضا شده در بخش های مسکونی و تجاری',
+    value: '15+',
+  },
+  heroNarrativeTwo: {
+    label: 'ده سال مهندسی دقیق و کاری دستی',
+    value: '10+',
+  },
+  heroNarrativeThree: {
+    label: 'تسلیم عالی که توسط هر مشتریی قابل اعتماد است',
+    value: '100%',
+  },
 
   // CTA
   ctaPrimary: 'مشاهده پروژه ها',
@@ -28,6 +71,7 @@ export const fa: Messages = {
   statsExperience: 'سال تجربه',
   statsClients: 'مشتریان راضی',
   statsQuality: 'تمرکز بر کیفیت',
+  statsDescription: 'هر مرحله توسط جزئیات، مسؤولیت و استاندارد اتمام پریمیوم هدایت می شود.',
 
   // ABOUT (HOME)
   aboutTitle: 'درباره ما',
@@ -47,6 +91,12 @@ export const fa: Messages = {
   // SERVICES
   servicesTitle: 'خدمات ما',
   servicesIntro: 'آنچه ما ارائه می دهیم',
+  servicesWhat: 'آنچه ما انجام می دهیم',
+  servicesExploreAll: 'تمام خدمات را کاوش کنید',
+  servicesStatsEyebrow: 'بر بنیاد اعتماد ساخته شده. اندازه گیری شده توسط نتایج.',
+  servicesStatsTitle: 'اجرای اثبات شده با استاندارد پریمیوم',
+  servicesStatsText: 'ما تخصص فنی، تسلیم منظم و کاری دستی پالایش شده را یکپارچه می کنیم تا پروژه هایی ایجاد کنیم که هم برای عملکرد و هم برای ارائه متفاوت باشند.',
+  servicesLearnMore: 'بیشتر بیاموزید',
   servicesPageTitle: 'خدمات',
   servicesPageIntro: 'خدمات ما را کاوش کنید',
 
@@ -65,10 +115,44 @@ export const fa: Messages = {
   // WHY CHOOSE
   whyChooseTitle: 'چرا ما را اختیار کنید',
   whyChooseIntro: 'ما تعالی را ارائه می دهیم',
+  whyChooseLabel: 'چرا EES',
+  whyChooseOne: {
+    title: 'کیفیت اتمام پریمیوم',
+    body: 'هر پروژه با دقت شدید در جزئیات، یکپارچگی مواد و ارائه پالایش شده تسلیم می شود.',
+  },
+  whyChooseTwo: {
+    title: 'تسلیم پروژه قابل اعتماد',
+    body: 'ما برنامه ریزی، ارتباط و انضباط اجرا را یکپارچه می کنیم تا کار را هماهنگ و قابل پیش بینی نگه داریم.',
+  },
+  whyChooseThree: {
+    title: 'زبان طراحی مدرن',
+    body: 'فضاهای ما برای احساس معاصری، الگان و معماری مربوطه برای ارزش بلند مدت شکل گرفته است.',
+  },
+  whyChooseFour: {
+    title: 'رویکرد متمرکز بر اعتماد',
+    body: 'ما اعتماد دائمی مشتری را از طریق شفافیت، حرفه ای گری و سازگاری می سازیم.',
+  },
 
   // PROCESS
   processTitle: 'فرآیند ما',
   processIntro: 'نحوه کار ما',
+  processLabel: 'فرآیند ما',
+  processOne: {
+    title: 'مشاوره',
+    body: 'ما رؤیا، نیازمندی های پروژه، جدول زمانی و تجربه ای را که می خواهید فضا به پایان رسیده ارائه دهد می فهمیم.',
+  },
+  processTwo: {
+    title: 'برنامه ریزی و هماهنگی طراحی',
+    body: 'ما دامنه را تعریف می کنیم، جهت را صقیل می کنیم، نیت طراحی را هماهنگ می کنیم و قبل از شروع کار اولویت های اجرای روشن را تعیین می کنیم.',
+  },
+  processThree: {
+    title: 'اجرا',
+    body: 'پروژه با هماهنگی نزدیک، نظارت قوی و کنترل کیفیت دقیق به اجرای منظم تبدیل می شود.',
+  },
+  processFour: {
+    title: 'تسلیم',
+    body: 'ما جزئیات را نهایی می کنیم، اتمام را بررسی می کنیم و فضای تکمیل شده ای تسلیم می کنیم که برای عملکرد، زیبایی و ارزش بلند مدت ساخته شده است.',
+  },
 
   // TESTIMONIALS
   testimonialsTitle: 'نظریات',

@@ -69,7 +69,7 @@ export function ServicesPreviewSection({ t }: ServicesPreviewSectionProps) {
         <div className="servicesPreviewTop">
           <div className="servicesPreviewIntro">
             <AnimatedText className="kicker servicesPreviewKicker" as="p">
-              What We Do
+              {t.servicesWhat}
             </AnimatedText>
 
             <AnimatedText as="h2" className="servicesPreviewTitle">
@@ -89,7 +89,7 @@ export function ServicesPreviewSection({ t }: ServicesPreviewSectionProps) {
             className="servicesPreviewCtaWrap"
           >
             <Link to="/services" className="servicesPreviewCta">
-              Explore All Services
+              {t.servicesExploreAll}
             </Link>
           </motion.div>
         </div>
@@ -121,7 +121,7 @@ export function ServicesPreviewSection({ t }: ServicesPreviewSectionProps) {
                     to={`/services/${service.slug}`}
                     className="servicePreviewLink"
                   >
-                    Learn More
+                    {t.servicesLearnMore}
                     <span aria-hidden="true">→</span>
                   </Link>
                 </div>
@@ -137,17 +137,15 @@ export function ServicesPreviewSection({ t }: ServicesPreviewSectionProps) {
         >
           <div className="servicesStatsHeader">
             <AnimatedText as="p" className="servicesStatsEyebrow">
-              Built on trust. Measured by results.
+              {t.servicesStatsEyebrow}
             </AnimatedText>
 
             <AnimatedText as="h3" className="servicesStatsTitle">
-              Proven execution with a premium standard
+              {t.servicesStatsTitle}
             </AnimatedText>
 
             <AnimatedText as="p" className="servicesStatsText">
-              We combine technical expertise, disciplined delivery, and
-              refined craftsmanship to create projects that stand out for
-              both performance and presentation.
+              {t.servicesStatsText}
             </AnimatedText>
           </div>
 

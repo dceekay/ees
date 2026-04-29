@@ -18,6 +18,49 @@ export const en: Messages = {
   heroKicker: 'Premium Construction',
   heroTitle: 'We Build Timeless Spaces',
   heroSubtitle: 'Luxury construction and design tailored to your vision.',
+  heroBadge: 'Premium Projects',
+  heroSlideOne: {
+    eyebrow: 'Featured Development',
+    title: 'The Anatolian City Bazaar',
+    tag: 'Commercial',
+  },
+  heroSlideTwo: {
+    eyebrow: 'Safe and Efficient Construction',
+    title: 'State-of-the-Art Site Management',
+    tag: 'Infrastructure',
+  },
+  heroSlideThree: {
+    eyebrow: 'Luxury Living',
+    title: 'Villas & Premium Spaces',
+    tag: 'Residential',
+  },
+  heroSlideFour: {
+    eyebrow: 'Coastal Prestige',
+    title: 'Seafront Villas & Premium Spaces',
+    tag: 'Coastal',
+  },
+  heroSlideFive: {
+    eyebrow: 'Refined Interior Design',
+    title: 'Elegant Dining & Living Spaces',
+    tag: 'Interior',
+  },
+  heroSlideSix: {
+    eyebrow: 'Built on Strong Foundations',
+    title: 'Precision Groundworks & Site Execution',
+    tag: 'Engineering',
+  },
+  heroNarrativeOne: {
+    label: 'Signature developments across residential & commercial sectors',
+    value: '15+',
+  },
+  heroNarrativeTwo: {
+    label: 'A decade of precision engineering & craftsmanship',
+    value: '10+',
+  },
+  heroNarrativeThree: {
+    label: 'Excellence in delivery, trusted by every client',
+    value: '100%',
+  },
 
   // CTA
   ctaPrimary: 'View Projects',
@@ -28,6 +71,7 @@ export const en: Messages = {
   statsExperience: 'Years Experience',
   statsClients: 'Happy Clients',
   statsQuality: 'Quality Focus',
+  statsDescription: 'Every stage is driven by detail, accountability, and a premium standard of finish.',
 
   // ABOUT (HOME)
   aboutTitle: 'About Us',
@@ -64,6 +108,12 @@ export const en: Messages = {
   // SERVICES
   servicesTitle: 'Our Services',
   servicesIntro: 'What we offer',
+  servicesWhat: 'What We Do',
+  servicesExploreAll: 'Explore All Services',
+  servicesStatsEyebrow: 'Built on trust. Measured by results.',
+  servicesStatsTitle: 'Proven execution with a premium standard',
+  servicesStatsText: 'We combine technical expertise, disciplined delivery, and refined craftsmanship to create projects that stand out for both performance and presentation.',
+  servicesLearnMore: 'Learn More',
 
   servicesPageTitle: 'Services',
   servicesPageIntro: 'Explore our services',
@@ -84,12 +134,49 @@ export const en: Messages = {
 
   // WHY CHOOSE
   whyChooseTitle: 'Why Choose Us',
-  whyChooseIntro: 'We deliver excellence',
+  whyChooseLabel: 'Why EES',
+  whyChooseOne: {
+  title: 'Premium Finish Quality',
+  body: 'Every project is delivered with a sharp eye for detail, material integrity, and refined presentation.',
+},
 
-  // PROCESS
-  processTitle: 'Our Process',
-  processIntro: 'How we work',
+whyChooseTwo: {
+  title: 'Reliable Project Delivery',
+  body: 'We combine planning, communication, and execution discipline to keep work aligned and predictable.',
+},
 
+whyChooseThree: {
+  title: 'Modern Design Language',
+  body: 'Our spaces are shaped to feel contemporary, elegant, and architecturally relevant for long-term value.',
+},
+
+whyChooseFour: {
+  title: 'Trust-Centered Approach',
+  body: 'We build lasting client confidence through transparency, professionalism, and consistency.',
+},
+
+whyChooseIntro: 'We deliver excellence',
+// PROCESS
+processTitle: 'Our Process',
+processIntro: 'How we work',
+
+processLabel: 'Our Process',
+processOne: {
+  title: 'Consultation',
+  body: 'We understand the vision, project requirements, timeline, and the experience you want the finished space to deliver.',
+},
+processTwo: {
+  title: 'Planning & Design Alignment',
+  body: 'We define scope, refine direction, align design intent, and establish clear execution priorities before work begins.',
+},
+processThree: {
+  title: 'Execution',
+  body: 'The project moves into disciplined implementation with close coordination, strong supervision, and careful quality control.',
+},
+processFour: {
+  title: 'Delivery',
+  body: 'We finalize the details, review the finish, and hand over a completed space built for function, beauty, and long-term value.',
+},
   // TESTIMONIALS
   testimonialsTitle: 'Testimonials',
   testimonialsIntro: 'What clients say',

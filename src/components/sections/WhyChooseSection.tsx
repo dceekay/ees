@@ -11,27 +11,50 @@ type WhyChooseSectionProps = {
 const items = [
   {
     number: '01',
-    title: 'Premium Finish Quality',
-    body: 'Every project is delivered with a sharp eye for detail, material integrity, and refined presentation.',
+    title: '',
+    body: '',
   },
   {
     number: '02',
-    title: 'Reliable Project Delivery',
-    body: 'We combine planning, communication, and execution discipline to keep work aligned and predictable.',
+    title: '',
+    body: '',
   },
   {
     number: '03',
-    title: 'Modern Design Language',
-    body: 'Our spaces are shaped to feel contemporary, elegant, and architecturally relevant for long-term value.',
+    title: '',
+    body: '',
   },
   {
     number: '04',
-    title: 'Trust-Centered Approach',
-    body: 'We build lasting client confidence through transparency, professionalism, and consistency.',
+    title: '',
+    body: '',
   },
 ];
 
 export function WhyChooseSection({ t }: WhyChooseSectionProps) {
+  const itemsData = [
+    {
+      number: '01',
+      title: t.whyChooseOne.title,
+      body: t.whyChooseOne.body,
+    },
+    {
+      number: '02',
+      title: t.whyChooseTwo.title,
+      body: t.whyChooseTwo.body,
+    },
+    {
+      number: '03',
+      title: t.whyChooseThree.title,
+      body: t.whyChooseThree.body,
+    },
+    {
+      number: '04',
+      title: t.whyChooseFour.title,
+      body: t.whyChooseFour.body,
+    },
+  ];
+
   return (
     <ScrollReveal className="whyChooseLuxurySection">
       <div className="whyChooseLuxuryGrid">
@@ -50,7 +73,7 @@ export function WhyChooseSection({ t }: WhyChooseSectionProps) {
         {/* Content — now with AnimatedText + StaggerReveal */}
         <div className="whyChooseContent">
           <AnimatedText className="kicker" as="p">
-            Why EES
+            {t.whyChooseLabel}
           </AnimatedText>
 
           <AnimatedText as="h2" delay={0.08}>
@@ -62,7 +85,7 @@ export function WhyChooseSection({ t }: WhyChooseSectionProps) {
           </AnimatedText>
 
           <StaggerReveal className="whyChooseList">
-            {items.map((item) => (
+            {itemsData.map((item) => (
               <StaggerItem key={item.title}>
                 <article className="whyChooseItem">
                   <span className="whyChooseNumber">{item.number}</span>

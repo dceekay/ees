@@ -11,32 +11,55 @@ type ProcessSectionProps = {
 const steps = [
   {
     number: '01',
-    title: 'Consultation',
-    body: 'We understand the vision, project requirements, timeline, and the experience you want the finished space to deliver.',
+    title: '',
+    body: '',
   },
   {
     number: '02',
-    title: 'Planning & Design Alignment',
-    body: 'We define scope, refine direction, align design intent, and establish clear execution priorities before work begins.',
+    title: '',
+    body: '',
   },
   {
     number: '03',
-    title: 'Execution',
-    body: 'The project moves into disciplined implementation with close coordination, strong supervision, and careful quality control.',
+    title: '',
+    body: '',
   },
   {
     number: '04',
-    title: 'Delivery',
-    body: 'We finalize the details, review the finish, and hand over a completed space built for function, beauty, and long-term value.',
+    title: '',
+    body: '',
   },
 ];
 
 export function ProcessSection({ t }: ProcessSectionProps) {
+  const stepsData = [
+    {
+      number: '01',
+      title: t.processOne.title,
+      body: t.processOne.body,
+    },
+    {
+      number: '02',
+      title: t.processTwo.title,
+      body: t.processTwo.body,
+    },
+    {
+      number: '03',
+      title: t.processThree.title,
+      body: t.processThree.body,
+    },
+    {
+      number: '04',
+      title: t.processFour.title,
+      body: t.processFour.body,
+    },
+  ];
+  
   return (
     <ScrollReveal className="processLuxurySection">
       <div className="processHeader">
         <AnimatedText className="kicker" as="p">
-          Our Process
+          {t.processLabel}
         </AnimatedText>
 
         <AnimatedText as="h2" delay={0.08}>
@@ -49,7 +72,7 @@ export function ProcessSection({ t }: ProcessSectionProps) {
       </div>
 
       <StaggerReveal className="processTimeline">
-        {steps.map((step, index) => (
+        {stepsData.map((step, index) => (
           <StaggerItem key={step.number}>
             <article className={`processStepCard processStepCard--${index + 1}`}>
               <div className="processStepTop">

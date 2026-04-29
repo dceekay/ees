@@ -10,55 +10,55 @@ type HeroSectionProps = {
 
 const SLIDE_INTERVAL = 5000;
 
-const heroSlides = [
-  {
-    image: '/images/hotel.png',
-    eyebrow: 'Featured Development',
-    title: 'The Anatolian City Bazaar',
-    tag: 'Commercial',
-  },
-  {
-    image: '/images/site2.png',
-    eyebrow: 'Safe and Efficient Construction',
-    title: 'State-of-the-Art Site Management',
-    tag: 'Infrastructure',
-  },
-  {
-    image: '/images/project2.jpeg',
-    eyebrow: 'Luxury Living',
-    title: 'Villas & Premium Spaces',
-    tag: 'Residential',
-  },
-  {
-    image: '/images/project3.jpeg',
-    eyebrow: 'Coastal Prestige',
-    title: 'Seafront Villas & Premium Spaces',
-    tag: 'Coastal',
-  },
-  {
-    image: '/images/dining1.jpeg',
-    eyebrow: 'Refined Interior Design',
-    title: 'Elegant Dining & Living Spaces',
-    tag: 'Interior',
-  },
-  {
-    image: '/images/ground.jpeg',
-    eyebrow: 'Built on Strong Foundations',
-    title: 'Precision Groundworks & Site Execution',
-    tag: 'Engineering',
-  },
-];
-
-const narrativeItems = [
-  { label: 'Signature developments across residential & commercial sectors', value: '15+' },
-  { label: 'A decade of precision engineering & craftsmanship', value: '10+' },
-  { label: 'Excellence in delivery, trusted by every client', value: '100%' },
-];
-
 export function HeroSection({ t }: HeroSectionProps) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [activeNarrative, setActiveNarrative] = useState(0);
+
+  const heroSlides = [
+    {
+      image: '/images/hotel.png',
+      eyebrow: t.heroSlideOne.eyebrow,
+      title: t.heroSlideOne.title,
+      tag: t.heroSlideOne.tag,
+    },
+    {
+      image: '/images/site2.png',
+      eyebrow: t.heroSlideTwo.eyebrow,
+      title: t.heroSlideTwo.title,
+      tag: t.heroSlideTwo.tag,
+    },
+    {
+      image: '/images/project2.jpeg',
+      eyebrow: t.heroSlideThree.eyebrow,
+      title: t.heroSlideThree.title,
+      tag: t.heroSlideThree.tag,
+    },
+    {
+      image: '/images/project3.jpeg',
+      eyebrow: t.heroSlideFour.eyebrow,
+      title: t.heroSlideFour.title,
+      tag: t.heroSlideFour.tag,
+    },
+    {
+      image: '/images/dining1.jpeg',
+      eyebrow: t.heroSlideFive.eyebrow,
+      title: t.heroSlideFive.title,
+      tag: t.heroSlideFive.tag,
+    },
+    {
+      image: '/images/ground.jpeg',
+      eyebrow: t.heroSlideSix.eyebrow,
+      title: t.heroSlideSix.title,
+      tag: t.heroSlideSix.tag,
+    },
+  ];
+
+  const narrativeItems = [
+    { label: t.heroNarrativeOne.label, value: t.heroNarrativeOne.value },
+    { label: t.heroNarrativeTwo.label, value: t.heroNarrativeTwo.value },
+    { label: t.heroNarrativeThree.label, value: t.heroNarrativeThree.value },
+  ];
 
   const sectionRef = useRef<HTMLElement>(null);
   const glassRef = useRef<HTMLDivElement>(null);
@@ -351,7 +351,7 @@ export function HeroSection({ t }: HeroSectionProps) {
           {/* Floating badge */}
           <div ref={floatBadgeRef} className="heroV2FloatBadge">
             <span className="heroV2FloatBadgeDot" />
-            <span>Premium Projects</span>
+            <span>{t.heroBadge}</span>
           </div>
 
           {/* Slide counter */}
