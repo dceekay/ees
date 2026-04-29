@@ -1,96 +1,92 @@
-import type { Messages } from './types';
+﻿import type { Messages } from './types';
 
 export const ru: Messages = {
   // NAV
-  navHome: 'Home',
-  navAbout: 'About',
-  navServices: 'Services',
-  navProjects: 'Projects',
-  navContact: 'Contact',
-  navCraft: 'Workmanship',
+  navHome: 'Главная',
+  navAbout: 'О нас',
+  navServices: 'Услуги',
+  navProjects: 'Проекты',
+  navContact: 'Контакты',
+  navCraft: 'Мастерство',
 
   // GLOBAL
-  readMore: 'Read More',
-  viewAllProjects: 'View All Projects',
-  viewAllServices: 'View All Services',
+  readMore: 'Читать далее',
+  viewAllProjects: 'Все проекты',
+  viewAllServices: 'Все услуги',
 
   // HERO
-  heroKicker: 'Premium Construction',
-  heroTitle: 'We Build Timeless Spaces',
-  heroSubtitle: 'Luxury construction and design tailored to your vision.',
+  heroKicker: 'Премиум-класс строительство',
+  heroTitle: 'Мы создаем вечные пространства',
+  heroSubtitle: 'Люксовое строительство и дизайн, адаптированные под вашу визию.',
 
   // CTA
-  ctaPrimary: 'View Projects',
-  ctaSecondary: 'Contact Us',
+  ctaPrimary: 'Смотреть проекты',
+  ctaSecondary: 'Свяжитесь с нами',
 
   // STATS
-  statsProjects: 'Projects Delivered',
-  statsExperience: 'Years Experience',
-  statsClients: 'Happy Clients',
-  statsQuality: 'Quality Focus',
+  statsProjects: 'Завершено проектов',
+  statsExperience: 'Лет опыта',
+  statsClients: 'Довольных клиентов',
+  statsQuality: 'Фокус на качество',
 
   // ABOUT (HOME)
-  aboutTitle: 'About Us',
-  aboutBody: 'We deliver premium construction services with attention to detail and quality craftsmanship.',
+  aboutTitle: 'О нас',
+  aboutBody: 'Мы предоставляем услуги премиум-строительства с вниманием к деталям и высоким качеством мастерства.',
 
-  // ABOUT PAGE
-  aboutPageTitle: 'About Our Company',
-  aboutPageIntro: 'We are committed to excellence.',
-  aboutPageBodyOne: 'Our mission is to build world-class spaces.',
-  aboutPageBodyTwo: 'We combine innovation with experience.',
-
-  aboutPageStoryTitle: 'Our Story',
-aboutPageBodyThree: 'From residential projects to commercial developments and interior transformations, every project reflects our commitment to excellence, clarity, and long-term value.',
-aboutValuesTitle: 'Our Values',
-aboutCtaTitle: 'Let’s Build Something Exceptional',
-aboutCtaText: 'Work with a team that combines technical expertise, modern execution, and a commitment to delivering outstanding results.',
+  // ABOUT PAGE (ENHANCED)
+  aboutPageTitle: 'О нашей компании',
+  aboutPageIntro: 'Современная строительная компания, движимая точностью, качеством и долгосрочным видением.',
+  aboutPageStoryTitle: 'Наша история',
+  aboutPageBodyOne: 'В EES Construction мы верим, что исключительные пространства создаются не просто так — они тщательно созданы с помощью видения, дисциплины и внимания к деталям.',
+  aboutPageBodyTwo: 'На протяжении многих лет мы завоевали репутацию надежности и точности, тесно сотрудничая с клиентами для преобразования идей в качественные разработки, выдерживающие испытание временем.',
+  aboutPageBodyThree: 'От жилых проектов до коммерческих разработок и преобразований интерьеров — каждый проект отражает нашу привязанность совершенству, ясности и долгосрочной ценности.',
+  aboutValuesTitle: 'Наши ценности',
+  aboutCtaTitle: 'Давайте создадим что-то исключительное',
+  aboutCtaText: 'Работайте с командой, которая объединяет технический опыт, современное исполнение и обязательство по достижению выдающихся результатов.',
 
   // SERVICES
-  servicesTitle: 'Our Services',
-  servicesIntro: 'What we offer',
-
-  servicesPageTitle: 'Services',
-  servicesPageIntro: 'Explore our services',
+  servicesTitle: 'Наши услуги',
+  servicesIntro: 'Что мы предлагаем',
+  servicesPageTitle: 'Услуги',
+  servicesPageIntro: 'Изучите наши услуги',
 
   // PROJECTS
-  projectsTitle: 'Our Projects',
-  projectsIntro: 'Recent work',
-
-  projectsPageTitle: 'Projects',
-  projectsPageIntro: 'Explore our portfolio',
+  projectsTitle: 'Наши проекты',
+  projectsIntro: 'Недавние работы',
+  projectsPageTitle: 'Проекты',
+  projectsPageIntro: 'Изучите наше портфолио',
 
   // CONTACT
-  contactTitle: 'Let’s Build Together',
-  contactBody: 'Start your project with us today.',
-
-  contactPageTitle: 'Contact Us',
-  contactPageIntro: 'We would love to hear from you.',
+  contactTitle: 'Давайте строить вместе',
+  contactBody: 'Начните свой проект с нами сегодня.',
+  contactPageTitle: 'Контактируйте с нами',
+  contactPageIntro: 'Нам бы очень хотелось услышать от вас.',
 
   // WHY CHOOSE
-  whyChooseTitle: 'Why Choose Us',
-  whyChooseIntro: 'We deliver excellence',
+  whyChooseTitle: 'Почему выбрать нас',
+  whyChooseIntro: 'Мы обеспечиваем совершенство',
 
   // PROCESS
-  processTitle: 'Our Process',
-  processIntro: 'How we work',
+  processTitle: 'Наш процесс',
+  processIntro: 'Как мы работаем',
 
   // TESTIMONIALS
-  testimonialsTitle: 'Testimonials',
-  testimonialsIntro: 'What clients say',
+  testimonialsTitle: 'Отзывы',
+  testimonialsIntro: 'Что говорят клиенты',
 
   // FAQ
-  faqTitle: 'FAQs',
-  faqIntro: 'Common questions',
+  faqTitle: 'Часто задаваемые вопросы',
+  faqIntro: 'Общие вопросы',
 
   // CRAFT
-  craftTitle: 'Our Craft',
-  craftIntro: 'Precision and quality in every detail',
-  craftItems: ['Quality Materials', 'Expert Team', 'Modern Techniques'],
+  craftTitle: 'Наше мастерство',
+  craftIntro: 'Точность и качество в каждой детали',
+  craftItems: ['Качественные материалы', 'Экспертная команда', 'Современные методы'],
 
   // CTA SECTION
-  ctaTitle: 'Ready to Start?',
-  ctaText: 'Let’s bring your vision to life.',
+  ctaTitle: 'Готовы начать?',
+  ctaText: 'Давайте воплотим вашу видение в жизнь.',
 
   // FOOTER
-  footer: '© 2026 EES Construction. All rights reserved.',
+  footer: '© 2026 EES Construction. Все права защищены.',
 };

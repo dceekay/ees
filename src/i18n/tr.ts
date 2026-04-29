@@ -1,95 +1,92 @@
-import type { Messages } from './types';
+﻿import type { Messages } from './types';
 
 export const tr: Messages = {
   // NAV
-  navHome: 'Home',
-  navAbout: 'About',
-  navServices: 'Services',
-  navProjects: 'Projects',
-  navContact: 'Contact',
-  navCraft: 'Workmanship',
+  navHome: 'Ana Sayfa',
+  navAbout: 'Hakkında',
+  navServices: 'Hizmetler',
+  navProjects: 'Projeler',
+  navContact: 'İletişim',
+  navCraft: 'İşçilik',
 
   // GLOBAL
-  readMore: 'Read More',
-  viewAllProjects: 'View All Projects',
-  viewAllServices: 'View All Services',
+  readMore: 'Devamını Oku',
+  viewAllProjects: 'Tüm Projeleri Göster',
+  viewAllServices: 'Tüm Hizmetleri Göster',
 
   // HERO
-  heroKicker: 'Premium Construction',
-  heroTitle: 'We Build Timeless Spaces',
-  heroSubtitle: 'Luxury construction and design tailored to your vision.',
+  heroKicker: 'Premium İnşaat',
+  heroTitle: 'Zamansız Mekanlar İnşa Ediyoruz',
+  heroSubtitle: 'Vizyonunuza özel tasarlanmış lüks inşaat ve tasarım.',
 
   // CTA
-  ctaPrimary: 'View Projects',
-  ctaSecondary: 'Contact Us',
+  ctaPrimary: 'Projeleri Görüntüle',
+  ctaSecondary: 'Bize Ulaşın',
 
   // STATS
-  statsProjects: 'Projects Delivered',
-  statsExperience: 'Years Experience',
-  statsClients: 'Happy Clients',
-  statsQuality: 'Quality Focus',
+  statsProjects: 'Teslim Edilen Projeler',
+  statsExperience: 'Yıl Deneyim',
+  statsClients: 'Mutlu Müşteriler',
+  statsQuality: 'Kalite Odağı',
 
   // ABOUT (HOME)
-  aboutTitle: 'About Us',
-  aboutBody: 'We deliver premium construction services with attention to detail and quality craftsmanship.',
+  aboutTitle: 'Hakkımızda',
+  aboutBody: 'Ayrıntılara dikkat ve kaliteli işçilikle premium inşaat hizmetleri sunuyoruz.',
 
-  // ABOUT PAGE
-  aboutPageTitle: 'About Our Company',
-  aboutPageIntro: 'We are committed to excellence.',
-  aboutPageBodyOne: 'Our mission is to build world-class spaces.',
-  aboutPageBodyTwo: 'We combine innovation with experience.',
-  aboutPageStoryTitle: 'Our Story',
-aboutPageBodyThree: 'From residential projects to commercial developments and interior transformations, every project reflects our commitment to excellence, clarity, and long-term value.',
-aboutValuesTitle: 'Our Values',
-aboutCtaTitle: 'Let’s Build Something Exceptional',
-aboutCtaText: 'Work with a team that combines technical expertise, modern execution, and a commitment to delivering outstanding results.',
+  // ABOUT PAGE (ENHANCED)
+  aboutPageTitle: 'Şirketimiz Hakkında',
+  aboutPageIntro: 'Hassasiyet, kalite ve uzun vadeli vizyonla çalışan modern bir inşaat şirketi.',
+  aboutPageStoryTitle: 'Bizim Hikayemiz',
+  aboutPageBodyOne: 'EES İnşaat olarak, istisnai mekanların sadece inşa edilmediğine, vizyonun, disiplinin ve detaylara dikkat edilerek işlendiğine inanıyoruz.',
+  aboutPageBodyTwo: 'Yıllar içinde güvenilirlik ve hassasiyet konusunda bir üne kavuştuk; müşterilerle yakından çalışarak fikirleri, zaman testinden geçen yüksek kaliteli gelişmelere dönüştürüyoruz.',
+  aboutPageBodyThree: 'Konut projelerinden ticari gelişmelere ve iç döngüşümlere kadar, her proje mükemmeliyet, netlik ve uzun vadeli değere olan bağlılığımızı yansıtır.',
+  aboutValuesTitle: 'Değerlerimiz',
+  aboutCtaTitle: 'Olağanüstü Bir Şey İnşa Edelim',
+  aboutCtaText: 'Teknik uzmanlığı, modern yürütmeyi ve olağanüstü sonuçlar verme taahüdünü birleştiren bir ekiple çalışın.',
 
   // SERVICES
-  servicesTitle: 'Our Services',
-  servicesIntro: 'What we offer',
-
-  servicesPageTitle: 'Services',
-  servicesPageIntro: 'Explore our services',
+  servicesTitle: 'Hizmetlerimiz',
+  servicesIntro: 'Neler sunuyoruz',
+  servicesPageTitle: 'Hizmetler',
+  servicesPageIntro: 'Hizmetlerimizi keşfedin',
 
   // PROJECTS
-  projectsTitle: 'Our Projects',
-  projectsIntro: 'Recent work',
-
-  projectsPageTitle: 'Projects',
-  projectsPageIntro: 'Explore our portfolio',
+  projectsTitle: 'Projelerimiz',
+  projectsIntro: 'Son çalışmalar',
+  projectsPageTitle: 'Projeler',
+  projectsPageIntro: 'Portföyümüzü keşfedin',
 
   // CONTACT
-  contactTitle: 'Let’s Build Together',
-  contactBody: 'Start your project with us today.',
-
-  contactPageTitle: 'Contact Us',
-  contactPageIntro: 'We would love to hear from you.',
+  contactTitle: 'Birlikte İnşa Edelim',
+  contactBody: 'Projenizi bugün bize başlatın.',
+  contactPageTitle: 'Bize Ulaşın',
+  contactPageIntro: 'Sizden haber almak isteriz.',
 
   // WHY CHOOSE
-  whyChooseTitle: 'Why Choose Us',
-  whyChooseIntro: 'We deliver excellence',
+  whyChooseTitle: 'Neden Biz?',
+  whyChooseIntro: 'Mükemmeliyet sunuyoruz',
 
   // PROCESS
-  processTitle: 'Our Process',
-  processIntro: 'How we work',
+  processTitle: 'Sürecimiz',
+  processIntro: 'Nasıl çalışıyoruz',
 
   // TESTIMONIALS
-  testimonialsTitle: 'Testimonials',
-  testimonialsIntro: 'What clients say',
+  testimonialsTitle: 'Referanslar',
+  testimonialsIntro: 'Müşteriler neler diyor',
 
   // FAQ
-  faqTitle: 'FAQs',
-  faqIntro: 'Common questions',
+  faqTitle: 'SSS',
+  faqIntro: 'Sık sorulan sorular',
 
   // CRAFT
-  craftTitle: 'Our Craft',
-  craftIntro: 'Precision and quality in every detail',
-  craftItems: ['Quality Materials', 'Expert Team', 'Modern Techniques'],
+  craftTitle: 'Bizim İşçiliğimiz',
+  craftIntro: 'Her detayda hassasiyet ve kalite',
+  craftItems: ['Kaliteli Malzemeler', 'Uzman Ekip', 'Modern Teknikler'],
 
   // CTA SECTION
-  ctaTitle: 'Ready to Start?',
-  ctaText: 'Let’s bring your vision to life.',
+  ctaTitle: 'Başlamaya Hazır Mısınız?',
+  ctaText: 'Vizyonunuzu hayata geçirelim.',
 
   // FOOTER
-  footer: '© 2026 EES Construction. All rights reserved.',
+  footer: '© 2026 EES İnşaat. Tüm hakları saklıdır.',
 };

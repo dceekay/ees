@@ -1,95 +1,92 @@
-import type { Messages } from './types';
+﻿import type { Messages } from './types';
 
 export const fa: Messages = {
   // NAV
-  navHome: 'Home',
-  navAbout: 'About',
-  navServices: 'Services',
-  navProjects: 'Projects',
-  navContact: 'Contact',
-  navCraft: 'Workmanship',
+  navHome: 'صفحه اصلی',
+  navAbout: 'درباره ما',
+  navServices: 'خدمات',
+  navProjects: 'پروژه ها',
+  navContact: 'تماس با ما',
+  navCraft: 'کاری دستی',
 
   // GLOBAL
-  readMore: 'Read More',
-  viewAllProjects: 'View All Projects',
-  viewAllServices: 'View All Services',
+  readMore: 'بیشتر بخوانید',
+  viewAllProjects: 'مشاهده تمام پروژه ها',
+  viewAllServices: 'مشاهده تمام خدمات',
 
   // HERO
-  heroKicker: 'Premium Construction',
-  heroTitle: 'We Build Timeless Spaces',
-  heroSubtitle: 'Luxury construction and design tailored to your vision.',
+  heroKicker: 'ساخت و ساز پریمیوم',
+  heroTitle: 'ما فضاهای ابدی می سازیم',
+  heroSubtitle: 'ساخت و ساز لوکس و طراحی برای رؤیای شما.',
 
   // CTA
-  ctaPrimary: 'View Projects',
-  ctaSecondary: 'Contact Us',
+  ctaPrimary: 'مشاهده پروژه ها',
+  ctaSecondary: 'تماس با ما',
 
   // STATS
-  statsProjects: 'Projects Delivered',
-  statsExperience: 'Years Experience',
-  statsClients: 'Happy Clients',
-  statsQuality: 'Quality Focus',
+  statsProjects: 'پروژه های تحویل شده',
+  statsExperience: 'سال تجربه',
+  statsClients: 'مشتریان راضی',
+  statsQuality: 'تمرکز بر کیفیت',
 
   // ABOUT (HOME)
-  aboutTitle: 'About Us',
-  aboutBody: 'We deliver premium construction services with attention to detail and quality craftsmanship.',
+  aboutTitle: 'درباره ما',
+  aboutBody: 'ما خدمات ساخت و ساز پریمیوم با توجه به جزئیات و کاری دستی با کیفیت ارائه می دهیم.',
 
-  // ABOUT PAGE
-  aboutPageTitle: 'About Our Company',
-  aboutPageIntro: 'We are committed to excellence.',
-  aboutPageBodyOne: 'Our mission is to build world-class spaces.',
-  aboutPageBodyTwo: 'We combine innovation with experience.',
-  aboutPageStoryTitle: 'Our Story',
-aboutPageBodyThree: 'From residential projects to commercial developments and interior transformations, every project reflects our commitment to excellence, clarity, and long-term value.',
-aboutValuesTitle: 'Our Values',
-aboutCtaTitle: 'Let’s Build Something Exceptional',
-aboutCtaText: 'Work with a team that combines technical expertise, modern execution, and a commitment to delivering outstanding results.',
+  // ABOUT PAGE (ENHANCED)
+  aboutPageTitle: 'درباره شرکت ما',
+  aboutPageIntro: 'شرکتی مدرن در زمینه ساخت و ساز که توسط دقت، کیفیت و چشم انداز بلند مدت هدایت می شود.',
+  aboutPageStoryTitle: 'داستان ما',
+  aboutPageBodyOne: 'در EES ساخت و ساز، ما معتقد به این هستیم که فضاهای فوق العاده فقط ساخته نمی شوند - آنها به طور دقیق تر از طریق رؤیا، انضباط و توجه به جزئیات ایجاد می شوند.',
+  aboutPageBodyTwo: 'در طول سال ها، ما سمعه ای از قابلیت اعتماد و دقت پیدا کرده ایم و با نزدیکی با مشتریان کار می کنیم تا ایده ها را به توسعه های با کیفیت بالا تبدیل کنیم که در برابر آزمون زمان مقاوم باشند.',
+  aboutPageBodyThree: 'از پروژه های مسکونی گرفته تا توسعه های تجاری و تحولات داخلی، هر پروژه تعهد ما به تعالی، وضوح و ارزش بلند مدت را منعکس می کند.',
+  aboutValuesTitle: 'مقادیر ما',
+  aboutCtaTitle: 'بیایید چیزی غیر معمول بسازیم',
+  aboutCtaText: 'با تیمی کار کنید که تخصص فنی، اجرای مدرن و تعهد به دستیابی به نتایج فوق العاده را ترکیب می کند.',
 
   // SERVICES
-  servicesTitle: 'Our Services',
-  servicesIntro: 'What we offer',
-
-  servicesPageTitle: 'Services',
-  servicesPageIntro: 'Explore our services',
+  servicesTitle: 'خدمات ما',
+  servicesIntro: 'آنچه ما ارائه می دهیم',
+  servicesPageTitle: 'خدمات',
+  servicesPageIntro: 'خدمات ما را کاوش کنید',
 
   // PROJECTS
-  projectsTitle: 'Our Projects',
-  projectsIntro: 'Recent work',
-
-  projectsPageTitle: 'Projects',
-  projectsPageIntro: 'Explore our portfolio',
+  projectsTitle: 'پروژه های ما',
+  projectsIntro: 'کارهای اخیر',
+  projectsPageTitle: 'پروژه ها',
+  projectsPageIntro: 'نمونه کار ما را کاوش کنید',
 
   // CONTACT
-  contactTitle: 'Let’s Build Together',
-  contactBody: 'Start your project with us today.',
-
-  contactPageTitle: 'Contact Us',
-  contactPageIntro: 'We would love to hear from you.',
+  contactTitle: 'بیایید با هم بسازیم',
+  contactBody: 'امروز پروژه خود را با ما شروع کنید.',
+  contactPageTitle: 'تماس با ما',
+  contactPageIntro: 'ما دوست داریم از شما بشنویم.',
 
   // WHY CHOOSE
-  whyChooseTitle: 'Why Choose Us',
-  whyChooseIntro: 'We deliver excellence',
+  whyChooseTitle: 'چرا ما را اختیار کنید',
+  whyChooseIntro: 'ما تعالی را ارائه می دهیم',
 
   // PROCESS
-  processTitle: 'Our Process',
-  processIntro: 'How we work',
+  processTitle: 'فرآیند ما',
+  processIntro: 'نحوه کار ما',
 
   // TESTIMONIALS
-  testimonialsTitle: 'Testimonials',
-  testimonialsIntro: 'What clients say',
+  testimonialsTitle: 'نظریات',
+  testimonialsIntro: 'آنچه مشتریان می گویند',
 
   // FAQ
-  faqTitle: 'FAQs',
-  faqIntro: 'Common questions',
+  faqTitle: 'سوالات متکرر',
+  faqIntro: 'سوالات عمومی',
 
   // CRAFT
-  craftTitle: 'Our Craft',
-  craftIntro: 'Precision and quality in every detail',
-  craftItems: ['Quality Materials', 'Expert Team', 'Modern Techniques'],
+  craftTitle: 'کاری دستی ما',
+  craftIntro: 'دقت و کیفیت در هر جزئیات',
+  craftItems: ['مواد با کیفیت', 'تیم متخصص', 'تقنیک های مدرن'],
 
   // CTA SECTION
-  ctaTitle: 'Ready to Start?',
-  ctaText: 'Let’s bring your vision to life.',
+  ctaTitle: 'آیا برای شروع آماده اید؟',
+  ctaText: 'بیایید رؤیای شما را به واقعیت تبدیل کنیم.',
 
   // FOOTER
-  footer: '© 2026 EES Construction. All rights reserved.',
+  footer: '© 2026 EES ساخت و ساز. تمام حقوق محفوظ است.',
 };
