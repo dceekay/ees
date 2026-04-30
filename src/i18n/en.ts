@@ -137,47 +137,7 @@ export const en: Messages = {
   servicesStatsTitle: 'Proven execution with a premium standard',
   servicesStatsText: 'We combine technical expertise, disciplined delivery, and refined craftsmanship to create projects that stand out for both performance and presentation.',
   servicesLearnMore: 'Learn More',
-
-
-  servicesList: [
-  {
-    slug: 'construction-development',
-    title: 'Construction & Development',
-    body: `We deliver end-to-end construction solutions that transform concepts into lasting architectural realities.
-
-From early-stage planning to final execution, every phase is handled with precision, discipline, and a commitment to excellence.
-
-We ensure structural integrity, long-term performance, and premium finishing across all projects.`,
-    image: '/images/project1.jpeg',
-  },
-
-  {
-    slug: 'architecture-design',
-    title: 'Architecture & Design',
-    body: `Our architectural process is driven by clarity, creativity, and purpose.
-
-We design spaces that are visually compelling, functional, and built for long-term usability and elegance.`,
-    image: '/images/project2.jpeg',
-  },
-
-  {
-    slug: 'interior-design',
-    title: 'Interior Design',
-    body: `We create interiors that reflect identity, comfort, and sophistication.
-
-Every detail — from materials to lighting — is carefully curated for a refined experience.`,
-    image: '/images/project3.jpeg',
-  },
-
-  {
-    slug: 'project-management',
-    title: 'Project Management',
-    body: `We manage projects with precision, transparency, and efficiency.
-
-From coordination to delivery, we ensure timelines, quality, and execution stay aligned.`,
-    image: '/images/project4.jpeg',
-  },
-],
+  
 
   servicesPageTitle: 'Services',
   servicesPageIntro: 'Explore our services',

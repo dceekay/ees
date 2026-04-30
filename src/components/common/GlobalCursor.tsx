@@ -8,6 +8,10 @@ export function GlobalCursor() {
     const cursor = cursorRef.current;
     if (!cursor) return;
 
+    // Check if device is mobile
+    const isMobile = window.innerWidth <= 860;
+    if (isMobile) return;
+
     // 🔥 SET INITIAL STATE (IMPORTANT)
     gsap.set(cursor, {
       x: window.innerWidth / 2,

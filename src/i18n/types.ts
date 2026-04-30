@@ -118,8 +118,6 @@ export type Messages = {
   aboutCtaText: string;
 
   // SERVICES
-  // SERVICES LIST (NEW)
-servicesList: ServiceItem[];
   servicesTitle: string;
   servicesIntro: string;
   servicesWhat: string;

@@ -16,7 +16,16 @@ body {
   cursor: none;
 }
 
+/* Show default cursor on mobile */
 @media (max-width: 860px) {
+  .globalCursor {
+    display: none;
+  }
+
+  body {
+    cursor: auto;
+  }
+
   section {
     padding: 3rem 1rem !important;
   }

@@ -40,6 +40,7 @@ export function LanguageSwitcher() {
         className="langTrigger"
         onClick={() => setOpen(v => !v)}
         aria-expanded={open}
+        aria-label="Language selector"
       >
         <motion.span
           className="langFlag"
@@ -56,8 +57,9 @@ export function LanguageSwitcher() {
         </span>
 
         <motion.span
-          className="arrow"
+          className="langArrow"
           animate={{ rotate: open ? 180 : 0 }}
+          transition={{ duration: 0.3 }}
         >
           ▾
         </motion.span>
@@ -68,20 +70,35 @@ export function LanguageSwitcher() {
         {open && (
           <motion.div
             className="langDropdownCinematic"
-            initial={{ opacity: 0, y: -20, scale: 0.92, filter: 'blur(10px)' }}
+            initial={{ opacity: 0, y: -12, scale: 0.95, filter: 'blur(8px)' }}
             animate={{ opacity: 1, y: 0, scale: 1, filter: 'blur(0px)' }}
-            exit={{ opacity: 0, y: -10, scale: 0.95, filter: 'blur(10px)' }}
-            transition={{ type: 'spring', stiffness: 260, damping: 22 }}
+            exit={{ opacity: 0, y: -8, scale: 0.97, filter: 'blur(8px)' }}
+            transition={{ type: 'spring', stiffness: 300, damping: 25 }}
           >
-            {langs.map(l => (
+            {langs.map((l, idx) => (
               <motion.button
                 key={l}
                 className={`langItem ${l === lang ? 'active' : ''}`}
-                whileHover={{ scale: 1.04 }}
+                initial={{ opacity: 0, x: -8 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -8 }}
+                transition={{ delay: idx * 0.05 }}
+                whileHover={{ scale: 1.05, x: 4 }}
+                whileTap={{ scale: 0.98 }}
                 onClick={() => handleSelect(l)}
               >
-                <span>{flags[l]}</span>
-                <span>{languageMeta[l].label}</span>
+                <span className="langItemFlag">{flags[l]}</span>
+                <span className="langItemLabel">{languageMeta[l].label}</span>
+                {l === lang && (
+                  <motion.span
+                    className="langItemCheck"
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ type: 'spring', stiffness: 400 }}
+                  >
+                    ✓
+                  </motion.span>
+                )}
               </motion.button>
             ))}
           </motion.div>
