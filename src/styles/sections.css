@@ -392,15 +392,15 @@ p, span {
 
 /* ---- DESKTOP: side-by-side container ---- */
 .heroV2Container {
-  display: flex;
-  flex-direction: row;
+display: grid;
+  /* 1fr for text, 1.4fr for slider makes the image significantly larger */
+  grid-template-columns: 1fr 1.4fr; 
   align-items: center;
-  justify-content: center;
-  gap: 3rem;
+  gap: 4rem;
   width: 100%;
-  max-width: 1400px;
+  max-width: 1600px; /* Increased from 1400px to allow more room */
   margin: 0 auto;
-  padding: 0 3%;
+  padding: 0 5%;
   min-height: 100vh;
   position: relative;
   z-index: 3;
@@ -409,7 +409,8 @@ p, span {
 /* ---- Glass panel (desktop) ---- */
 .heroV2Glass {
   flex: 0 1 560px;
-  max-width: 560px;
+  max-width: 100%;
+  width: 100%;
   transform-style: preserve-3d;
   border: 1px solid rgba(215,181,109,0.12);
   box-shadow:
@@ -1338,8 +1339,8 @@ p, span {
   /* ---- HERO: full-screen stacked ---- */
   .heroStory.cinematic.heroV2 {
     min-height: 100svh;
-    height: 100svh;
-    padding: 0;
+    height: auto;
+    padding: 8rem 0 4rem;
     display: flex;
     flex-direction: column;
     align-items: stretch;
