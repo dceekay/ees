@@ -359,11 +359,6 @@
   border: 1px solid rgba(215, 181, 109, 0.3);
 }
 
-footer {
-  text-align: center;
-  color: var(--muted);
-  padding: 2.2rem 0 1rem;
-}
 
 /* =========================
    TABLET

@@ -201,6 +201,10 @@
   color: var(--muted);
 }
 
+.siteFooterBottom p {
+  margin: 0;
+}
+
 .siteFooterBottom--left {
   text-align: left;
 }
@@ -318,7 +322,7 @@
 }
 
 /* =========================
-   MOBILE (max 640px)
+   MOBILE (max 640px) – 2 COLUMN GRID
    ========================= */
 
 @media (max-width: 640px) {
@@ -330,17 +334,19 @@
     padding: 2.5rem 1.2rem;
   }
 
-  /* Row 1: Stack vertically */
+  /* Row 1: 2 columns with Brand spanning full width */
   .siteFooterTop {
-    grid-template-columns: 2fr;
+    grid-template-columns: 1fr 1fr;
     gap: 2rem;
     margin-bottom: 2rem;
   }
 
-  /* Brand at top, full width */
+  /* Brand spans both columns and stays at top */
   .siteFooterBrand {
+    grid-column: 1 / -1;
     padding-bottom: 1.5rem;
     border-bottom: 1px solid rgba(215, 181, 109, 0.08);
+    margin-bottom: 1rem;
   }
 
   .siteFooterBrand h3 {
@@ -351,20 +357,19 @@
   .siteFooterBrand p {
     font-size: 0.9rem;
     margin-bottom: 1rem;
+    max-width: 100%;
   }
 
+  /* Center social icons */
   .siteFooterSocial {
-    justify-content: flex-start;
+    justify-content: center;
+    margin-top: 0.5rem;
   }
 
+  /* Columns layout */
   .siteFooterCol {
-    padding-bottom: 1.5rem;
-    border-bottom: 1px solid rgba(215, 181, 109, 0.08);
-  }
-
-  .siteFooterCol:last-of-type {
-    border-bottom: none;
-    padding-bottom: 0;
+    padding: 0;
+    border: none;
   }
 
   .siteFooterCol h4 {
@@ -385,7 +390,7 @@
 
   /* Row 2: Stack vertically */
   .siteFooterBottom {
-    grid-template-columns: 2fr;
+    grid-template-columns: 1fr;
     gap: 1rem;
     padding-top: 1.5rem;
     border-top: 1px solid rgba(215, 181, 109, 0.08);
@@ -400,10 +405,10 @@
   .siteFooterBottom--right {
     gap: 1rem;
     justify-content: center;
+    flex-wrap: wrap;
   }
 
   .siteFooterBottom--center {
-    order: 3;
     font-size: 0.8rem;
   }
 }
