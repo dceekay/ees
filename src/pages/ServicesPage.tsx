@@ -214,7 +214,7 @@ export function ServicesPage() {
         {/* STICKY PANELS */}
         <section className="servicesStickyWrap">
           {services.map((service, index) => (
-            <div className="servicePanel" key={service.title}>
+            <div className="servicePanel" key={service.slug}>
               <div className="serviceSticky">
                 <div className="serviceCard">
                   <div className="serviceGrid">
@@ -229,7 +229,7 @@ export function ServicesPage() {
 
                     <div className="serviceVisual">
                       <img
-                        src={`/images/project${index + 1}.jpeg`}
+                        src={service.image} // Use custom image from service data
                         alt={service.title}
                         loading="lazy"
                       />

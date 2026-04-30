@@ -6,6 +6,7 @@ export type Service = {
   shortDescription: string;
   description: string;
   body: string;
+  image: string; // Custom image path for each service
 };
 
 export const services: Service[] = [
@@ -16,6 +17,7 @@ export const services: Service[] = [
       'End-to-end construction solutions built for durability and performance.',
     description:
       'We deliver complete construction solutions from planning to execution with precision and quality.',
+    image: '/images/ext.png', // Custom image
     body: `
 We deliver end-to-end construction solutions that transform concepts into
 lasting architectural realities. From early-stage planning and structural
@@ -39,6 +41,7 @@ material quality, and refined craftsmanship.
       'Modern architectural solutions blending creativity and function.',
     description:
       'We design intelligent, functional, and visually compelling spaces.',
+    image: '/images/ground.jpeg', // Custom image
     body: `
 Our architectural process is driven by clarity, creativity, and purpose.
 We design spaces that are not only visually compelling, but also
@@ -60,6 +63,7 @@ We believe great architecture is not just seen — it is experienced.
       'Elegant interiors tailored for comfort, identity, and lifestyle.',
     description:
       'We create refined interior spaces that balance beauty and functionality.',
+    image: '/images/project27.jpeg', // Custom image
     body: `
 We create interiors that reflect identity, comfort, and sophistication.
 Every element is carefully curated — from materials and textures to
@@ -80,6 +84,7 @@ Attention to detail defines every environment we shape.
       'Structured execution ensuring timely and high-quality delivery.',
     description:
       'We manage projects with precision, transparency, and efficiency.',
+    image: '/images/interior.png', // Custom image
     body: `
 Our project management ensures that every stage of development is executed
 with clarity, efficiency, and control. We coordinate all stakeholders,
