@@ -85,8 +85,36 @@ export const ar: Messages = {
   aboutPageBodyTwo: 'على مر السنين، اكتسبنا سمعة بالموثوقية والدقة، حيث نعمل بشكل وثيق مع العملاء لتحويل الأفكار إلى تطورات عالية الجودة تصمد أمام اختبار الزمن.',
   aboutPageBodyThree: 'من المشاريع السكنية إلى التطورات التجارية وتحولات الديكور الداخلي، يعكس كل مشروع التزامنا بالتميز والوضوح والقيمة طويلة الأجل.',
   aboutValuesTitle: 'قيمنا',
+
+  aboutValuesPrecision: {
+    title: 'الدقة',
+    text: 'كل تفصيل مهم. من التخطيط الهيكلي إلى التشطيبات النهائية، نسلم بدقة وانضباط.',
+  },
+
+  aboutValuesTrust: {
+    title: 'الثقة',
+    text: 'نبني شراكات دائمة من خلال الشفافية والموثوقية والتواصل المستمر.',
+  },
+
+  aboutValuesQuality: {
+    title: 'الجودة',
+    text: 'تحدد المواد الفاخرة والحرفية المصقولة والمعايير التي لا تقبل التنازل عن عملنا.',
+  },
+
+  aboutValuesInnovation: {
+    title: 'الابتكار',
+    text: 'نندمج تقنيات البناء الحديثة مع حلول التصميم ذات النظرة المستقبلية.',
+  },
+
+  aboutStatProjectsDelivered: 'المشاريع المسلمة',
+  aboutStatYearsExperience: 'سنة من الخبرة',
+  aboutStatClients: 'العملاء',
+  aboutStatQualityFocus: 'التركيز على الجودة',
+
   aboutCtaTitle: 'دعنا نبني شيئاً استثنائياً',
-  aboutCtaText: 'اعمل مع فريق يجمع بين الخبرة الفنية والتنفيذ الحديث والالتزام بتحقيق نتائج استثنائية.',
+
+  aboutCtaText:
+    'اعمل مع فريق يجمع بين الخبرة الفنية والتنفيذ الحديث والالتزام بتحقيق نتائج استثنائية.',
 
   // SERVICES
   servicesTitle: 'خدماتنا',
@@ -103,14 +131,39 @@ export const ar: Messages = {
   // PROJECTS
   projectsTitle: 'مشاريعنا',
   projectsIntro: 'أعمال حديثة',
-  projectsPageTitle: 'المشاريع',
-  projectsPageIntro: 'اكتشف محفظتنا',
+
+  projectsPageTitle: 'مشاريعنا',
+  projectsPageIntro: 'فضاءات مبنية بدقة يحددها التفصيل والتوازن والحرفية.',
+  projectsHeroSubtitle: 'فضاءات مبنية بدقة يحددها التفصيل والتوازن والحرفية.',
+  projectsFeaturedLabel: 'المشروع المميز',
+  projectsViewCaseStudy: 'عرض دراسة الحالة',
+  projectsOpenProject: 'فتح المشروع',
+  projectsModalDescription: 'يمثل هذا المشروع توازناً بين الدقة المعمارية وجودة المواد وتفكير التصميم الحديث. تم تنفيذ كل تفصيل مع الأخذ في الاعتبار المتانة طويلة الأجل والوضوح الجمالي.',
 
   // CONTACT
   contactTitle: 'دعنا نبني معاً',
   contactBody: 'ابدأ مشروعك معنا اليوم.',
+
   contactPageTitle: 'تواصل معنا',
   contactPageIntro: 'نود أن نسمع منك.',
+  contactHeroTitle: 'دعنا ننشئ شيئاً مذهلاً',
+  contactGetInTouch: 'تواصل معنا',
+  contactFollowUs: 'تابعنا',
+  contactSendMessage: 'أرسل رسالة',
+  contactFormName: 'اسمك',
+  contactFormEmail: 'عنوان بريدك الإلكتروني',
+  contactFormPhone: 'رقم الهاتف',
+  contactFormMessage: 'رسالتك',
+  contactFormSubmit: 'أرسل الرسالة',
+  contactMethodEmail: 'البريد الإلكتروني',
+  contactMethodPhone: 'الهاتف',
+  contactMethodLocation: 'الموقع',
+  contactEmailAddress: 'info@eesconstruction.com',
+  contactPhoneNumber: '+90 500 000 00 00',
+  contactLocationAddress: 'كانو، نيجيريا',
+  contactSocialLinkedin: 'LinkedIn',
+  contactSocialInstagram: 'Instagram',
+  contactSocialTwitter: 'Twitter',
 
   // WHY CHOOSE
   whyChooseTitle: 'لماذا اختيارنا',
@@ -170,6 +223,7 @@ export const ar: Messages = {
   // CTA SECTION
   ctaTitle: 'هل أنت مستعد للبدء؟',
   ctaText: 'دعنا نحقق رؤيتك الحقيقة.',
+  ctaSectionKicker: 'دعنا نبني',
 
   // FOOTER
   footer: '© 2026 EES للبناء. جميع الحقوق محفوظة.',

@@ -99,7 +99,30 @@ export const en: Messages = {
     'From residential projects to commercial developments and interior transformations, every project reflects our commitment to excellence, clarity, and long-term value.',
 
   aboutValuesTitle: 'Our Values',
+  aboutValuesPrecision: {
+    title: 'Precision',
+    text: 'Every detail matters. From structural planning to final finishes, we deliver with exactness and discipline.',
+  },
 
+  aboutValuesTrust: {
+    title: 'Trust',
+    text: 'We build lasting partnerships through transparency, reliability, and consistent communication.',
+  },
+
+  aboutValuesQuality: {
+    title: 'Quality',
+    text: 'Premium materials, refined craftsmanship, and uncompromising standards define our work.',
+  },
+
+  aboutValuesInnovation: {
+    title: 'Innovation',
+    text: 'We integrate modern construction techniques with forward-thinking design solutions.',
+  },
+
+  aboutStatProjectsDelivered: 'Projects Delivered',
+  aboutStatYearsExperience: 'Years Experience',
+  aboutStatClients: 'Clients',
+  aboutStatQualityFocus: 'Quality Focus',
   aboutCtaTitle: 'Let’s Build Something Exceptional',
 
   aboutCtaText:
@@ -115,6 +138,47 @@ export const en: Messages = {
   servicesStatsText: 'We combine technical expertise, disciplined delivery, and refined craftsmanship to create projects that stand out for both performance and presentation.',
   servicesLearnMore: 'Learn More',
 
+
+  servicesList: [
+  {
+    slug: 'construction-development',
+    title: 'Construction & Development',
+    body: `We deliver end-to-end construction solutions that transform concepts into lasting architectural realities.
+
+From early-stage planning to final execution, every phase is handled with precision, discipline, and a commitment to excellence.
+
+We ensure structural integrity, long-term performance, and premium finishing across all projects.`,
+    image: '/images/project1.jpeg',
+  },
+
+  {
+    slug: 'architecture-design',
+    title: 'Architecture & Design',
+    body: `Our architectural process is driven by clarity, creativity, and purpose.
+
+We design spaces that are visually compelling, functional, and built for long-term usability and elegance.`,
+    image: '/images/project2.jpeg',
+  },
+
+  {
+    slug: 'interior-design',
+    title: 'Interior Design',
+    body: `We create interiors that reflect identity, comfort, and sophistication.
+
+Every detail — from materials to lighting — is carefully curated for a refined experience.`,
+    image: '/images/project3.jpeg',
+  },
+
+  {
+    slug: 'project-management',
+    title: 'Project Management',
+    body: `We manage projects with precision, transparency, and efficiency.
+
+From coordination to delivery, we ensure timelines, quality, and execution stay aligned.`,
+    image: '/images/project4.jpeg',
+  },
+],
+
   servicesPageTitle: 'Services',
   servicesPageIntro: 'Explore our services',
 
@@ -122,8 +186,13 @@ export const en: Messages = {
   projectsTitle: 'Our Projects',
   projectsIntro: 'Recent work',
 
-  projectsPageTitle: 'Projects',
-  projectsPageIntro: 'Explore our portfolio',
+  projectsPageTitle: 'Our Projects',
+  projectsPageIntro: 'Precision-built spaces defined by detail, balance, and craftsmanship.',
+  projectsHeroSubtitle: 'Precision-built spaces defined by detail, balance, and craftsmanship.',
+  projectsFeaturedLabel: 'Featured Project',
+  projectsViewCaseStudy: 'View Case Study',
+  projectsOpenProject: 'Open Project',
+  projectsModalDescription: 'This project represents a balance between architectural precision, material quality, and modern design thinking. Every detail was executed with long-term durability and aesthetic clarity in mind.',
 
   // CONTACT
   contactTitle: 'Let’s Build Together',
@@ -131,7 +200,24 @@ export const en: Messages = {
 
   contactPageTitle: 'Contact Us',
   contactPageIntro: 'We would love to hear from you.',
-
+  contactHeroTitle: 'Let\'s Create Something Amazing',
+  contactGetInTouch: 'Get in Touch',
+  contactFollowUs: 'Follow Us',
+  contactSendMessage: 'Send a Message',
+  contactFormName: 'Your Name',
+  contactFormEmail: 'Email Address',
+  contactFormPhone: 'Phone Number',
+  contactFormMessage: 'Your Message',
+  contactFormSubmit: 'Send Message',
+  contactMethodEmail: 'Email',
+  contactMethodPhone: 'Phone',
+  contactMethodLocation: 'Location',
+  contactEmailAddress: 'info@eesconstruction.com',
+  contactPhoneNumber: '+90 500 000 00 00',
+  contactLocationAddress: 'Kano, Nigeria',
+  contactSocialLinkedin: 'LinkedIn',
+  contactSocialInstagram: 'Instagram',
+  contactSocialTwitter: 'Twitter',
   // WHY CHOOSE
   whyChooseTitle: 'Why Choose Us',
   whyChooseLabel: 'Why EES',
@@ -192,8 +278,8 @@ processFour: {
 
   // CTA SECTION
   ctaTitle: 'Ready to Start?',
-  ctaText: 'Let’s bring your vision to life.',
-
+ctaText: 'Let’s bring your vision to life.',
+ctaSectionKicker: 'Let’s Build',
   // FOOTER
   footer: '© 2026 EES Construction. All rights reserved.',
 };

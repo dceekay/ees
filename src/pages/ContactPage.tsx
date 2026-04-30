@@ -182,9 +182,9 @@ export function ContactPage() {
 
         {/* Hero Section */}
         <section className="contactHero">
-          <h1>Let's Create Something Amazing</h1>
+          <h1>{t.contactHeroTitle}</h1>
           <p className="contactSubtitle">
-            {t.contactPageIntro || 'Ready to bring your vision to life? Get in touch.'}
+            {t.contactPageIntro}
           </p>
         </section>
 
@@ -193,7 +193,7 @@ export function ContactPage() {
           {/* Contact Information */}
           <div className="contactInfo">
             <div className="infoHeader">
-              <span className="infoLabel">Get in Touch</span>
+              <span className="infoLabel">{t.contactGetInTouch}</span>
               <div className="infoLine" />
             </div>
 
@@ -211,8 +211,8 @@ export function ContactPage() {
                   </svg>
                 </div>
                 <div className="methodContent">
-                  <span className="methodLabel">Email</span>
-                  <span className="methodValue">info@eesconstruction.com</span>
+                  <span className="methodLabel">{t.contactMethodEmail}</span>
+                  <span className="methodValue">{t.contactEmailAddress}</span>
                 </div>
                 <div className="methodArrow">→</div>
               </a>
@@ -230,8 +230,8 @@ export function ContactPage() {
                   </svg>
                 </div>
                 <div className="methodContent">
-                  <span className="methodLabel">Phone</span>
-                  <span className="methodValue">+90 500 000 00 00</span>
+                  <span className="methodLabel">{t.contactMethodPhone}</span>
+                  <span className="methodValue">{t.contactPhoneNumber}</span>
                 </div>
                 <div className="methodArrow">→</div>
               </a>
@@ -250,18 +250,18 @@ export function ContactPage() {
                   </svg>
                 </div>
                 <div className="methodContent">
-                  <span className="methodLabel">Location</span>
-                  <span className="methodValue">Kano, Nigeria</span>
+                  <span className="methodLabel">{t.contactMethodLocation}</span>
+                  <span className="methodValue">{t.contactLocationAddress}</span>
                 </div>
               </div>
             </div>
 
             {/* Social Links */}
             <div className="socialLinks">
-              <span className="socialLabel">Follow Us</span>
+              <span className="socialLabel">{t.contactFollowUs}</span>
               <div className="socialGrid">
                 <a href="#" className="socialLink">
-                  <span>LinkedIn</span>
+                  <span>{t.contactSocialLinkedin}</span>
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                     <path
                       d="M1 8H15M15 8L8 1M15 8L8 15"
@@ -272,7 +272,7 @@ export function ContactPage() {
                   </svg>
                 </a>
                 <a href="#" className="socialLink">
-                  <span>Instagram</span>
+                  <span>{t.contactSocialInstagram}</span>
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                     <path
                       d="M1 8H15M15 8L8 1M15 8L8 15"
@@ -283,7 +283,7 @@ export function ContactPage() {
                   </svg>
                 </a>
                 <a href="#" className="socialLink">
-                  <span>Twitter</span>
+                  <span>{t.contactSocialTwitter}</span>
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                     <path
                       d="M1 8H15M15 8L8 1M15 8L8 15"
@@ -300,14 +300,14 @@ export function ContactPage() {
           {/* Contact Form */}
           <div className="contactForm">
             <div className="formHeader">
-              <span className="formLabel">Send a Message</span>
+              <span className="formLabel">{t.contactSendMessage}</span>
               <div className="formLine" />
             </div>
 
             <form onSubmit={handleSubmit}>
               <div className="formGroup">
                 <label htmlFor="name" className={activeField === 'name' ? 'active' : ''}>
-                  Your Name
+                  {t.contactFormName}
                 </label>
                 <input
                   type="text"
@@ -323,7 +323,7 @@ export function ContactPage() {
 
               <div className="formGroup">
                 <label htmlFor="email" className={activeField === 'email' ? 'active' : ''}>
-                  Email Address
+                  {t.contactFormEmail}
                 </label>
                 <input
                   type="email"
@@ -339,7 +339,7 @@ export function ContactPage() {
 
               <div className="formGroup">
                 <label htmlFor="phone" className={activeField === 'phone' ? 'active' : ''}>
-                  Phone Number
+                  {t.contactFormPhone}
                 </label>
                 <input
                   type="tel"
@@ -354,7 +354,7 @@ export function ContactPage() {
 
               <div className="formGroup">
                 <label htmlFor="message" className={activeField === 'message' ? 'active' : ''}>
-                  Your Message
+                  {t.contactFormMessage}
                 </label>
                 <textarea
                   id="message"
@@ -369,7 +369,7 @@ export function ContactPage() {
               </div>
 
               <button type="submit" className="submitBtn">
-                <span className="btnText">Send Message</span>
+                <span className="btnText">{t.contactFormSubmit}</span>
                 <span className="btnIcon">
                   <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                     <path

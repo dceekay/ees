@@ -85,8 +85,36 @@ export const tr: Messages = {
   aboutPageBodyTwo: 'Yıllar içinde güvenilirlik ve hassasiyet konusunda bir üne kavuştuk; müşterilerle yakından çalışarak fikirleri, zaman testinden geçen yüksek kaliteli gelişmelere dönüştürüyoruz.',
   aboutPageBodyThree: 'Konut projelerinden ticari gelişmelere ve iç döngüşümlere kadar, her proje mükemmeliyet, netlik ve uzun vadeli değere olan bağlılığımızı yansıtır.',
   aboutValuesTitle: 'Değerlerimiz',
+
+  aboutValuesPrecision: {
+    title: 'Hassasiyet',
+    text: 'Her detay önemlidir. Yapısal planlama dan son bitirmelere kadar, kesinlik ve disiplin ile teslimat yapıyoruz.',
+  },
+
+  aboutValuesTrust: {
+    title: 'Güven',
+    text: 'Şeffaflık, güvenilirlik ve tutarlı iletişim yoluyla kalıcı ortaklıklar inşa ediyoruz.',
+  },
+
+  aboutValuesQuality: {
+    title: 'Kalite',
+    text: 'Premium malzemeler, rafine işçilik ve uzlaşmaz standartlar bizim çalışmamızı tanımlar.',
+  },
+
+  aboutValuesInnovation: {
+    title: 'İnovasyon',
+    text: 'Modern inşaat tekniklerini ileri görüşlü tasarım çözümleriyle bütünleştiriyoruz.',
+  },
+
+  aboutStatProjectsDelivered: 'Teslim Edilen Projeler',
+  aboutStatYearsExperience: 'Yıl Deneyim',
+  aboutStatClients: 'Müşteriler',
+  aboutStatQualityFocus: 'Kalite Odağı',
+
   aboutCtaTitle: 'Olağanüstü Bir Şey İnşa Edelim',
-  aboutCtaText: 'Teknik uzmanlığı, modern yürütmeyi ve olağanüstü sonuçlar verme taahüdünü birleştiren bir ekiple çalışın.',
+
+  aboutCtaText:
+    'Teknik uzmanlığı, modern yürütmeyi ve olağanüstü sonuçlar verme taahüdünü birleştiren bir ekiple çalışın.',
 
   // SERVICES
   servicesTitle: 'Hizmetlerimiz',
@@ -103,14 +131,39 @@ export const tr: Messages = {
   // PROJECTS
   projectsTitle: 'Projelerimiz',
   projectsIntro: 'Son çalışmalar',
-  projectsPageTitle: 'Projeler',
-  projectsPageIntro: 'Portföyümüzü keşfedin',
+
+  projectsPageTitle: 'Projelerimiz',
+  projectsPageIntro: 'Detay, denge ve işçilik tarafından tanımlanan hassas inşa edilen mekanlar.',
+  projectsHeroSubtitle: 'Detay, denge ve işçilik tarafından tanımlanan hassas inşa edilen mekanlar.',
+  projectsFeaturedLabel: 'Öne Çıkan Proje',
+  projectsViewCaseStudy: 'Örnek Araştırmayı Görüntüle',
+  projectsOpenProject: 'Projeyi Aç',
+  projectsModalDescription: 'Bu proje, mimari hassasiyet, malzeme kalitesi ve modern tasarım düşüncesi arasında bir dengedir. Her detay, uzun vadeli dayanıklılık ve estetik netlik göz önünde bulundurularak yürütüldü.',
 
   // CONTACT
   contactTitle: 'Birlikte İnşa Edelim',
   contactBody: 'Projenizi bugün bize başlatın.',
+
   contactPageTitle: 'Bize Ulaşın',
   contactPageIntro: 'Sizden haber almak isteriz.',
+  contactHeroTitle: 'Harika Bir Şey Yaratmanızı Sağlayalım',
+  contactGetInTouch: 'İletişim Kurun',
+  contactFollowUs: 'Bizi Takip Edin',
+  contactSendMessage: 'Mesaj Gönder',
+  contactFormName: 'Adınız',
+  contactFormEmail: 'E-posta Adresi',
+  contactFormPhone: 'Telefon Numarası',
+  contactFormMessage: 'Mesajınız',
+  contactFormSubmit: 'Mesaj Gönder',
+  contactMethodEmail: 'E-posta',
+  contactMethodPhone: 'Telefon',
+  contactMethodLocation: 'Konum',
+  contactEmailAddress: 'info@eesconstruction.com',
+  contactPhoneNumber: '+90 500 000 00 00',
+  contactLocationAddress: 'Kano, Nijerya',
+  contactSocialLinkedin: 'LinkedIn',
+  contactSocialInstagram: 'Instagram',
+  contactSocialTwitter: 'Twitter',
 
   // WHY CHOOSE
   whyChooseTitle: 'Neden Biz?',
@@ -170,6 +223,7 @@ export const tr: Messages = {
   // CTA SECTION
   ctaTitle: 'Başlamaya Hazır Mısınız?',
   ctaText: 'Vizyonunuzu hayata geçirelim.',
+  ctaSectionKicker: 'İnşa Edelim',
 
   // FOOTER
   footer: '© 2026 EES İnşaat. Tüm hakları saklıdır.',

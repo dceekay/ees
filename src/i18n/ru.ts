@@ -85,8 +85,36 @@ export const ru: Messages = {
   aboutPageBodyTwo: 'На протяжении многих лет мы завоевали репутацию надежности и точности, тесно сотрудничая с клиентами для преобразования идей в качественные разработки, выдерживающие испытание временем.',
   aboutPageBodyThree: 'От жилых проектов до коммерческих разработок и преобразований интерьеров — каждый проект отражает нашу привязанность совершенству, ясности и долгосрочной ценности.',
   aboutValuesTitle: 'Наши ценности',
+
+  aboutValuesPrecision: {
+    title: 'Точность',
+    text: 'Каждая деталь имеет значение. От планирования конструкции до финальной отделки мы выполняем с точностью и дисциплиной.',
+  },
+
+  aboutValuesTrust: {
+    title: 'Доверие',
+    text: 'Мы строим устойчивые партнерства через прозрачность, надежность и постоянное взаимодействие.',
+  },
+
+  aboutValuesQuality: {
+    title: 'Качество',
+    text: 'Премиум-материалы, изысканное мастерство и непоколебимые стандарты определяют нашу работу.',
+  },
+
+  aboutValuesInnovation: {
+    title: 'Инновация',
+    text: 'Мы интегрируем современные строительные методы с дальновидными решениями в области дизайна.',
+  },
+
+  aboutStatProjectsDelivered: 'Завершено проектов',
+  aboutStatYearsExperience: 'Лет опыта',
+  aboutStatClients: 'Клиентов',
+  aboutStatQualityFocus: 'Фокус на качество',
+
   aboutCtaTitle: 'Давайте создадим что-то исключительное',
-  aboutCtaText: 'Работайте с командой, которая объединяет технический опыт, современное исполнение и обязательство по достижению выдающихся результатов.',
+
+  aboutCtaText:
+    'Работайте с командой, которая объединяет технический опыт, современное исполнение и обязательство по достижению выдающихся результатов.',
 
   // SERVICES
   servicesTitle: 'Наши услуги',
@@ -103,14 +131,39 @@ export const ru: Messages = {
   // PROJECTS
   projectsTitle: 'Наши проекты',
   projectsIntro: 'Недавние работы',
-  projectsPageTitle: 'Проекты',
-  projectsPageIntro: 'Изучите наше портфолио',
+
+  projectsPageTitle: 'Наши проекты',
+  projectsPageIntro: 'Пространства, построенные с точностью, определяемые деталями, балансом и мастерством.',
+  projectsHeroSubtitle: 'Пространства, построенные с точностью, определяемые деталями, балансом и мастерством.',
+  projectsFeaturedLabel: 'Избранный проект',
+  projectsViewCaseStudy: 'Посмотреть исследование случая',
+  projectsOpenProject: 'Открыть проект',
+  projectsModalDescription: 'Этот проект представляет баланс между архитектурной точностью, качеством материалов и современным дизайнерским мышлением. Каждая деталь была выполнена с учетом долгосрочной прочности и эстетической ясности.',
 
   // CONTACT
   contactTitle: 'Давайте строить вместе',
   contactBody: 'Начните свой проект с нами сегодня.',
-  contactPageTitle: 'Контактируйте с нами',
+
+  contactPageTitle: 'Свяжитесь с нами',
   contactPageIntro: 'Нам бы очень хотелось услышать от вас.',
+  contactHeroTitle: 'Давайте создадим что-то удивительное',
+  contactGetInTouch: 'Свяжитесь с нами',
+  contactFollowUs: 'Следите за нами',
+  contactSendMessage: 'Отправить сообщение',
+  contactFormName: 'Ваше имя',
+  contactFormEmail: 'Адрес электронной почты',
+  contactFormPhone: 'Номер телефона',
+  contactFormMessage: 'Ваше сообщение',
+  contactFormSubmit: 'Отправить сообщение',
+  contactMethodEmail: 'Электронная почта',
+  contactMethodPhone: 'Телефон',
+  contactMethodLocation: 'Местоположение',
+  contactEmailAddress: 'info@eesconstruction.com',
+  contactPhoneNumber: '+90 500 000 00 00',
+  contactLocationAddress: 'Кано, Нигерия',
+  contactSocialLinkedin: 'LinkedIn',
+  contactSocialInstagram: 'Instagram',
+  contactSocialTwitter: 'Twitter',
 
   // WHY CHOOSE
   whyChooseTitle: 'Почему выбрать нас',
@@ -170,6 +223,7 @@ export const ru: Messages = {
   // CTA SECTION
   ctaTitle: 'Готовы начать?',
   ctaText: 'Давайте воплотим вашу видение в жизнь.',
+  ctaSectionKicker: 'Давайте строить',
 
   // FOOTER
   footer: '© 2026 EES Construction. Все права защищены.',

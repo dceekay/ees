@@ -7,38 +7,36 @@ import { CountUp } from '../components/common/CountUp';
 import { Link } from 'react-router-dom';
 import '../styles/about.css';
 
-const values = [
+const getValues = (t: typeof import('../i18n').copy.en) => [
   {
     key: 'precision',
-    title: 'Precision',
-    text: 'Every detail matters. From structural planning to final finishes, we deliver with exactness and discipline.',
+    ...t.aboutValuesPrecision,
   },
   {
     key: 'trust',
-    title: 'Trust',
-    text: 'We build lasting partnerships through transparency, reliability, and consistent communication.',
+    ...t.aboutValuesTrust,
   },
   {
     key: 'quality',
-    title: 'Quality',
-    text: 'Premium materials, refined craftsmanship, and uncompromising standards define our work.',
+    ...t.aboutValuesQuality,
   },
   {
     key: 'innovation',
-    title: 'Innovation',
-    text: 'We integrate modern construction techniques with forward-thinking design solutions.',
+    ...t.aboutValuesInnovation,
   },
 ];
 
-const stats = [
-  { value: 15, suffix: '+', label: 'Projects Delivered' },
-  { value: 10, suffix: '+', label: 'Years Experience' },
-  { value: 100, suffix: '+', label: 'Clients' },
-  { value: 100, suffix: '%', label: 'Quality Focus' },
+const getStats = (t: typeof import('../i18n').copy.en) => [
+  { value: 15, suffix: '+', label: t.aboutStatProjectsDelivered },
+  { value: 10, suffix: '+', label: t.aboutStatYearsExperience },
+  { value: 100, suffix: '+', label: t.aboutStatClients },
+  { value: 100, suffix: '%', label: t.aboutStatQualityFocus },
 ];
 
 export function AboutPage() {
   const { t } = useLanguage();
+  const values = getValues(t);
+  const stats = getStats(t);
 
   return (
     <PageLayout>

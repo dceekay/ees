@@ -12,7 +12,7 @@ export function CtaSection({ t }: CtaSectionProps) {
       <ScrollReveal>
         <div className="cta__container">
 
-          <p className="kicker">Let’s Build</p>
+          <p className="kicker">{t.ctaSectionKicker}</p>
 
           <h2 className="cta__title">
             {t.contactTitle}

@@ -3,6 +3,7 @@ import { PageLayout } from '../components/layout/PageLayout';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { projects } from '../data/projects';
+import { useLanguage } from '../hooks/useLanguage';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import '../styles/projects.css';
@@ -10,6 +11,7 @@ import '../styles/projects.css';
 gsap.registerPlugin(ScrollTrigger);
 
 export function ProjectsPage() {
+  const { t } = useLanguage();
   const [activeCategory, setActiveCategory] = useState('All');
   const [selected, setSelected] = useState<any | null>(null);
 
@@ -72,9 +74,9 @@ export function ProjectsPage() {
     <PageLayout>
       {/* ================= HERO ================= */}
       <section className="projectsHero" ref={heroRef}>
-        <h1>Our Projects</h1>
+        <h1>{t.projectsPageTitle}</h1>
         <p>
-          Precision-built spaces defined by detail, balance, and craftsmanship.
+          {t.projectsHeroSubtitle}
         </p>
       </section>
 
@@ -84,14 +86,14 @@ export function ProjectsPage() {
           <img src={featured.image} alt={featured.title} />
 
           <div className="featuredContent">
-            <span>Featured Project</span>
+            <span>{t.projectsFeaturedLabel}</span>
             <h2>{featured.title}</h2>
             <p>
               {featured.category} • {featured.status}
             </p>
 
             <button onClick={() => setSelected(featured)}>
-              View Case Study
+              {t.projectsViewCaseStudy}
             </button>
           </div>
         </div>
@@ -180,17 +182,14 @@ export function ProjectsPage() {
                 </p>
 
                 <p>
-                  This project represents a balance between architectural
-                  precision, material quality, and modern design thinking.
-                  Every detail was executed with long-term durability and
-                  aesthetic clarity in mind.
+                  {t.projectsModalDescription}
                 </p>
 
                 <Link
                   to={`/projects/${selected.slug}`}
                   className="modalBtn"
                 >
-                  Open Project
+                  {t.projectsOpenProject}
                 </Link>
               </div>
             </motion.div>

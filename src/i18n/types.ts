@@ -21,6 +21,38 @@ export type WhyChooseItem = {
   body: string;
 };
 
+export type ValueItem = {
+  title: string;
+  text: string;
+};
+
+export type StatItem = {
+  value: number;
+  suffix: string;
+  label: string;
+};
+
+export type ContactMethodLabel = {
+  email: string;
+  phone: string;
+  location: string;
+};
+
+export type FormLabels = {
+  name: string;
+  email: string;
+  phone: string;
+  message: string;
+  send: string;
+};
+
+export type ServiceItem = {
+  slug: string;
+  title: string;
+  body: string;
+  image: string;
+};
+
 export type Messages = {
   // NAV
   navHome: string;
@@ -74,10 +106,20 @@ export type Messages = {
   aboutPageBodyTwo: string;
   aboutPageBodyThree: string;
   aboutValuesTitle: string;
+  aboutValuesPrecision: ValueItem;
+  aboutValuesTrust: ValueItem;
+  aboutValuesQuality: ValueItem;
+  aboutValuesInnovation: ValueItem;
+  aboutStatProjectsDelivered: string;
+  aboutStatYearsExperience: string;
+  aboutStatClients: string;
+  aboutStatQualityFocus: string;
   aboutCtaTitle: string;
   aboutCtaText: string;
 
   // SERVICES
+  // SERVICES LIST (NEW)
+servicesList: ServiceItem[];
   servicesTitle: string;
   servicesIntro: string;
   servicesWhat: string;
@@ -95,12 +137,35 @@ export type Messages = {
   projectsIntro: string;
   projectsPageTitle: string;
   projectsPageIntro: string;
+  projectsHeroSubtitle: string;
+  projectsFeaturedLabel: string;
+  projectsViewCaseStudy: string;
+  projectsOpenProject: string;
+  projectsModalDescription: string;
 
   // CONTACT
   contactTitle: string;
   contactBody: string;
   contactPageTitle: string;
   contactPageIntro: string;
+  contactHeroTitle: string;
+  contactGetInTouch: string;
+  contactFollowUs: string;
+  contactSendMessage: string;
+  contactFormName: string;
+  contactFormEmail: string;
+  contactFormPhone: string;
+  contactFormMessage: string;
+  contactFormSubmit: string;
+  contactMethodEmail: string;
+  contactMethodPhone: string;
+  contactMethodLocation: string;
+  contactEmailAddress: string;
+  contactPhoneNumber: string;
+  contactLocationAddress: string;
+  contactSocialLinkedin: string;
+  contactSocialInstagram: string;
+  contactSocialTwitter: string;
 
   // WHY CHOOSE
   whyChooseTitle: string;
@@ -138,6 +203,7 @@ export type Messages = {
   // CTA SECTION
   ctaTitle: string;
   ctaText: string;
+  ctaSectionKicker: string;
 
   // FOOTER
   footer: string;

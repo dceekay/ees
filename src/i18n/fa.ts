@@ -85,8 +85,36 @@ export const fa: Messages = {
   aboutPageBodyTwo: 'در طول سال ها، ما سمعه ای از قابلیت اعتماد و دقت پیدا کرده ایم و با نزدیکی با مشتریان کار می کنیم تا ایده ها را به توسعه های با کیفیت بالا تبدیل کنیم که در برابر آزمون زمان مقاوم باشند.',
   aboutPageBodyThree: 'از پروژه های مسکونی گرفته تا توسعه های تجاری و تحولات داخلی، هر پروژه تعهد ما به تعالی، وضوح و ارزش بلند مدت را منعکس می کند.',
   aboutValuesTitle: 'مقادیر ما',
+
+  aboutValuesPrecision: {
+    title: 'دقت',
+    text: 'هر جزئی مهم است. از برنامه ریزی ساختاری تا تکمیل نهایی، ما با دقت و انضباط تحویل می دهیم.',
+  },
+
+  aboutValuesTrust: {
+    title: 'اعتماد',
+    text: 'ما شراکت های پایدار از طریق شفافیت، قابلیت اعتماد و ارتباط مستمر می سازیم.',
+  },
+
+  aboutValuesQuality: {
+    title: 'کیفیت',
+    text: 'مواد پریمیوم، کاری دستی پالایش شده و استانداردهای سازش ناپذیر کار ما را تعریف می کند.',
+  },
+
+  aboutValuesInnovation: {
+    title: 'نوآوری',
+    text: 'ما تقنیک های ساخت و ساز مدرن را با راه حل های طراحی دور اندیش یکپارچه می کنیم.',
+  },
+
+  aboutStatProjectsDelivered: 'پروژه های تحویل شده',
+  aboutStatYearsExperience: 'سال تجربه',
+  aboutStatClients: 'مشتریان',
+  aboutStatQualityFocus: 'تمرکز بر کیفیت',
+
   aboutCtaTitle: 'بیایید چیزی غیر معمول بسازیم',
-  aboutCtaText: 'با تیمی کار کنید که تخصص فنی، اجرای مدرن و تعهد به دستیابی به نتایج فوق العاده را ترکیب می کند.',
+
+  aboutCtaText:
+    'با تیمی کار کنید که تخصص فنی، اجرای مدرن و تعهد به دستیابی به نتایج فوق العاده را ترکیب می کند.',
 
   // SERVICES
   servicesTitle: 'خدمات ما',
@@ -103,14 +131,38 @@ export const fa: Messages = {
   // PROJECTS
   projectsTitle: 'پروژه های ما',
   projectsIntro: 'کارهای اخیر',
-  projectsPageTitle: 'پروژه ها',
-  projectsPageIntro: 'نمونه کار ما را کاوش کنید',
+  projectsPageTitle: 'پروژه های ما',
+  projectsPageIntro: 'فضاهایی که با دقت ساخته شده اند و با جزئیات، تعادل و کاری دستی تعریف می شوند.',
+  projectsHeroSubtitle: 'فضاهایی که با دقت ساخته شده اند و با جزئیات، تعادل و کاری دستی تعریف می شوند.',
+  projectsFeaturedLabel: 'پروژه برجسته',
+  projectsViewCaseStudy: 'مطالعه موردی را مشاهده کنید',
+  projectsOpenProject: 'باز کردن پروژه',
+  projectsModalDescription: 'این پروژه نشان دهنده تعادل بین دقت معماری، کیفیت مواد و تفکر طراحی مدرن است. هر جزئی با درنظر گرفتن دوام طول مدت و وضوح زیبایی شناختی اجرا شد.',
 
   // CONTACT
   contactTitle: 'بیایید با هم بسازیم',
   contactBody: 'امروز پروژه خود را با ما شروع کنید.',
+
   contactPageTitle: 'تماس با ما',
   contactPageIntro: 'ما دوست داریم از شما بشنویم.',
+  contactHeroTitle: 'بیایید چیزی شگفت انگیز بسازیم',
+  contactGetInTouch: 'تماس بگیرید',
+  contactFollowUs: 'ما را دنبال کنید',
+  contactSendMessage: 'ارسال پیام',
+  contactFormName: 'نام تو',
+  contactFormEmail: 'آدرس ایمیل',
+  contactFormPhone: 'شماره تلفن',
+  contactFormMessage: 'پیام شما',
+  contactFormSubmit: 'ارسال پیام',
+  contactMethodEmail: 'ایمیل',
+  contactMethodPhone: 'تلفن',
+  contactMethodLocation: 'مکان',
+  contactEmailAddress: 'info@eesconstruction.com',
+  contactPhoneNumber: '+90 500 000 00 00',
+  contactLocationAddress: 'کانو، نیجریه',
+  contactSocialLinkedin: 'LinkedIn',
+  contactSocialInstagram: 'Instagram',
+  contactSocialTwitter: 'Twitter',
 
   // WHY CHOOSE
   whyChooseTitle: 'چرا ما را اختیار کنید',
@@ -170,6 +222,7 @@ export const fa: Messages = {
   // CTA SECTION
   ctaTitle: 'آیا برای شروع آماده اید؟',
   ctaText: 'بیایید رؤیای شما را به واقعیت تبدیل کنیم.',
+  ctaSectionKicker: 'بیایید بسازیم',
 
   // FOOTER
   footer: '© 2026 EES ساخت و ساز. تمام حقوق محفوظ است.',
