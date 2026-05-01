@@ -745,7 +745,7 @@ display: grid;
 /* ----------------------------------------------------------
    06. ABOUT STORY SECTION
    ---------------------------------------------------------- */
-.aboutPinnedSection { position: relative; margin: 4rem 0; overflow: hidden; }
+.aboutPinnedSection { position: relative; margin: 4rem 0; overflow: hidden; contain: layout; }
 
 .aboutPinnedSticky {
   position: sticky;
@@ -874,7 +874,7 @@ display: grid;
 /* ----------------------------------------------------------
    08. SERVICES PREVIEW
    ---------------------------------------------------------- */
-.servicesPreviewSection { margin: 4rem 0; }
+.servicesPreviewSection { margin: 4rem 0; contain: layout; }
 .servicesPreviewShell { max-width: 1320px; margin: 0 auto; padding: 0 6%; }
 
 .servicesPreviewTop {
@@ -960,7 +960,7 @@ display: grid;
 /* ----------------------------------------------------------
    09. PROJECTS SECTION
    ---------------------------------------------------------- */
-.projectsPreviewPanel { overflow: hidden; }
+.projectsPreviewPanel { overflow: hidden; contain: layout; }
 .projectsPreviewPanel::after {
   content: '';
   position: absolute; top: -90px; right: -40px;
@@ -1097,7 +1097,7 @@ display: grid;
 /* ----------------------------------------------------------
    10. PROCESS SECTION
    ---------------------------------------------------------- */
-.processLuxurySection { margin: 3.8rem 0; }
+.processLuxurySection { margin: 3.8rem 0; contain: layout; }
 .processHeader { max-width: 760px; margin-bottom: 2rem; }
 
 .processTimeline {
@@ -1138,7 +1138,7 @@ display: grid;
 /* ----------------------------------------------------------
    11. TESTIMONIALS
    ---------------------------------------------------------- */
-.testimonialsLuxurySection { margin: 3.8rem 0; }
+.testimonialsLuxurySection { margin: 3.8rem 0; contain: layout; }
 .testimonialsHeader { max-width: 760px; margin-bottom: 1.4rem; }
 
 .testimonialsLuxuryGrid {
@@ -1162,7 +1162,7 @@ display: grid;
 /* ----------------------------------------------------------
    12. FAQ
    ---------------------------------------------------------- */
-.faqLuxurySection { margin: 3.8rem 0; }
+.faqLuxurySection { margin: 3.8rem 0; contain: layout; }
 .faqHeader { max-width: 720px; margin-bottom: 1.2rem; }
 .faqLuxuryList { display: grid; gap: 0.9rem; }
 
@@ -1216,7 +1216,7 @@ display: grid;
 /* ----------------------------------------------------------
    14. WHY CHOOSE US
    ---------------------------------------------------------- */
-.whyChooseLuxurySection { margin: 3.8rem 0; }
+.whyChooseLuxurySection { margin: 3.8rem 0; contain: layout; }
 
 .whyChooseLuxuryGrid {
   display: grid;
@@ -1407,12 +1407,18 @@ display: grid;
   .heroSliderImage.heroV2SliderImage {
     flex: 1 1 auto;
     height: 100%;
-    min-height: 200px;
+    min-height: 280px;
     object-fit: cover;
+    object-position: center;
   }
 
-  /* Caption: leave room at bottom for dots row */
-  .heroV2Caption { padding-bottom: 1rem; }
+  /* Caption: positioned over image bottom */
+  .heroV2Caption { 
+    padding: 0.8rem 1rem 1rem;
+    position: relative;
+    z-index: 2;
+    background: linear-gradient(180deg, transparent, rgba(6,10,16,0.88));
+  }
 
   /* ---- DOTS: pulled out of absolute, sit below image ---- */
   .heroSliderDots.heroV2Dots {
@@ -1420,31 +1426,30 @@ display: grid;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 6px;
-    padding: 10px 0 env(safe-area-inset-bottom, 14px);
+    gap: 8px;
+    padding: 12px 0 max(12px, env(safe-area-inset-bottom, 12px));
     background: rgba(6,10,16,0.95);
     flex-shrink: 0;
     width: 100%;
   }
 
   .heroDot.heroV2Dot {
-    width: 7px;
-    height: 7px;
-    min-width: 0;
+    width: 8px;
+    height: 8px;
+    min-width: 8px;
+    min-height: 8px;
     cursor: pointer;
-    /* generous tap target without growing the dot visually */
-    padding: 10px 4px;
-    background-clip: content-box;
+    border: none;
     border-radius: 50%;
     background: rgba(255,255,255,0.25);
+    transition: all 0.3s ease;
+    flex-shrink: 0;
   }
   .heroDot.heroV2Dot.active {
-    width: 22px;
+    width: 20px;
+    min-width: 20px;
     border-radius: 999px;
-    padding: 10px 0;
     background: #d7b56d;
-    border-color: #d7b56d;
-    background-clip: border-box;
   }
 
   /* Badge pinned at top of screen */
@@ -1465,15 +1470,16 @@ display: grid;
     margin: 0.5rem 0;
     line-height: 1.1;
   }
-  .heroV2Subtitle { font-size: 0.9rem; line-height: 1.6; margin-top: 0.25rem; }
-  .heroActions.heroV2Actions { gap: 0.6rem; margin-top: 0.85rem; }
-  .heroV2Narrative { margin-top: 0.9rem; }
-  .heroV2NarrativeItem { padding: 0.55rem 0; }
+  .heroV2Subtitle { font-size: 0.95rem; line-height: 1.6; margin-top: 0.35rem; max-width: 100%; }
+  .heroActions.heroV2Actions { gap: 0.6rem; margin-top: 0.95rem; }
+  .heroV2Narrative { margin-top: 1rem; }
+  .heroV2NarrativeItem { padding: 0.6rem 0; font-size: 0.9rem; }
   .heroV2NarrativeValue { display: none; }
 
   /* Caption */
-  .heroV2CaptionTitle { font-size: 1rem; }
+  .heroV2CaptionTitle { font-size: 1.05rem; line-height: 1.3; font-weight: 600; }
   .heroV2CaptionTag { display: none; }
+  .heroV2CaptionEyebrow { font-size: 0.8rem; margin: 0 0 0.3rem; opacity: 0.85; }
 
   /* Ambient orb */
   .heroAmbientOrb { width: 260px; height: 260px; top: -60px; right: -60px; }

@@ -83,13 +83,11 @@ export function Navbar({ t }: NavbarProps) {
       ref={headerRef}
       className={`glass navbar ${scrolled ? 'scrolled' : ''}`}
       animate={{
-        padding: scrolled ? '0.65rem 1rem' : '0.95rem 1.1rem',
-        backdropFilter: scrolled ? 'blur(26px)' : 'blur(18px)',
         background: scrolled
           ? 'rgba(8, 12, 18, 0.92)'
           : 'rgba(8, 12, 18, 0.78)',
       }}
-      transition={{ duration: 0.25, ease: 'easeOut' }}
+      transition={{ duration: 0.3, ease: 'easeOut' }}
     >
       {/* BRAND */}
       <Link to="/" className="brand-link" onClick={closeMenu}>
