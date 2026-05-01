@@ -128,6 +128,46 @@ export const tr: Messages = {
   servicesPageTitle: 'Hizmetler',
   servicesPageIntro: 'Hizmetlerimizi keşfedin',
 
+  serviceConstructionTitle: 'İnşaat & Geliştirme',
+serviceConstructionShort: 'Dayanıklılık ve performans için tasarlanmış uçtan uca inşaat çözümleri.',
+serviceConstructionBody: `
+Son kavramları kalıcı mimari gerçekliklere dönüştüren uçtan uca inşaat çözümleri sunuyoruz. Erken planlama ve yapısal mühendislikten nihai uygulamaya kadar her aşama hassasiyet, disiplin ve mükemmellik taahhüdüyle yönetilir.
+
+Yaklaşımımız yalnızca yapısal bütünlüğü değil, uzun vadeli performansı, sürdürülebilirliği ve değeri de güvence altına alır. Her projenin zamanında, bütçe dahilinde ve beklentilerin ötesinde teslim edilmesini sağlamak için müşteriler, danışmanlar ve ortaklarla yakın çalışıyoruz.
+
+İnşa ettiğimiz her yapı teknik uzmanlık, malzeme kalitesi ve rafine işçilik arasındaki dengeyi yansıtır.
+`.trim(),
+
+serviceArchitectureTitle: 'Mimarlık & Tasarım',
+serviceArchitectureShort: 'Yaratıcılığı ve işlevi harmanlayan modern mimari çözümler.',
+serviceArchitectureBody: `
+Mimari sürecimiz netlik, yaratıcılık ve amaç tarafından yönlendirilir. Yalnızca görsel açıdan çekici değil, aynı zamanda işlevsel olarak zeki ve bağlamsal açıdan uygun mekanlar tasarlıyoruz.
+
+Konut konseptlerinden büyük ölçekli gelişmelere kadar modern tasarım ilkelerini zamansız estetikle bütünleştiriyoruz. Her proje mekansal uyum, doğal ışık ve uzun vadeli kullanılabilirlik odağıyla ele alınır.
+
+Büyük mimarinin sadece görülmediğine — yaşandığına inanıyoruz.
+`.trim(),
+
+serviceInteriorTitle: 'İç Tasarım',
+serviceInteriorShort: 'Konfor, kimlik ve yaşam tarzı için özel tasarlanmış zarif iç mekanlar.',
+serviceInteriorBody: `
+Kimliği, konforu ve zarafeti yansıtan iç mekanlar yaratıyoruz. Malzemeler ve dokulardan aydınlatma ve mekânsal akışa kadar her unsur özlü ve yüksek kaliteli bir deneyim sunmak için özenle seçilir.
+
+İç mekanlarımız güçlü bir stil ve zarafet anlayışını korurken günlük yaşamı zenginleştirmek için tasarlanmıştır. İster konut ister ticari olsun, her mekanın kasıtlı, dengeli ve eksiksiz hissettirmesini sağlarız.
+
+Detaylara dikkat, şekillendirdiğimiz her ortamı tanımlar.
+`.trim(),
+
+serviceProjectMgmtTitle: 'Proje Yönetimi',
+serviceProjectMgmtShort: 'Zamanında ve yüksek kaliteli teslimatı güvence altına alan yapılandırılmış uygulama.',
+serviceProjectMgmtBody: `
+Proje yönetimimiz, geliştirmenin her aşamasının netlik, verimlilik ve kontrol ile yürütülmesini sağlar. Tüm paydaşları koordine eder, ilerlemeyi izler ve süreç boyunca sıkı kalite standartlarını koruruz.
+
+Teknik uzmanlığı yapılandırılmış iş akışlarıyla birleştirerek riski en aza indirir, zaman çizelgelerini optimize eder ve sorunsuz teslimat sağlarız.
+
+Şeffaflık, hesap verebilirlik ve hassasiyet aldığımız her kararı yönlendirir.
+`.trim(),
+
   // PROJECTS
   projectsTitle: 'Projelerimiz',
   projectsIntro: 'Son çalışmalar',

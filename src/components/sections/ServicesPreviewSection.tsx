@@ -96,38 +96,51 @@ export function ServicesPreviewSection({ t }: ServicesPreviewSectionProps) {
 
         {/* ================= SERVICES ================= */}
         <StaggerReveal className="servicesPreviewGrid">
-          {previewServices.map((service, index) => (
-            <StaggerItem key={service.slug ?? service.title ?? index}>
-              <motion.article
-                className="servicePreviewCard"
-                style={{ scale }}
-                whileHover={{ y: -6 }}
-              >
-                <div className="servicePreviewGlow" />
-                <div className="servicePreviewInner">
-                  <p className="servicePreviewIndex">
-                    {String(index + 1).padStart(2, '0')}
-                  </p>
+          {previewServices.map((service, index) => {
+            const serviceKeyMap: Record<string, { title: keyof Messages; short: keyof Messages }> = {
+              'construction-development': { title: 'serviceConstructionTitle', short: 'serviceConstructionShort' },
+              'architecture-design': { title: 'serviceArchitectureTitle', short: 'serviceArchitectureShort' },
+              'interior-design': { title: 'serviceInteriorTitle', short: 'serviceInteriorShort' },
+              'project-management': { title: 'serviceProjectMgmtTitle', short: 'serviceProjectMgmtShort' },
+            };
 
-                  <h3 className="servicePreviewHeading">
-                    {service.title}
-                  </h3>
+            const keys = serviceKeyMap[service.slug];
+            const title = keys ? (t[keys.title] as string) : service.title;
+            const short = keys ? (t[keys.short] as string) : (service.shortDescription || service.description);
 
-                  <p className="servicePreviewText">
-                    {service.shortDescription || service.description}
-                  </p>
+            return (
+              <StaggerItem key={service.slug ?? service.title ?? index}>
+                <motion.article
+                  className="servicePreviewCard"
+                  style={{ scale }}
+                  whileHover={{ y: -6 }}
+                >
+                  <div className="servicePreviewGlow" />
+                  <div className="servicePreviewInner">
+                    <p className="servicePreviewIndex">
+                      {String(index + 1).padStart(2, '0')}
+                    </p>
 
-                  <Link
-                    to={`/services/${service.slug}`}
-                    className="servicePreviewLink"
-                  >
-                    {t.servicesLearnMore}
-                    <span aria-hidden="true">→</span>
-                  </Link>
-                </div>
-              </motion.article>
-            </StaggerItem>
-          ))}
+                    <h3 className="servicePreviewHeading">
+                      {title}
+                    </h3>
+
+                    <p className="servicePreviewText">
+                      {short}
+                    </p>
+
+                    <Link
+                      to={`/services/${service.slug}`}
+                      className="servicePreviewLink"
+                    >
+                      {t.servicesLearnMore}
+                      <span aria-hidden="true">→</span>
+                    </Link>
+                  </div>
+                </motion.article>
+              </StaggerItem>
+            );
+          })}
         </StaggerReveal>
 
         {/* ================= STATS ================= */}

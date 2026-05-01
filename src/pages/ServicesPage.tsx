@@ -4,6 +4,7 @@ import { services } from '../data/services';
 import { useLanguage } from '../hooks/useLanguage';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import type { Messages } from '../i18n';
 import '../styles/services.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -184,7 +185,7 @@ export function ServicesPage() {
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       const cards = document.querySelectorAll('.serviceCard');
-      
+
       cards.forEach((card) => {
         const visual = card.querySelector('.serviceVisual') as HTMLElement;
         if (!visual) return;
@@ -213,43 +214,68 @@ export function ServicesPage() {
 
         {/* STICKY PANELS */}
         <section className="servicesStickyWrap">
-          {services.map((service, index) => (
-            <div className="servicePanel" key={service.slug}>
-              <div className="serviceSticky">
-                <div className="serviceCard">
-                  <div className="serviceGrid">
-                    <div className="serviceText">
-                      <span className="serviceIndex">
-                        {String(index + 1).padStart(2, '0')}
-                      </span>
+          {services.map((service, index) => {
+            const serviceKeyMap: Record<
+              string,
+              { title: keyof Messages; body: keyof Messages }
+            > = {
+              'construction-development': {
+                title: 'serviceConstructionTitle',
+                body: 'serviceConstructionBody',
+              },
+              'architecture-design': {
+                title: 'serviceArchitectureTitle',
+                body: 'serviceArchitectureBody',
+              },
+              'interior-design': {
+                title: 'serviceInteriorTitle',
+                body: 'serviceInteriorBody',
+              },
+              'project-management': {
+                title: 'serviceProjectMgmtTitle',
+                body: 'serviceProjectMgmtBody',
+              },
+            };
 
-                      <h2>{service.title}</h2>
-                      <p>{service.body}</p>
-                    </div>
+            const keys = serviceKeyMap[service.slug];
+            const title = keys ? (t[keys.title] as string) : service.title;
+            const body = keys ? (t[keys.body] as string) : service.body;
 
-                    <div className="serviceVisual">
-                      <img
-                        src={service.image} // Use custom image from service data
-                        alt={service.title}
-                        loading="lazy"
-                      />
+            return (
+              <div className="servicePanel" key={service.slug}>
+                <div className="serviceSticky">
+                  <div className="serviceCard">
+                    <div className="serviceGrid">
+                      <div className="serviceText">
+                        <span className="serviceIndex">
+                          {String(index + 1).padStart(2, '0')}
+                        </span>
+
+                        <h2>{title}</h2>
+                        <p style={{ whiteSpace: 'pre-line' }}>{body}</p>
+                      </div>
+
+                      <div className="serviceVisual">
+                        <img
+                          src={service.image}
+                          alt={title}
+                          loading="lazy"
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </section>
 
         {/* CTA */}
         <section className="servicesCta">
-          <h2>Ready to start your project?</h2>
-          <p>
-            Let's collaborate to bring your vision to life with cutting-edge
-            design and development.
-          </p>
+          <h2>{t.ctaTitle}</h2>
+          <p>{t.ctaText}</p>
           <a href="/contact" className="servicesBtn">
-            Get in touch
+            {t.ctaSecondary}
             <svg
               width="16"
               height="16"

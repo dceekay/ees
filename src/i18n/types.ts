@@ -130,6 +130,23 @@ export type Messages = {
   servicesPageTitle: string;
   servicesPageIntro: string;
 
+  // INDIVIDUAL SERVICES
+  serviceConstructionTitle: string;
+  serviceConstructionShort: string;
+  serviceConstructionBody: string;
+
+  serviceArchitectureTitle: string;
+  serviceArchitectureShort: string;
+  serviceArchitectureBody: string;
+
+  serviceInteriorTitle: string;
+  serviceInteriorShort: string;
+  serviceInteriorBody: string;
+
+  serviceProjectMgmtTitle: string;
+  serviceProjectMgmtShort: string;
+  serviceProjectMgmtBody: string;
+
   // PROJECTS
   projectsTitle: string;
   projectsIntro: string;
