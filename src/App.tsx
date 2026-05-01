@@ -9,6 +9,7 @@ import { ContactPage } from './pages/ContactPage';
 
 import { LoaderScreen } from './components/common/LoaderScreen';
 import { GlobalCursor } from './components/common/GlobalCursor';
+import { ScrollToTop } from './components/common/ScrollToTop';
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -27,6 +28,9 @@ export default function App() {
 
   return (
     <BrowserRouter>
+      {/* SCROLL TO TOP ON ROUTE CHANGE */}
+      <ScrollToTop />
+
       {/* GLOBAL CURSOR MUST LIVE INSIDE STABLE DOM */}
       <GlobalCursor />
 
