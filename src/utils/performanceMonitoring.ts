@@ -137,11 +137,6 @@ class PerformanceMonitor {
     if (typeof window !== 'undefined') {
       window.addEventListener('load', () => {
         this.metrics.pageLoadTime = this.measurePageLoadTime();
-
-        // Log metrics after page load (optional, for debugging)
-        if (process.env.NODE_ENV === 'development') {
-          this.logMetrics();
-        }
       });
     }
   }
