@@ -4,13 +4,14 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { projects } from '../data/projects';
 import { useLanguage } from '../hooks/useLanguage';
+import { LazyImage } from '../components/common/LazyImage';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import '../styles/projects.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export function ProjectsPage() {
+export function ProjectsPage({ toggleTheme }: { toggleTheme: () => void }) {
   const { t } = useLanguage();
   const [activeCategory, setActiveCategory] = useState('All');
   const [selected, setSelected] = useState<any | null>(null);
@@ -71,7 +72,7 @@ export function ProjectsPage() {
   }, []);
 
   return (
-    <PageLayout>
+    <PageLayout toggleTheme={toggleTheme}>
       {/* ================= HERO ================= */}
       <section className="projectsHero" ref={heroRef}>
         <h1>{t.projectsPageTitle}</h1>
@@ -83,7 +84,7 @@ export function ProjectsPage() {
       {/* ================= FEATURED ================= */}
       <section className="featuredProject">
         <div className="featuredInner">
-          <img src={featured.image} alt={featured.title} />
+          <LazyImage src={featured.image} alt={featured.title} fetchPriority="high" />
 
           <div className="featuredContent">
             <span>{t.projectsFeaturedLabel}</span>
@@ -139,7 +140,7 @@ export function ProjectsPage() {
               onClick={() => setSelected(project)}
             >
               <div className="projectImageWrap">
-                <img src={project.image} alt={project.title} />
+                <LazyImage src={project.image} alt={project.title} fetchPriority="low" />
                 <div className="projectOverlay" />
               </div>
 
@@ -173,7 +174,7 @@ export function ProjectsPage() {
               transition={{ duration: 0.3 }}
               onClick={e => e.stopPropagation()}
             >
-              <img src={selected.image} alt={selected.title} />
+              <LazyImage src={selected.image} alt={selected.title} fetchPriority="high" />
 
               <div className="projectModalContent">
                 <h2>{selected.title}</h2>

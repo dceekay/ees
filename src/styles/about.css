@@ -120,11 +120,7 @@
   padding: 1.4rem;
   border-radius: var(--radius-md);
   border: 1px solid var(--line);
-  background: linear-gradient(
-    160deg,
-    rgba(255, 255, 255, 0.03),
-    rgba(255, 255, 255, 0.01)
-  );
+  background: var(--surface-gradient-card);
   backdrop-filter: blur(10px);
   position: relative;
   overflow: hidden;
@@ -181,7 +177,7 @@
   padding: 1.2rem;
   border-radius: var(--radius-md);
   border: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.02);
+  background: var(--surface-gradient-card);
   transition: transform 0.2s ease;
 }
 
@@ -224,7 +220,7 @@
   padding: 0.8rem 1.6rem;
   border-radius: 999px;
   background: linear-gradient(135deg, var(--accent-soft), var(--accent));
-  color: #000;
+  color: var(--accent-contrast);
   font-weight: 600;
   text-decoration: none;
   transition: transform 0.2s ease, box-shadow 0.2s ease;

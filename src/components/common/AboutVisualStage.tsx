@@ -1,5 +1,6 @@
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { useRef } from 'react';
+import { LazyImage } from './LazyImage';
 
 export function AboutVisualStage() {
   const ref = useRef<HTMLDivElement | null>(null);

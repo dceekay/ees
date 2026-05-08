@@ -4,7 +4,7 @@ import { useLanguage } from '../hooks/useLanguage';
 import gsap from 'gsap';
 import '../styles/contact.css';
 
-export function ContactPage() {
+export function ContactPage({ toggleTheme }: { toggleTheme: () => void }) {
   const { t } = useLanguage();
   const containerRef = useRef<HTMLDivElement | null>(null);
   const cursorRef = useRef<HTMLDivElement | null>(null);
@@ -168,7 +168,7 @@ export function ContactPage() {
   };
 
   return (
-    <PageLayout>
+    <PageLayout toggleTheme={toggleTheme}>
       <div ref={containerRef} className="contactContainer">
         {/* Custom Cursor */}
         <div ref={cursorRef} className="customCursor" />

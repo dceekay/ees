@@ -2,13 +2,15 @@ import { useEffect, useRef, useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import { LanguageSwitcher } from '../common/LanguageSwitcher';
+import { ThemeSwitcher } from '../common/ThemeSwitcher';
 import type { Messages } from '../../i18n';
 
 type NavbarProps = {
   t: Messages;
+  toggleTheme?: () => void;
 };
 
-export function Navbar({ t }: NavbarProps) {
+export function Navbar({ t, toggleTheme }: NavbarProps) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -84,8 +86,8 @@ export function Navbar({ t }: NavbarProps) {
       className={`glass navbar ${scrolled ? 'scrolled' : ''}`}
       animate={{
         background: scrolled
-          ? 'rgba(8, 12, 18, 0.92)'
-          : 'rgba(8, 12, 18, 0.78)',
+          ? 'var(--nav-bg-scrolled)'
+          : 'var(--nav-bg)',
       }}
       transition={{ duration: 0.3, ease: 'easeOut' }}
     >
@@ -122,6 +124,9 @@ export function Navbar({ t }: NavbarProps) {
       {/* RIGHT */}
       <div className="navDesktopRight">
         <LanguageSwitcher />
+        {toggleTheme && (
+          <ThemeSwitcher onToggle={toggleTheme} />
+        )}
       </div>
 
       {/* HAMBURGER */}
@@ -168,6 +173,9 @@ export function Navbar({ t }: NavbarProps) {
 
             <div className="mobileNavLang">
               <LanguageSwitcher />
+              {toggleTheme && (
+                <ThemeSwitcher onToggle={toggleTheme} />
+              )}
             </div>
           </motion.div>
         )}

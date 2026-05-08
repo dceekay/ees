@@ -1,0 +1,103 @@
+/* ===================================================
+   THEME SWITCHER - Modern Glass Morphism Style
+   =================================================== */
+
+.themeSwitcher {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(10px);
+  color: var(--text);
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+  overflow: hidden;
+  min-height: 36px;
+}
+
+.themeSwitcher:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--line-strong);
+  box-shadow: var(--shadow-soft);
+}
+
+.themeSwitcher:active {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* Icon styling */
+.themeSwitcherIcon {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  line-height: 1;
+  width: 24px;
+  height: 24px;
+  min-width: 24px;
+}
+
+/* Label styling */
+.themeSwitcherLabel {
+  position: relative;
+  display: inline-block;
+  min-height: 1.2em;
+  overflow: hidden;
+}
+
+.themeSwitcherLabel span {
+  display: block;
+}
+
+/* Glow effect container */
+.themeSwitcherGlow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  border-radius: 24px;
+  background: radial-gradient(circle, var(--accent, #ffd700) 0%, transparent 70%);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+}
+
+/* ===================================================
+   MOBILE ADJUSTMENTS
+   =================================================== */
+
+@media (max-width: 860px) {
+  .themeSwitcher {
+    padding: 0.5rem 0.75rem;
+    gap: 0.4rem;
+    font-size: 0.8rem;
+  }
+
+  .themeSwitcherLabel {
+    display: none;
+  }
+
+  .themeSwitcher {
+    min-width: 40px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    justify-content: center;
+    padding: 0.4rem;
+  }
+
+  .themeSwitcherIcon {
+    width: 100%;
+    height: 100%;
+    font-size: 1rem;
+  }
+}

@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { LazyImage } from './LazyImage';
 
 type Props = {
   index: string;
@@ -17,7 +18,7 @@ export function ServiceCard({ index, title, description, image }: Props) {
       viewport={{ once: true }}
     >
       <div className="serviceImageWrap">
-        <img src={image} alt={title} />
+        <LazyImage src={image} alt={title} fetchPriority="low" />
       </div>
 
       <div className="serviceContent">

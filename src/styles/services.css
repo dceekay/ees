@@ -20,6 +20,18 @@
   --surface-border-hover: rgba(215, 181, 109, 0.22);
 }
 
+html.light {
+  --gold: var(--accent);
+  --gold-bright: var(--accent-soft);
+  --gold-dim: rgba(139, 94, 31, 0.18);
+  --gold-trace: rgba(139, 94, 31, 0.08);
+  --surface-0: rgba(255, 255, 255, 0.68);
+  --surface-1: rgba(255, 255, 255, 0.82);
+  --surface-2: rgba(255, 255, 255, 0.94);
+  --surface-border: rgba(92, 68, 42, 0.2);
+  --surface-border-hover: rgba(139, 94, 31, 0.34);
+}
+
 /* =========================
    HERO - CINEMATIC INTRO
    ========================= */
@@ -71,6 +83,12 @@
   letter-spacing: -0.03em;
   line-height: 1.05;
   font-weight: 700;
+  color: var(--text);
+  position: relative;
+  z-index: 1;
+  margin-bottom: 1.5rem;
+}
+html.dark .servicesHero h1 {
   background: linear-gradient(
     160deg,
     #ffffff 0%,
@@ -80,13 +98,15 @@
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  position: relative;
-  z-index: 1;
-  margin-bottom: 1.5rem;
+}
+html.light .servicesHero h1 {
+  color: var(--text);
+  -webkit-text-fill-color: unset;
+  background: none;
 }
 
 .servicesHero p {
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--text-soft);
   max-width: 560px;
   margin: 0 auto;
   line-height: 1.75;
@@ -94,6 +114,10 @@
   letter-spacing: 0.01em;
   position: relative;
   z-index: 1;
+}
+
+html.dark .servicesHero p {
+  color: rgba(255, 255, 255, 0.5);
 }
 
 /* Eyebrow kicker above h1 */
@@ -184,17 +208,11 @@
   border-radius: clamp(20px, 2vw, 28px);
 
   /* Layered border: outer glow + crisp inner line */
-  border: 1px solid var(--surface-border);
-  outline: 1px solid rgba(255, 255, 255, 0.025);
+  border: 1px solid var(--line);
+  outline: 1px solid var(--line-strong);
   outline-offset: -2px;
 
-  background:
-    linear-gradient(
-      135deg,
-      var(--surface-2) 0%,
-      var(--surface-1) 60%,
-      var(--surface-0) 100%
-    );
+  background: var(--surface-soft);
 
   backdrop-filter: blur(24px) saturate(1.2);
   -webkit-backdrop-filter: blur(24px) saturate(1.2);
@@ -209,10 +227,23 @@
     box-shadow 0.5s var(--service-ease),
     transform 0.5s var(--service-ease);
 
-  box-shadow:
-    0 2px 8px rgba(0, 0, 0, 0.15),
-    0 8px 32px rgba(0, 0, 0, 0.12),
-    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  box-shadow: var(--shadow-soft);
+}
+
+html.light .serviceCard {
+  background: var(--surface);
+  border-color: var(--line);
+}
+
+html.dark .serviceCard {
+  background:
+    linear-gradient(
+      135deg,
+      var(--surface-2) 0%,
+      var(--surface-1) 60%,
+      var(--surface-0) 100%
+    );
+  border-color: var(--surface-border);
 }
 
 /* Gold gradient border on hover — top-left corner emphasis */
@@ -328,7 +359,10 @@
   font-weight: 700;
   letter-spacing: -0.025em;
   font-family: var(--font-heading);
-
+  color: var(--text);
+  transition: transform 0.4s var(--service-ease);
+}
+html.dark .serviceText h2 {
   background: linear-gradient(
     150deg,
     #ffffff 0%,
@@ -337,8 +371,11 @@
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-
-  transition: transform 0.4s var(--service-ease);
+}
+html.light .serviceText h2 {
+  color: var(--text);
+  -webkit-text-fill-color: unset;
+  background: none;
 }
 
 .serviceCard:hover .serviceText h2 {
@@ -346,7 +383,7 @@
 }
 
 .serviceText p {
-  color: rgba(255, 255, 255, 0.52);
+  color: var(--text-soft);
   line-height: 1.8;
   font-size: clamp(0.92rem, 1.6vw, 1.02rem);
   letter-spacing: 0.005em;
@@ -354,7 +391,7 @@
 }
 
 .serviceCard:hover .serviceText p {
-  color: rgba(255, 255, 255, 0.72);
+  color: var(--text);
 }
 
 /* Gold underline accent on h2 */
@@ -543,14 +580,24 @@
   z-index: 1;
 }
 
+html.light .servicesCta h2 {
+  color: var(--text);
+  background: none;
+  -webkit-text-fill-color: unset;
+}
+
 .servicesCta p {
-  color: rgba(255, 255, 255, 0.45);
+  color: var(--text-soft);
   max-width: 480px;
   margin: 0 auto 2.75rem;
   line-height: 1.75;
   font-size: clamp(0.95rem, 1.7vw, 1.05rem);
   position: relative;
   z-index: 1;
+}
+
+html.dark .servicesCta p {
+  color: rgba(255, 255, 255, 0.45);
 }
 
 .servicesBtn {
@@ -560,7 +607,7 @@
   padding: 1rem 2.5rem;
   border-radius: 999px;
   background: var(--gold);
-  color: #0a0900;
+  color: var(--accent-contrast);
   text-decoration: none;
   font-weight: 700;
   font-size: 0.9rem;

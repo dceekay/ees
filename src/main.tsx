@@ -3,6 +3,11 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import './styles/index.css';
 import './styles/global.css';
+import './styles/components/lazyImage.css';
+import { initPerformanceMonitoring } from './utils/performanceMonitoring';
+
+// Initialize performance monitoring for Core Web Vitals
+initPerformanceMonitoring();
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>

@@ -4,6 +4,7 @@ import { ScrollReveal } from '../common/ScrollReveal';
 import { AnimatedText } from '../common/AnimatedText';
 import { StaggerReveal } from '../common/StaggerReveal';
 import { StaggerItem } from '../common/StaggerItem';
+import { LazyImage } from '../common/LazyImage';
 import type { Messages } from '../../i18n';
 
 type ProjectsSectionProps = {
@@ -48,7 +49,7 @@ export function ProjectsSection({ t }: ProjectsSectionProps) {
                 onMouseMove={handleSpotlight}
               >
                 <div className="projectEditorialMedia">
-                  <img src={project.image} alt={project.title} />
+                  <LazyImage src={project.image} alt={project.title} fetchPriority="low" />
                 </div>
 
                 <div className="projectEditorialOverlay" />
@@ -83,7 +84,7 @@ export function ProjectsSection({ t }: ProjectsSectionProps) {
                   onMouseMove={handleSpotlight}
                 >
                   <div className="projectEditorialMedia">
-                    <img src={project.image} alt={project.title} />
+                    <LazyImage src={project.image} alt={project.title} fetchPriority="low" />
                   </div>
                   <div className="projectEditorialOverlay" />
                   <div className="projectEditorialSpotlight" />

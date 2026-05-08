@@ -2,6 +2,7 @@ import { ScrollReveal } from '../common/ScrollReveal';
 import { AnimatedText } from '../common/AnimatedText';
 import { StaggerReveal } from '../common/StaggerReveal';
 import { StaggerItem } from '../common/StaggerItem';
+import { LazyImage } from '../common/LazyImage';
 import type { Messages } from '../../i18n';
 
 type WhyChooseSectionProps = {
@@ -62,7 +63,7 @@ export function WhyChooseSection({ t }: WhyChooseSectionProps) {
         {/* Visual */}
         <div className="whyChooseVisual">
           <div className="whyChooseVisualCard">
-            <img src="/images/dining1.jpeg" alt="Premium construction detail" />
+            <LazyImage src="/images/dining1.jpeg" alt="Premium construction detail" fetchPriority="low" />
             <div className="whyChooseVisualOverlay" />
             <div className="whyChooseBadge">
               <span>Built with precision</span>

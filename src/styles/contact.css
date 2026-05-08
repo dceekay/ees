@@ -5,7 +5,7 @@
 :root {
   --contact-ease: cubic-bezier(0.16, 1, 0.3, 1);
   --contact-elastic: cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  --accent-gradient: linear-gradient(135deg, #d7b56d 0%, #f4d799 100%);
+  --accent-gradient: linear-gradient(135deg, var(--accent) 0%, var(--accent-soft) 100%);
 }
 
 /* =========================
@@ -466,7 +466,7 @@ form {
   background: var(--accent-gradient);
   border: none;
   border-radius: 999px;
-  color: #000;
+  color: var(--accent-contrast);
   font-size: 1.05rem;
   font-weight: 700;
   letter-spacing: 0.05em;
@@ -681,4 +681,48 @@ form {
 
 .char {
   display: inline-block;
+}
+
+html.light .contactHero h1 {
+  background: linear-gradient(
+    135deg,
+    var(--text) 0%,
+    var(--text-soft) 42%,
+    var(--accent) 70%,
+    var(--text) 100%
+  );
+  background-size: 200% 200%;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+html.light .contactSubtitle,
+html.light .methodLabel,
+html.light .socialLabel,
+html.light .formGroup label {
+  color: var(--muted);
+}
+
+html.light .methodValue,
+html.light .socialLink,
+html.light .formGroup input,
+html.light .formGroup textarea {
+  color: var(--text);
+}
+
+html.light .contactMethod,
+html.light .socialLink,
+html.light .formGroup input,
+html.light .formGroup textarea {
+  background: var(--surface-glass);
+  border-color: var(--line);
+}
+
+html.light .socialLinks {
+  border-top-color: var(--line);
+}
+
+html.light .formGroup input::placeholder,
+html.light .formGroup textarea::placeholder {
+  color: rgba(74, 85, 104, 0.62);
 }

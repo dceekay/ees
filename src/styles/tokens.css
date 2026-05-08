@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@500;600;700;800&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap');
 
-:root {
+:root,
+html.dark {
   --bg: #071019;
   --bg-deep: #04090f;
   --bg-soft: #0d1824;
@@ -11,6 +12,7 @@
   --accent: #d7b56d;
   --accent-soft: #efd8a1;
   --accent-warm: #b98552;
+  --accent-contrast: #18130b;
 
   --text: #edf3fb;
   --text-soft: #d9e2ef;
@@ -32,4 +34,62 @@
 
   --font-body: Inter, 'Noto Naskh Arabic', sans-serif;
   --font-heading: Manrope, 'Noto Naskh Arabic', sans-serif;
+
+  /* Dark mode specific gradients & overlays */
+  --surface-gradient-light: linear-gradient(180deg, rgba(16, 29, 43, 0.9), rgba(13, 24, 36, 0.88));
+  --surface-gradient-card: linear-gradient(135deg, rgba(24, 37, 54, 0.92), rgba(18, 28, 42, 0.96));
+  --surface-gradient-panel: linear-gradient(180deg, rgba(20, 32, 48, 0.88), rgba(12, 19, 29, 0.96));
+  --hero-overlay-dark: linear-gradient(180deg, rgba(6, 10, 16, 0.35), rgba(6, 10, 16, 0.88));
+  --glass-dark: rgba(10, 16, 24, 0.6);
+  --nav-bg: rgba(8, 12, 18, 0.78);
+  --nav-bg-scrolled: rgba(8, 12, 18, 0.92);
+  --nav-mobile-bg: rgba(5, 10, 18, 0.98);
+}
+
+html.light {
+  --bg: #f8f3eb;
+  --bg-deep: #fffaf3;
+  --bg-soft: #efe2d1;
+  --surface: #ffffff;
+  --surface-soft: #f4eadc;
+  --surface-glass: rgba(255, 255, 255, 0.9);
+
+  --accent: #8b5e1f;
+  --accent-soft: #b7791f;
+  --accent-warm: #6f4320;
+  --accent-contrast: #fffaf0;
+
+  --text: #111827;
+  --text-soft: #243244;
+  --muted: #4a5568;
+  --muted-strong: #2d3748;
+
+  --line: rgba(92, 68, 42, 0.22);
+  --line-strong: rgba(139, 94, 31, 0.42);
+
+  --radius-sm: 12px;
+  --radius-md: 18px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+
+  --shadow-soft: 0 4px 16px rgba(15, 23, 42, 0.08);
+  --shadow-strong: 0 20px 50px rgba(15, 23, 42, 0.15);
+
+  --container: 1220px;
+
+  --font-body: Inter, 'Noto Naskh Arabic', sans-serif;
+  --font-heading: Manrope, 'Noto Naskh Arabic', sans-serif;
+
+  --bg-card-strong: #ffffff;
+  --bg-card-soft: #f7efe4;
+  --surface-gradient-card: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(247, 239, 228, 0.96));
+
+  /* Light mode specific gradients & overlays */
+  --surface-gradient-light: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(247, 239, 228, 0.92));
+  --surface-gradient-panel: linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(244, 234, 220, 0.98));
+  --hero-overlay-light: linear-gradient(180deg, rgba(255, 250, 243, 0.34), rgba(248, 243, 235, 0.78));
+  --glass-light: rgba(255, 255, 255, 0.8);
+  --nav-bg: rgba(255, 255, 255, 0.86);
+  --nav-bg-scrolled: rgba(255, 250, 243, 0.96);
+  --nav-mobile-bg: rgba(255, 250, 243, 0.98);
 }

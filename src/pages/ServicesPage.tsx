@@ -9,7 +9,7 @@ import '../styles/services.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export function ServicesPage() {
+export function ServicesPage({ toggleTheme }: { toggleTheme: () => void }) {
   const { t } = useLanguage();
   const containerRef = useRef<HTMLDivElement | null>(null);
 
@@ -204,7 +204,7 @@ export function ServicesPage() {
   }, []);
 
   return (
-    <PageLayout>
+    <PageLayout toggleTheme={toggleTheme}>
       <div ref={containerRef}>
         {/* HERO */}
         <section className="servicesHero">

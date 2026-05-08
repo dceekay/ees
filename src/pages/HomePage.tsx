@@ -11,11 +11,11 @@ import { FaqSection } from '../components/sections/FaqSection';
 import { CtaSection } from '../components/sections/CtaSection';
 import { useLanguage } from '../hooks/useLanguage';
 
-export function HomePage() {
+export function HomePage({ toggleTheme }: { toggleTheme: () => void }) {
   const { t } = useLanguage();
 
   return (
-    <PageLayout>
+    <PageLayout toggleTheme={toggleTheme}>
       <HeroSection t={t} />
       <StatsSection t={t} />
       <AboutSection t={t} />

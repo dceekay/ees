@@ -13,9 +13,16 @@ button {
 /* Primary-style buttons only */
 button:not(.faqLuxuryTrigger):not(.navToggle):not(.langCurrent):not(.langDesktopList button):not(.langDropdown button) {
   background: linear-gradient(135deg, var(--accent-soft), var(--accent));
-  color: #18130b;
+  color: var(--accent-contrast);
   border: 0;
   box-shadow: 0 8px 24px rgba(215, 181, 109, 0.14);
+  will-change: transform, box-shadow;
+}
+html.dark button:not(.faqLuxuryTrigger):not(.navToggle):not(.langCurrent):not(.langDesktopList button):not(.langDropdown button) {
+  color: var(--accent-contrast);
+}
+html.light button:not(.faqLuxuryTrigger):not(.navToggle):not(.langCurrent):not(.langDesktopList button):not(.langDropdown button) {
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease, background 180ms ease, color 180ms ease, opacity 180ms ease;
 }
 
 button:not(.faqLuxuryTrigger):not(.navToggle):not(.langCurrent):not(.langDesktopList button):not(.langDropdown button):hover {
@@ -33,7 +40,7 @@ button.ghost {
 
 button.ghost:hover {
   border-color: var(--line-strong);
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--surface-gradient-light);
   transform: translateY(-2px);
 }
 

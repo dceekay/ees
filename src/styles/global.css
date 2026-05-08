@@ -10,6 +10,11 @@
   pointer-events: none;
   z-index: 99999;
   transform: translate(-50%, -50%);
+  transition: background 300ms ease, mix-blend-mode 300ms ease;
+}
+html.light .globalCursor {
+  background: rgba(15, 23, 42, 0.85);
+  mix-blend-mode: multiply;
 }
 
 body {

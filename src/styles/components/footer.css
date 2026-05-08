@@ -7,14 +7,30 @@
   padding: 0;
   background: linear-gradient(
     180deg,
-    rgba(10, 16, 24, 0.98),
-    rgba(6, 10, 16, 0.99)
+    var(--surface),
+    var(--surface-soft)
   );
-  border-top: 1px solid rgba(215, 181, 109, 0.15);
+  border-top: 1px solid var(--line);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   position: relative;
   overflow: hidden;
+}
+
+html.dark .siteFooter {
+  background: linear-gradient(
+    180deg,
+    rgba(10, 16, 24, 0.98),
+    rgba(6, 10, 16, 0.99)
+  );
+}
+
+html.light .siteFooter {
+  background: linear-gradient(
+    180deg,
+    #ffffff,
+    var(--surface-soft)
+  );
 }
 
 /* Golden glow divider line */
@@ -28,7 +44,7 @@
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(215, 181, 109, 0.4),
+    var(--line-strong),
     transparent
   );
   pointer-events: none;
@@ -80,6 +96,13 @@
   line-height: 1.2;
 }
 
+html.light .siteFooterBrand h3 {
+  color: var(--accent);
+  background: linear-gradient(135deg, var(--text), var(--accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
 .siteFooterBrand p {
   max-width: 280px;
   line-height: 1.7;
@@ -102,7 +125,7 @@
   place-items: center;
   border-radius: 10px;
   border: 1px solid rgba(215, 181, 109, 0.25);
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--surface-glass);
   color: var(--muted);
   font-size: 1.1rem;
   transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -127,7 +150,7 @@
 }
 
 .siteFooterCol h4 {
-  color: var(--accent-soft);
+  color: var(--accent);
   font-size: 0.85rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;

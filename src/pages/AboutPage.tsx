@@ -33,13 +33,13 @@ const getStats = (t: typeof import('../i18n').copy.en) => [
   { value: 100, suffix: '%', label: t.aboutStatQualityFocus },
 ];
 
-export function AboutPage() {
+export function AboutPage({ toggleTheme }: { toggleTheme: () => void }) {
   const { t } = useLanguage();
   const values = getValues(t);
   const stats = getStats(t);
 
   return (
-    <PageLayout>
+    <PageLayout toggleTheme={toggleTheme}>
       {/* ================= HERO ================= */}
       <section className="aboutHero">
         <ScrollReveal>
