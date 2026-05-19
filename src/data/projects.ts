@@ -1,56 +1,50 @@
-export const projects = [
+import type { Project } from '../types/content';
+
+export const projects: Project[] = [
   {
-    title: 'Signature Residential Development',
-    status: 'Completed 2025',
-    category: 'Luxury Residential',
     image: '/images/project1.jpeg',
     slug: 'signature-residential-development',
-    description:
-      'A high-end residential development focused on architectural precision, natural light optimization, and premium material selection.',
+    categoryKey: 'luxury-residential',
+    imageFolder: '/images/projects/signature-residential-development',
+    gallery: ['/images/project1.jpeg', '/images/project10.jpeg', '/images/project11.jpeg', '/images/project12.jpeg'],
   },
   {
-    title: 'Boutique Offices & Retail Hub',
-    status: 'Completed 2024',
-    category: 'Commercial Development',
     image: '/images/project2.jpeg',
     slug: 'boutique-offices-retail-hub',
-    description:
-      'A modern commercial hub combining retail efficiency with executive office environments designed for productivity and flow.',
+    categoryKey: 'commercial-development',
+    imageFolder: '/images/projects/boutique-offices-retail-hub',
+    gallery: ['/images/project2.jpeg', '/images/office.jpeg', '/images/site.png', '/images/site2.png'],
   },
   {
-    title: 'Seafront Villas Collection',
-    status: 'Completed 2026',
-    category: 'Private Villas',
     image: '/images/project3.jpeg',
     slug: 'seafront-villas-collection',
-    description:
-      'Exclusive waterfront villas designed with seamless indoor-outdoor living and panoramic sea views.',
+    categoryKey: 'private-villas',
+    imageFolder: '/images/projects/seafront-villas-collection',
+    gallery: ['/images/project3.jpeg', '/images/project30.jpeg', '/images/project31.jpeg', '/images/project32.jpeg'],
   },
   {
-    title: 'Premium Interior Living Concept',
-    status: 'Interior Fit-Out',
-    category: 'Interior Design',
     image: '/images/project4.jpeg',
     slug: 'premium-interior-living-concept',
-    description:
-      'A refined interior transformation focused on comfort, minimalism, and luxury spatial flow.',
+    categoryKey: 'interior-design',
+    imageFolder: '/images/projects/premium-interior-living-concept',
+    gallery: ['/images/project4.jpeg', '/images/interior.png', '/images/palor1.jpeg', '/images/dining1.jpeg'],
   },
   {
-    title: 'Modern Living Room Makeover',
-    status: 'Completed 2025',
-    category: 'Mixed-Use Development',
     image: '/images/project25.jpeg',
     slug: 'modern-living-room-makeover',
-    description:
-      'A contemporary living space redesign blending warm tones, modern textures, and functional layout.',
+    categoryKey: 'mixed-use-development',
+    imageFolder: '/images/projects/modern-living-room-makeover',
+    gallery: ['/images/project25.jpeg', '/images/project26.jpeg', '/images/project27.jpeg', '/images/project28.jpeg'],
   },
   {
-    title: 'Executive Workspace Transformation',
-    status: 'Corporate Fit-Out',
-    category: 'Office Interiors',
     image: '/images/project6.jpeg',
     slug: 'executive-workspace-transformation',
-    description:
-      'A corporate workspace upgrade focusing on efficiency, branding identity, and modern professional aesthetics.',
+    categoryKey: 'office-interiors',
+    imageFolder: '/images/projects/executive-workspace-transformation',
+    gallery: ['/images/project6.jpeg', '/images/kont.jpeg', '/images/build1.jpeg', '/images/ground.jpeg'],
   },
 ];
+
+export function getProjectBySlug(slug: string | undefined) {
+  return projects.find((project) => project.slug === slug);
+}

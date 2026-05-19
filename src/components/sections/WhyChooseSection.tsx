@@ -9,29 +9,6 @@ type WhyChooseSectionProps = {
   t: Messages;
 };
 
-const items = [
-  {
-    number: '01',
-    title: '',
-    body: '',
-  },
-  {
-    number: '02',
-    title: '',
-    body: '',
-  },
-  {
-    number: '03',
-    title: '',
-    body: '',
-  },
-  {
-    number: '04',
-    title: '',
-    body: '',
-  },
-];
-
 export function WhyChooseSection({ t }: WhyChooseSectionProps) {
   const itemsData = [
     {
@@ -63,10 +40,15 @@ export function WhyChooseSection({ t }: WhyChooseSectionProps) {
         {/* Visual */}
         <div className="whyChooseVisual">
           <div className="whyChooseVisualCard">
-            <LazyImage src="/images/dining1.jpeg" alt="Premium construction detail" fetchPriority="low" />
+            <LazyImage
+              src="/images/build1.jpeg"
+              alt={t.whyChooseTitle}
+              className="whyChooseVisualImage"
+              fetchPriority="low"
+            />
             <div className="whyChooseVisualOverlay" />
             <div className="whyChooseBadge">
-              <span>Built with precision</span>
+              <span>{t.whyChooseLabel}</span>
             </div>
           </div>
         </div>

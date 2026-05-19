@@ -2,7 +2,6 @@ import { lazy, Suspense, useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import { LoaderScreen } from './components/common/LoaderScreen';
-import { GlobalCursor } from './components/common/GlobalCursor';
 import { ScrollToTop } from './components/common/ScrollToTop';
 import { initImageOptimization } from './utils/imageOptimization';
 
@@ -14,6 +13,7 @@ const HomePage = lazy(() => import('./pages/HomePage').then((m) => ({ default: m
 const AboutPage = lazy(() => import('./pages/AboutPage').then((m) => ({ default: m.AboutPage })));
 const ServicesPage = lazy(() => import('./pages/ServicesPage').then((m) => ({ default: m.ServicesPage })));
 const ProjectsPage = lazy(() => import('./pages/ProjectsPage').then((m) => ({ default: m.ProjectsPage })));
+const ProjectDetailPage = lazy(() => import('./pages/ProjectDetailPage').then((m) => ({ default: m.ProjectDetailPage })));
 const ContactPage = lazy(() => import('./pages/ContactPage').then((m) => ({ default: m.ContactPage })));
 
 /* Loading fallback component */
@@ -74,15 +74,13 @@ export default function App() {
       {/* SCROLL TO TOP ON ROUTE CHANGE */}
       <ScrollToTop />
 
-      {/* GLOBAL CURSOR MUST LIVE INSIDE STABLE DOM */}
-      <GlobalCursor />
-
       <Suspense fallback={<PageLoader />}>
         <Routes>
           <Route path="/" element={<HomePage toggleTheme={toggleTheme} />} />
           <Route path="/about" element={<AboutPage toggleTheme={toggleTheme} />} />
           <Route path="/services" element={<ServicesPage toggleTheme={toggleTheme} />} />
           <Route path="/projects" element={<ProjectsPage toggleTheme={toggleTheme} />} />
+          <Route path="/projects/:slug" element={<ProjectDetailPage toggleTheme={toggleTheme} />} />
           <Route path="/contact" element={<ContactPage toggleTheme={toggleTheme} />} />
         </Routes>
       </Suspense>

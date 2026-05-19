@@ -6,12 +6,13 @@ import { StaggerReveal } from '../common/StaggerReveal';
 import { StaggerItem } from '../common/StaggerItem';
 import { LazyImage } from '../common/LazyImage';
 import type { Messages } from '../../i18n';
+import { projectCopy } from '../../i18n/projectCopy';
+import { useLanguage } from '../../hooks/useLanguage';
 
 type ProjectsSectionProps = {
   t: Messages;
 };
 
-/** Updates --spot-x/--spot-y CSS vars on the card for the spotlight effect */
 function handleSpotlight(e: React.MouseEvent<HTMLElement>) {
   const rect = e.currentTarget.getBoundingClientRect();
   e.currentTarget.style.setProperty('--spot-x', `${e.clientX - rect.left}px`);
@@ -19,13 +20,16 @@ function handleSpotlight(e: React.MouseEvent<HTMLElement>) {
 }
 
 export function ProjectsSection({ t }: ProjectsSectionProps) {
+  const { lang } = useLanguage();
+  const localizedProjects = projectCopy[lang].items;
+  const labels = projectCopy[lang].labels;
   const previewProjects = projects.slice(0, 6);
 
   return (
     <ScrollReveal className="panel projectsPreviewPanel">
       <div className="projectsPreviewHeader">
         <div>
-          <AnimatedText className="kicker" as="p">Featured Work</AnimatedText>
+          <AnimatedText className="kicker" as="p">{labels.featuredWork}</AnimatedText>
           <AnimatedText as="h2" delay={0.08}>{t.projectsTitle}</AnimatedText>
           <AnimatedText className="subtitle" as="p" delay={0.16}>{t.projectsIntro}</AnimatedText>
         </div>
@@ -34,71 +38,75 @@ export function ProjectsSection({ t }: ProjectsSectionProps) {
         </AnimatedText>
       </div>
 
-      {/* ── Desktop / tablet grid ── */}
       <StaggerReveal className="projectsEditorialGrid">
-        {previewProjects.map((project, index) => (
-          <StaggerItem key={project.title}>
-            {/* Wrap in Link so clicks navigate */}
-            <Link
-              to={`/projects/${project.slug ?? ''}`}
-              style={{ display: 'contents' }}
-              aria-label={`View project: ${project.title}`}
-            >
-              <article
-                className={`projectEditorialCard projectEditorialCard--${index + 1}`}
-                onMouseMove={handleSpotlight}
-              >
-                <div className="projectEditorialMedia">
-                  <LazyImage src={project.image} alt={project.title} fetchPriority="low" />
-                </div>
+        {previewProjects.map((project, index) => {
+          const projectText = localizedProjects[project.slug];
 
-                <div className="projectEditorialOverlay" />
-
-                {/* Spotlight layer — was declared in CSS but missing from DOM */}
-                <div className="projectEditorialSpotlight" />
-
-                <div className="projectEditorialContent">
-                  <div className="projectEditorialTop">
-                    <span className="projectEditorialTag">{project.category}</span>
-                    <small>{project.status}</small>
-                  </div>
-                  <h3>{project.title}</h3>
-                </div>
-              </article>
-            </Link>
-          </StaggerItem>
-        ))}
-      </StaggerReveal>
-
-      {/* ── Mobile carousel ── */}
-      <div className="projectsMobileCarousel">
-        <div className="projectCarouselTrack">
-          {previewProjects.map((project) => (
-            <article key={project.title} className="projectCarouselSlide">
+          return (
+            <StaggerItem key={project.slug}>
               <Link
-                to={`/projects/${project.slug ?? ''}`}
+                to={`/projects/${project.slug}`}
                 style={{ display: 'contents' }}
+                aria-label={`${labels.viewProjectAria}: ${projectText.title}`}
               >
-                <div
-                  className="projectEditorialCard"
+                <article
+                  className={`projectEditorialCard projectEditorialCard--${index + 1}`}
                   onMouseMove={handleSpotlight}
                 >
                   <div className="projectEditorialMedia">
-                    <LazyImage src={project.image} alt={project.title} fetchPriority="low" />
+                    <LazyImage src={project.image} alt={projectText.title} fetchPriority="low" />
                   </div>
+
                   <div className="projectEditorialOverlay" />
                   <div className="projectEditorialSpotlight" />
+
                   <div className="projectEditorialContent">
                     <div className="projectEditorialTop">
-                      <span className="projectEditorialTag">{project.category}</span>
-                      <small>{project.status}</small>
+                      <span className="projectEditorialTag">{projectText.category}</span>
+                      <small>{projectText.status}</small>
                     </div>
-                    <h3>{project.title}</h3>
+                    <h3>{projectText.title}</h3>
                   </div>
-                </div>
+                </article>
               </Link>
-            </article>
-          ))}
+            </StaggerItem>
+          );
+        })}
+      </StaggerReveal>
+
+      <div className="projectsMobileCarousel">
+        <div className="projectCarouselTrack">
+          {previewProjects.map((project) => {
+            const projectText = localizedProjects[project.slug];
+
+            return (
+              <article key={project.slug} className="projectCarouselSlide">
+                <Link
+                  to={`/projects/${project.slug}`}
+                  style={{ display: 'contents' }}
+                  aria-label={`${labels.viewProjectAria}: ${projectText.title}`}
+                >
+                  <div
+                    className="projectEditorialCard"
+                    onMouseMove={handleSpotlight}
+                  >
+                    <div className="projectEditorialMedia">
+                      <LazyImage src={project.image} alt={projectText.title} fetchPriority="low" />
+                    </div>
+                    <div className="projectEditorialOverlay" />
+                    <div className="projectEditorialSpotlight" />
+                    <div className="projectEditorialContent">
+                      <div className="projectEditorialTop">
+                        <span className="projectEditorialTag">{projectText.category}</span>
+                        <small>{projectText.status}</small>
+                      </div>
+                      <h3>{projectText.title}</h3>
+                    </div>
+                  </div>
+                </Link>
+              </article>
+            );
+          })}
         </div>
       </div>
     </ScrollReveal>

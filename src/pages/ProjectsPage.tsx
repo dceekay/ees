@@ -3,6 +3,7 @@ import { PageLayout } from '../components/layout/PageLayout';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { projects } from '../data/projects';
+import { projectCopy } from '../i18n/projectCopy';
 import { useLanguage } from '../hooks/useLanguage';
 import { LazyImage } from '../components/common/LazyImage';
 import gsap from 'gsap';
@@ -12,24 +13,33 @@ import '../styles/projects.css';
 gsap.registerPlugin(ScrollTrigger);
 
 export function ProjectsPage({ toggleTheme }: { toggleTheme: () => void }) {
-  const { t } = useLanguage();
-  const [activeCategory, setActiveCategory] = useState('All');
-  const [selected, setSelected] = useState<any | null>(null);
-
+  const { lang, t } = useLanguage();
+  const localizedProjects = projectCopy[lang].items;
+  const labels = projectCopy[lang].labels;
+  const [activeCategory, setActiveCategory] = useState('all');
   const heroRef = useRef<HTMLDivElement | null>(null);
 
   const categories = useMemo(() => {
-    return ['All', ...Array.from(new Set(projects.map(p => p.category)))];
-  }, []);
+    return [
+      { key: 'all', label: labels.all },
+      ...Array.from(new Set(projects.map((p) => p.categoryKey))).map((categoryKey) => {
+        const project = projects.find((item) => item.categoryKey === categoryKey);
+        return {
+          key: categoryKey,
+          label: project ? localizedProjects[project.slug].category : categoryKey,
+        };
+      }),
+    ];
+  }, [labels.all, localizedProjects]);
 
   const filtered = useMemo(() => {
-    if (activeCategory === 'All') return projects;
-    return projects.filter(p => p.category === activeCategory);
+    if (activeCategory === 'all') return projects;
+    return projects.filter((p) => p.categoryKey === activeCategory);
   }, [activeCategory]);
 
   const featured = projects[0];
+  const featuredCopy = localizedProjects[featured.slug];
 
-  // ================= GSAP (SAFE ONLY) =================
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.from('.projectsHero h1', {
@@ -62,141 +72,89 @@ export function ProjectsPage({ toggleTheme }: { toggleTheme: () => void }) {
     return () => ctx.revert();
   }, []);
 
-  // ================= ESC MODAL =================
-  useEffect(() => {
-    const handler = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setSelected(null);
-    };
-    window.addEventListener('keydown', handler);
-    return () => window.removeEventListener('keydown', handler);
-  }, []);
-
   return (
     <PageLayout toggleTheme={toggleTheme}>
-      {/* ================= HERO ================= */}
       <section className="projectsHero" ref={heroRef}>
         <h1>{t.projectsPageTitle}</h1>
-        <p>
-          {t.projectsHeroSubtitle}
-        </p>
+        <p>{t.projectsHeroSubtitle}</p>
       </section>
 
-      {/* ================= FEATURED ================= */}
       <section className="featuredProject">
         <div className="featuredInner">
-          <LazyImage src={featured.image} alt={featured.title} fetchPriority="high" />
+          <LazyImage src={featured.image} alt={featuredCopy.title} fetchPriority="high" />
 
           <div className="featuredContent">
             <span>{t.projectsFeaturedLabel}</span>
-            <h2>{featured.title}</h2>
+            <h2>{featuredCopy.title}</h2>
             <p>
-              {featured.category} • {featured.status}
+              {featuredCopy.category} - {featuredCopy.status}
             </p>
 
-            <button onClick={() => setSelected(featured)}>
+            <Link to={`/projects/${featured.slug}`} className="featuredProjectLink">
               {t.projectsViewCaseStudy}
-            </button>
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* ================= FILTERS ================= */}
       <div className="projectsFilters">
-        {categories.map(cat => (
+        {categories.map((cat) => (
           <button
-            key={cat}
-            onClick={() => setActiveCategory(cat)}
-            className={activeCategory === cat ? 'active' : ''}
+            key={cat.key}
+            onClick={() => setActiveCategory(cat.key)}
+            className={activeCategory === cat.key ? 'active' : ''}
           >
-            {cat}
+            {cat.label}
           </button>
         ))}
       </div>
 
-      {/* ================= MASONRY GRID ================= */}
       <motion.section className="projectsGrid">
         <AnimatePresence mode="wait">
-          {filtered.map((project, index) => (
-            <motion.div
-              key={project.slug}
-              className="projectCard"
-              initial={{
-                opacity: 0,
-                y: 30,
-                filter: 'blur(6px)',
-              }}
-              animate={{
-                opacity: 1,
-                y: 0,
-                filter: 'blur(0px)',
-              }}
-              exit={{ opacity: 0 }}
-              transition={{
-                duration: 0.45,
-                ease: 'easeOut',
-                delay: index * 0.03,
-              }}
-              whileHover={{ scale: 1.02 }}
-              onClick={() => setSelected(project)}
-            >
-              <div className="projectImageWrap">
-                <LazyImage src={project.image} alt={project.title} fetchPriority="low" />
-                <div className="projectOverlay" />
-              </div>
+          {filtered.map((project, index) => {
+            const projectText = localizedProjects[project.slug];
 
-              <div className="projectContent">
-                <span className="projectCategory">
-                  {project.category}
-                </span>
-                <h3>{project.title}</h3>
-                <p className="projectStatus">{project.status}</p>
-              </div>
-            </motion.div>
-          ))}
+            return (
+              <motion.article
+                key={project.slug}
+                className="projectCard"
+                initial={{
+                  opacity: 0,
+                  y: 30,
+                  filter: 'blur(6px)',
+                }}
+                animate={{
+                  opacity: 1,
+                  y: 0,
+                  filter: 'blur(0px)',
+                }}
+                exit={{ opacity: 0 }}
+                transition={{
+                  duration: 0.45,
+                  ease: 'easeOut',
+                  delay: index * 0.03,
+                }}
+              >
+                <Link to={`/projects/${project.slug}`} className="projectCardLink">
+                  <div className="projectImageWrap">
+                    <LazyImage src={project.image} alt={projectText.title} fetchPriority="low" />
+                  </div>
+
+                  <div className="projectContent">
+                    <span className="projectCategory">{projectText.category}</span>
+                    <h3>{projectText.title}</h3>
+                    <p>{projectText.description}</p>
+                    <div className="projectCardMeta">
+                      <span className="projectStatus">{projectText.status}</span>
+                      <span className="projectOpenLabel">{t.projectsOpenProject}</span>
+                    </div>
+                  </div>
+                </Link>
+              </motion.article>
+            );
+          })}
         </AnimatePresence>
       </motion.section>
-
-      {/* ================= MODAL ================= */}
-      <AnimatePresence>
-        {selected && (
-          <motion.div
-            className="projectModalOverlay"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setSelected(null)}
-          >
-            <motion.div
-              className="projectModal"
-              initial={{ scale: 0.85, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.85, opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              onClick={e => e.stopPropagation()}
-            >
-              <LazyImage src={selected.image} alt={selected.title} fetchPriority="high" />
-
-              <div className="projectModalContent">
-                <h2>{selected.title}</h2>
-                <p className="meta">
-                  {selected.category} • {selected.status}
-                </p>
-
-                <p>
-                  {t.projectsModalDescription}
-                </p>
-
-                <Link
-                  to={`/projects/${selected.slug}`}
-                  className="modalBtn"
-                >
-                  {t.projectsOpenProject}
-                </Link>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </PageLayout>
   );
 }

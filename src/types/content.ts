@@ -1,6 +1,9 @@
 export type Project = {
-  title: string;
-  status: string;
+  image: string;
+  slug: string;
+  categoryKey: string;
+  imageFolder: string;
+  gallery: string[];
 };
 
 export type Stat = {
